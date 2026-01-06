@@ -1,0 +1,13 @@
+// TeamConfig.xcconfig.template
+// 
+// This is a template for team-specific configuration.
+// Copy this file to TeamConfig.xcconfig and fill in your own values.
+//
+// Instructions:
+// 1. Copy this file: cp TeamConfig.xcconfig.template TeamConfig.xcconfig
+// 2. Edit TeamConfig.xcconfig and set your Apple Developer Team ID
+// 3. Never commit TeamConfig.xcconfig to git (it's in .gitignore)
+//
+// Find your Team ID at: https://developer.apple.com/account/#/membership
+
+DEVELOPMENT_TEAM = YOUR_TEAM_ID_HERE
