@@ -85,9 +85,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // This supports the "Replace old instance" flow (e.g. from Xcode or Restart).
         if runningApps.count > 1 {
             // 1. Polite request via Distributed Notification (bypasses dialogs if app logic is correct)
+            let userInfo: [AnyHashable: Any] = ["senderPID": ProcessInfo.processInfo.processIdentifier]
             DistributedNotificationCenter.default().postNotificationName(
                 Notification.Name("com.clipmighty.forceQuit"),
-                object: nil
+                object: nil,
+                userInfo: userInfo,
+                options: [.deliverImmediately]
             )
 
             // 2. Fallback Mechanism
@@ -100,7 +103,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    @objc func handleForceQuit() {
+    @objc func handleForceQuit(_ notification: Notification) {
+        // Ignore if the notification was sent by this instance
+        if let senderPID = notification.userInfo?["senderPID"] as? Int32 {
+            if senderPID == ProcessInfo.processInfo.processIdentifier {
+                print("Ignoring force quit request from self.")
+                return
+            }
+        }
+
         print("Received force quit request from another instance.")
         AppDelegate.isForceQuit = true
         NSApp.terminate(nil)
