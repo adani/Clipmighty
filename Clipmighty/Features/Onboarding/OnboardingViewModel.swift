@@ -130,8 +130,14 @@ class OnboardingViewModel {
 
     /// Request accessibility permission
     func requestAccessibilityPermission() {
-        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true]
-        AXIsProcessTrustedWithOptions(options as CFDictionary)
+        // Trigger the system prompt
+        PasteHelper.requestPermission()
+
+        // Open System Settings to the Accessibility pane
+        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility") {
+            NSWorkspace.shared.open(url)
+        }
+
         // Start a timer to check for permission grant
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
             Task { @MainActor in
