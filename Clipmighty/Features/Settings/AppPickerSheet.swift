@@ -14,7 +14,7 @@ struct AppPickerSheet: View {
     @Binding var viewModel: ExcludedAppsViewModel
     @State private var searchText = ""
     @State private var selectedApps: Set<AppDiscoveryService.InstalledApp> = []
-    
+
     // Filter apps based on search text
     private var filteredApps: [AppDiscoveryService.InstalledApp] {
         if searchText.isEmpty {
@@ -26,7 +26,7 @@ struct AppPickerSheet: View {
             }
         }
     }
-    
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -36,7 +36,7 @@ struct AppPickerSheet: View {
                         .foregroundStyle(.secondary)
                     TextField("Search applications...", text: $searchText)
                         .textFieldStyle(.plain)
-                    
+
                     if !searchText.isEmpty {
                         Button {
                             searchText = ""
@@ -51,9 +51,9 @@ struct AppPickerSheet: View {
                 .background(Color(nsColor: .controlBackgroundColor))
                 .cornerRadius(6)
                 .padding()
-                
+
                 Divider()
-                
+
                 // App list
                 if viewModel.isLoadingApps {
                     VStack {
@@ -97,7 +97,7 @@ struct AppPickerSheet: View {
                         dismiss()
                     }
                 }
-                
+
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         viewModel.addApps(Array(selectedApps))
@@ -108,7 +108,7 @@ struct AppPickerSheet: View {
             }
         }
     }
-    
+
     private func toggleSelection(_ app: AppDiscoveryService.InstalledApp) {
         if selectedApps.contains(app) {
             selectedApps.remove(app)
@@ -123,7 +123,7 @@ struct AppPickerRow: View {
     let app: AppDiscoveryService.InstalledApp
     let isExcluded: Bool
     let isSelected: Bool
-    
+
     var body: some View {
         HStack(spacing: 12) {
             // App icon
@@ -137,20 +137,20 @@ struct AppPickerRow: View {
                     .foregroundStyle(.secondary)
                     .frame(width: 32, height: 32)
             }
-            
+
             // App info
             VStack(alignment: .leading, spacing: 2) {
                 Text(app.name)
                     .font(.body)
-                
+
                 Text(app.bundleID)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .fontDesign(.monospaced)
             }
-            
+
             Spacer()
-            
+
             // Status indicator
             if isExcluded {
                 Label("Already excluded", systemImage: "checkmark.circle.fill")

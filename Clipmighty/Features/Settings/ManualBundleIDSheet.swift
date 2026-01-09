@@ -12,26 +12,26 @@ import AppKit
 struct ManualBundleIDSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var viewModel: ExcludedAppsViewModel
-    
+
     @State private var bundleID = ""
     @State private var isValidating = false
     @State private var validationResult: ValidationResult?
-    
+
     private let appDiscovery = AppDiscoveryService()
-    
+
     enum ValidationResult {
         case valid(name: String, icon: NSImage?)
         case notFound
         case invalid
     }
-    
+
     private var isValid: Bool {
         if case .valid = validationResult {
             return true
         }
         return false
     }
-    
+
     var body: some View {
         NavigationStack {
             Form {
@@ -43,14 +43,14 @@ struct ManualBundleIDSheet: View {
                         .onChange(of: bundleID) { _, newValue in
                             validateBundleID(newValue)
                         }
-                    
+
                     Text("Enter the bundle identifier of the application you want to exclude.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } header: {
                     Text("Bundle Identifier")
                 }
-                
+
                 // Validation feedback
                 if let result = validationResult {
                     Section {
@@ -62,7 +62,7 @@ struct ManualBundleIDSheet: View {
                                         .resizable()
                                         .frame(width: 32, height: 32)
                                 }
-                                
+
                                 VStack(alignment: .leading, spacing: 4) {
                                     Label("Application Found", systemImage: "checkmark.circle.fill")
                                         .foregroundStyle(.green)
@@ -70,14 +70,14 @@ struct ManualBundleIDSheet: View {
                                         .font(.body)
                                 }
                             }
-                            
+
                         case .notFound:
                             Label("Application not found on this system", systemImage: "exclamationmark.triangle.fill")
                                 .foregroundStyle(.orange)
                             Text("You can still add this bundle ID, but the app may not be installed.")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
-                            
+
                         case .invalid:
                             Label("Invalid bundle ID format", systemImage: "xmark.circle.fill")
                                 .foregroundStyle(.red)
@@ -89,7 +89,7 @@ struct ManualBundleIDSheet: View {
                         Text("Validation")
                     }
                 }
-                
+
                 // Error message from view model
                 if let error = viewModel.errorMessage {
                     Section {
@@ -107,7 +107,7 @@ struct ManualBundleIDSheet: View {
                         dismiss()
                     }
                 }
-                
+
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         addBundleID()
@@ -117,11 +117,11 @@ struct ManualBundleIDSheet: View {
             }
         }
     }
-    
+
     private var canAdd: Bool {
         // Can add if bundle ID is not empty and either valid or not found (but has correct format)
         guard !bundleID.isEmpty else { return false }
-        
+
         switch validationResult {
         case .valid, .notFound:
             return true
@@ -129,21 +129,21 @@ struct ManualBundleIDSheet: View {
             return false
         }
     }
-    
+
     private func validateBundleID(_ id: String) {
         let trimmed = id.trimmingCharacters(in: .whitespacesAndNewlines)
-        
+
         guard !trimmed.isEmpty else {
             validationResult = nil
             return
         }
-        
+
         // Check format first
         guard appDiscovery.validateBundleID(trimmed) else {
             validationResult = .invalid
             return
         }
-        
+
         // Try to find the app
         if let appInfo = appDiscovery.getAppInfo(bundleID: trimmed) {
             validationResult = .valid(name: appInfo.name, icon: appInfo.icon)
@@ -151,10 +151,10 @@ struct ManualBundleIDSheet: View {
             validationResult = .notFound
         }
     }
-    
+
     private func addBundleID() {
         let trimmed = bundleID.trimmingCharacters(in: .whitespacesAndNewlines)
-        
+
         if viewModel.validateAndAddManualBundleID(trimmed) {
             dismiss()
         }

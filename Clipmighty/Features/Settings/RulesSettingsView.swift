@@ -11,7 +11,7 @@ struct RulesSettingsView: View {
     @AppStorage("ignoreConcealedContent") private var ignoreConcealedContent: Bool = true
     @Environment(ClipboardMonitor.self) private var monitor
     @State private var viewModel: ExcludedAppsViewModel
-    
+
     init(monitor: ClipboardMonitor) {
         _viewModel = State(initialValue: ExcludedAppsViewModel(monitor: monitor))
     }
@@ -74,7 +74,8 @@ struct RulesSettingsView: View {
                     .foregroundStyle(.secondary)
 
                 Text(
-                    "This feature relies on standard markers that most password managers use. Browser extensions may not always apply these markers."
+                    "This feature relies on standard markers that most password managers use. " +
+                    "Browser extensions may not always apply these markers."
                 )
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
@@ -111,9 +112,9 @@ struct RulesSettingsView: View {
                         ForEach(viewModel.excludedApps) { app in
                             HStack(spacing: 12) {
                                 ExcludedAppRow(app: app)
-                                
+
                                 Spacer()
-                                
+
                                 Button {
                                     viewModel.removeApp(id: app.id)
                                 } label: {
@@ -138,7 +139,7 @@ struct RulesSettingsView: View {
                     .frame(minHeight: 100, maxHeight: 200)
                     .listStyle(.bordered)
                 }
-                
+
                 // Error message
                 if let error = viewModel.errorMessage {
                     HStack(spacing: 6) {
@@ -167,7 +168,8 @@ struct RulesSettingsView: View {
         } header: {
             Text("Excluded Apps")
         } footer: {
-            Text("Use 'Add App...' to browse installed applications or 'Add Bundle ID...' to manually enter a bundle identifier.")
+            Text("Use 'Add App...' to browse installed applications or 'Add Bundle ID...' " +
+                 "to manually enter a bundle identifier.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -179,7 +181,7 @@ struct RulesSettingsView: View {
 /// Row displaying an excluded app with icon and name
 struct ExcludedAppRow: View {
     let app: ExcludedApp
-    
+
     var body: some View {
         HStack(spacing: 12) {
             // App icon
@@ -193,20 +195,20 @@ struct ExcludedAppRow: View {
                     .foregroundStyle(.secondary)
                     .frame(width: 24, height: 24)
             }
-            
+
             // App info
             VStack(alignment: .leading, spacing: 2) {
                 Text(app.name)
                     .font(.body)
-                
+
                 Text(app.bundleID)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .fontDesign(.monospaced)
             }
-            
+
             Spacer()
-            
+
             // Manual entry indicator
             if app.isManualEntry {
                 Image(systemName: "text.badge.checkmark")

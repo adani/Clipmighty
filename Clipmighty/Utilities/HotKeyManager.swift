@@ -15,7 +15,7 @@ class HotKeyManager {
     func registerHotKey(keyCode: Int, modifiers: Int) {
         // Unregister existing hotkey first
         unregisterAll()
-        
+
         // Simple fixed ID for now
         let hotKeyID = EventHotKeyID(signature: OSType(0x434C_4950), id: 1)  // "CLIP", 1
 
@@ -36,19 +36,19 @@ class HotKeyManager {
 
         currentHotKeyRef = eventHotKey
         installEventHandler()
-        
+
         let shortcutDisplay = KeyboardShortcutFormatter.format(keyCode: keyCode, modifiers: modifiers)
         print("[HotKeyManager] Registered global hotkey: \(shortcutDisplay)")
     }
-    
+
     func reloadFromPreferences() {
         let keyCode = UserDefaults.standard.integer(forKey: "overlayShortcutKeyCode")
         let modifiers = UserDefaults.standard.integer(forKey: "overlayShortcutModifiers")
-        
+
         // Use defaults if not set
         let finalKeyCode = keyCode != 0 ? keyCode : KeyCode.vKey
         let finalModifiers = modifiers != 0 ? modifiers : controlKey
-        
+
         registerHotKey(keyCode: finalKeyCode, modifiers: finalModifiers)
     }
 
@@ -91,7 +91,7 @@ class HotKeyManager {
             UnregisterEventHotKey(hotKeyRef)
             currentHotKeyRef = nil
         }
-        
+
         // Remove the event handler
         if let handler = eventHandler {
             RemoveEventHandler(handler)

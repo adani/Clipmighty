@@ -13,7 +13,7 @@ struct ClipmightyApp: App {
 
         // Check for Test Mode
         let isTestMode = ProcessInfo.processInfo.arguments.contains("-enableTestMode")
-        
+
         if isTestMode {
             let modelConfiguration = ModelConfiguration(
                 schema: schema,
@@ -21,12 +21,12 @@ struct ClipmightyApp: App {
             )
             do {
                 let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
-                
+
                 // Seed mock data for UI tests
                 Task { @MainActor in
                     PreviewData.insertMockData(context: container.mainContext)
                 }
-                
+
                 print("[Clipmighty] Started in TEST MODE with in-memory container and mock data")
                 return container
             } catch {
@@ -76,7 +76,7 @@ struct ClipmightyApp: App {
     init() {
         // Pass monitor reference to AppDelegate
         appDelegate.clipboardMonitor = monitor
-        
+
         // Set up the clipboard callback BEFORE starting monitoring
         // This is critical: previously the callback was set in ContentView.onAppear(),
         // which meant clipboard changes were detected but NOT saved until the menu was opened.
@@ -84,10 +84,44 @@ struct ClipmightyApp: App {
         monitor.onNewItem = { item in
             Task { @MainActor in
                 let context = ModelContext(container)
-                // The item created by Monitor is not yet in context
-                context.insert(item)
+
+                // Smart Deduplication Logic:
+                // Check if an identical item exists from the same app within the last 1 hour.
+                let oneHourAgo = Date().addingTimeInterval(-3600)
+                let itemHash = item.contentHash
+                let itemBundleID = item.sourceAppBundleID
+
+                var isDuplicate = false
+
+                // Only perform deduplication if we have a hash (text content)
+                if let hash = itemHash {
+                    let descriptor = FetchDescriptor<ClipboardItem>(
+                        predicate: #Predicate<ClipboardItem> { existing in
+                            existing.contentHash == hash &&
+                            existing.sourceAppBundleID == itemBundleID &&
+                            existing.timestamp > oneHourAgo
+                        }
+                    )
+
+                    if let existingItem = try? context.fetch(descriptor).first {
+                        // Found a duplicate: Update timestamp to now (move to top)
+                        existingItem.timestamp = Date()
+                        // Update app name just in case it changed (unlikely for same bundleID)
+                        if let newAppName = item.sourceAppName {
+                            existingItem.sourceAppName = newAppName
+                        }
+
+                        isDuplicate = true
+                        print("[Clipmighty] Deduplicated item: Updated timestamp for existing entry.")
+                    }
+                }
+
+                if !isDuplicate {
+                    context.insert(item)
+                    print("[Clipmighty] Saved new clipboard item: \(item.content.prefix(50))...")
+                }
+
                 try? context.save()
-                print("[Clipmighty] Saved new clipboard item: \(item.content.prefix(50))...")
             }
         }
 

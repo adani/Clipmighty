@@ -71,7 +71,7 @@ class OnboardingViewModel {
         loadDefaultExcludedApps()
         startFeatureRotation()
     }
-    
+
     /// Stop the feature rotation timer
     func stopFeatureRotation() {
         featureTimer?.invalidate()

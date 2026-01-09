@@ -19,7 +19,7 @@ protocol PasteboardReadable {
     func string(forType dataType: NSPasteboard.PasteboardType) -> String?
     func data(forType dataType: NSPasteboard.PasteboardType) -> Data?
     func readObjects(forClasses classArray: [AnyClass], options: [NSPasteboard.ReadingOptionKey: Any]?) -> [Any]?
-    
+
     // Write methods (Mocking write is useful for verification too)
     @discardableResult func clearContents() -> Int
     func writeObjects(_ objects: [NSPasteboardWriting]) -> Bool
@@ -189,7 +189,8 @@ class ClipboardMonitor {
             "[ClipboardMonitor] Power state changed: \(oldState.rawValue) → \(newPowerState.rawValue)"
         )
         print(
-            "[ClipboardMonitor] Adjusting polling interval to \(newPowerState.pollingInterval)s with \(newPowerState.leewayMs)ms leeway"
+            "[ClipboardMonitor] Adjusting polling interval to \(newPowerState.pollingInterval)s " +
+            "with \(newPowerState.leewayMs)ms leeway"
         )
 
         // Restart timer with new interval (only if not paused for idle)
@@ -229,7 +230,8 @@ class ClipboardMonitor {
         }
 
         print(
-            "[ClipboardMonitor] Started monitoring (\(currentPowerState.rawValue): \(interval)s interval, \(leeway)ms leeway)"
+            "[ClipboardMonitor] Started monitoring " +
+            "(\(currentPowerState.rawValue): \(interval)s interval, \(leeway)ms leeway)"
         )
     }
 

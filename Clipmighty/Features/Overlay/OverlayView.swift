@@ -3,7 +3,7 @@ import SwiftUI
 
 struct OverlayView: View {
     @Bindable var viewModel: OverlayViewModel
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Header
@@ -18,7 +18,7 @@ struct OverlayView: View {
             }
             .padding()
             .background(.regularMaterial)
-            
+
             // List
             ScrollViewReader { proxy in
                 if viewModel.items.isEmpty {
@@ -75,22 +75,22 @@ struct OverlayView: View {
 struct ItemRow: View {
     let item: ClipboardItem
     let isSelected: Bool
-    
+
     var body: some View {
         HStack(spacing: 12) {
             // App Icon
             appIconView
-            
+
             VStack(alignment: .leading, spacing: 4) {
                 // Content View based on Type
                 contentView
-                
+
                 // Metadata row
                 metadataRow
             }
-            
+
             Spacer()
-            
+
             if isSelected {
                 Image(systemName: "return")
                     .font(.caption)
@@ -102,9 +102,9 @@ struct ItemRow: View {
         .background(isSelected ? Color.accentColor : Color.clear)
         .contentShape(Rectangle())
     }
-    
+
     // MARK: - App Icon View
-    
+
     @ViewBuilder
     private var appIconView: some View {
         ZStack {
@@ -128,33 +128,33 @@ struct ItemRow: View {
         .background(isSelected ? Color.white.opacity(0.2) : Color.gray.opacity(0.2))
         .clipShape(Circle())
     }
-    
+
     // MARK: - Content View
-    
+
     @ViewBuilder
     private var contentView: some View {
         switch item.itemType {
         case .image:
             imageContentView
-            
+
         case .color:
             colorContentView
-            
+
         case .file:
             fileContentView
-            
+
         case .link:
             Text(item.content)
                 .lineLimit(1)
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(isSelected ? .white : .blue)
-            
+
         case .webContent:
             Text("🌐 " + item.content)
                 .lineLimit(1)
                 .font(.system(size: 13))
                 .foregroundStyle(isSelected ? .white : .primary)
-            
+
         default:
             Text(item.content.trimmingCharacters(in: .whitespacesAndNewlines))
                 .lineLimit(1)
@@ -162,7 +162,7 @@ struct ItemRow: View {
                 .foregroundStyle(isSelected ? .white : .primary)
         }
     }
-    
+
     @ViewBuilder
     private var imageContentView: some View {
         HStack(spacing: 8) {
@@ -183,7 +183,7 @@ struct ItemRow: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var colorContentView: some View {
         HStack(spacing: 8) {
@@ -203,7 +203,7 @@ struct ItemRow: View {
                 .foregroundStyle(isSelected ? .white : .primary)
         }
     }
-    
+
     @ViewBuilder
     private var fileContentView: some View {
         HStack(spacing: 6) {
@@ -216,9 +216,9 @@ struct ItemRow: View {
                 .foregroundStyle(isSelected ? .white : .primary)
         }
     }
-    
+
     // MARK: - Metadata Row
-    
+
     private var metadataRow: some View {
         HStack(spacing: 4) {
             if let appName = item.sourceAppName {
@@ -234,9 +234,9 @@ struct ItemRow: View {
                 .foregroundStyle(isSelected ? .white.opacity(0.7) : .secondary)
         }
     }
-    
+
     // MARK: - Helpers
-    
+
     private func getAppIcon(for bundleID: String) -> NSImage? {
         if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) {
             return NSWorkspace.shared.icon(forFile: url.path)

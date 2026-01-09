@@ -16,7 +16,7 @@ struct ExcludedApp: Identifiable, Codable, Hashable {
     let iconData: Data?
     let addedDate: Date
     let isManualEntry: Bool
-    
+
     init(bundleID: String, name: String, icon: NSImage? = nil, isManualEntry: Bool = false) {
         self.id = UUID()
         self.bundleID = bundleID
@@ -25,18 +25,18 @@ struct ExcludedApp: Identifiable, Codable, Hashable {
         self.addedDate = Date()
         self.isManualEntry = isManualEntry
     }
-    
+
     /// Get the app icon as NSImage
     var icon: NSImage? {
         guard let iconData = iconData else { return nil }
         return NSImage(data: iconData)
     }
-    
+
     // Implement Hashable
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+
     static func == (lhs: ExcludedApp, rhs: ExcludedApp) -> Bool {
         lhs.id == rhs.id
     }

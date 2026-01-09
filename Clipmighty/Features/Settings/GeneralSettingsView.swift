@@ -20,66 +20,18 @@ struct GeneralSettingsView: View {
     @State private var customMinutes: Int = 30
     @State private var customUnit: TimeUnit = .minutes
     @State private var selectedOption: RetentionOption = .days7 // Default fallback
-    
+
     // Keyboard shortcut configuration
     @State private var shortcutKeyCode: Int = KeyCode.vKey
     @State private var shortcutModifiers: Int = controlKey
     @State private var timer: Timer?
-
-    enum TimeUnit: String, CaseIterable, Identifiable {
-        case minutes
-        case hours
-        case days
-
-        var id: String { rawValue }
-
-        var secondsMultiplier: Int {
-            switch self {
-            case .minutes: return 60
-            case .hours: return 3600
-            case .days: return 86400
-            }
-        }
-    }
-
-    enum RetentionOption: Hashable {
-        case minutes30
-        case hours8
-        case hours24
-        case days7
-        case forever
-        case custom
-
-        var label: String {
-            switch self {
-            case .minutes30: return "30 Minutes"
-            case .hours8: return "8 Hours"
-            case .hours24: return "24 Hours"
-            case .days7: return "7 Days"
-            case .forever: return "Forever"
-            case .custom: return "Custom..."
-            }
-        }
-
-        // Helper to match seconds to an option
-        static func from(seconds: Int) -> RetentionOption {
-            switch seconds {
-            case 0: return .forever
-            case 1800: return .minutes30
-            case 28800: return .hours8
-            case 86400: return .hours24
-            case 604800: return .days7
-            default: return .custom
-            }
-        }
-    }
 
     var body: some View {
         Form {
             if !isAccessibilityTrusted {
                 permissionsSection
             }
-            
+
             shortcutSection
 
             historySection
@@ -138,9 +90,9 @@ struct GeneralSettingsView: View {
             retentionDuration = customMinutes * customUnit.secondsMultiplier
         }
     }
-    
+
     // MARK: - Shortcut Section
-    
+
     private var shortcutSection: some View {
         Section {
             HStack(alignment: .center) {
@@ -154,7 +106,8 @@ struct GeneralSettingsView: View {
         } header: {
             Text("Keyboard Shortcut")
         } footer: {
-            Text("Press a keyboard shortcut to activate the paste overlay. The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃).")
+            Text("Press a keyboard shortcut to activate the paste overlay. " +
+                 "The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃).")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -174,7 +127,8 @@ struct GeneralSettingsView: View {
                         .font(.headline)
 
                     Text(
-                        "Clipmighty needs accessibility permission to paste items directly into your active apps using our shortcut overlay."
+                        "Clipmighty needs accessibility permission to paste items directly into " +
+                        "your active apps using our shortcut overlay."
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -259,7 +213,7 @@ struct GeneralSettingsView: View {
     }
 
     // MARK: - Actions
-    
+
     private func loadShortcutPreferences() {
         // Load saved shortcut or use default (Ctrl+V)
         if let savedKeyCode = UserDefaults.standard.object(forKey: "overlayShortcutKeyCode") as? Int {
@@ -276,20 +230,20 @@ struct GeneralSettingsView: View {
             isAccessibilityTrusted = isTrusted
         }
     }
-    
+
     // Polling is useful because the user might toggle permission in System Settings
     // without the app necessarily becoming "active" in a way that triggers the notification immediately
     // or if they have the windows side-by-side.
     private func startPermissionTimer() {
         // Stop any existing timer
         timer?.invalidate()
-        
+
         // precise timer is not needed, 1-2 seconds is enough
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             checkPermission()
         }
     }
-    
+
     private func stopPermissionTimer() {
         timer?.invalidate()
         timer = nil
@@ -307,6 +261,54 @@ struct GeneralSettingsView: View {
             try modelContext.delete(model: ClipboardItem.self)
         } catch {
             print("Failed to clear history: \(error)")
+        }
+    }
+}
+
+private enum TimeUnit: String, CaseIterable, Identifiable {
+    case minutes
+    case hours
+    case days
+
+    var id: String { rawValue }
+
+    var secondsMultiplier: Int {
+        switch self {
+        case .minutes: return 60
+        case .hours: return 3600
+        case .days: return 86400
+        }
+    }
+}
+
+private enum RetentionOption: Hashable {
+    case minutes30
+    case hours8
+    case hours24
+    case days7
+    case forever
+    case custom
+
+    var label: String {
+        switch self {
+        case .minutes30: return "30 Minutes"
+        case .hours8: return "8 Hours"
+        case .hours24: return "24 Hours"
+        case .days7: return "7 Days"
+        case .forever: return "Forever"
+        case .custom: return "Custom..."
+        }
+    }
+
+    // Helper to match seconds to an option
+    static func from(seconds: Int) -> RetentionOption {
+        switch seconds {
+        case 0: return .forever
+        case 1800: return .minutes30
+        case 28800: return .hours8
+        case 86400: return .hours24
+        case 604800: return .days7
+        default: return .custom
         }
     }
 }
