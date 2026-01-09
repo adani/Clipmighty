@@ -6,7 +6,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
     static var isForceQuit: Bool = false
-    
+
     // Reference to clipboard monitor
     var clipboardMonitor: ClipboardMonitor?
 
@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var overlayViewModel: OverlayViewModel?
     var localEventMonitor: Any?
     var globalMouseMonitor: Any?
-    
+
     // Onboarding
     var onboardingController: OnboardingWindowController?
 
@@ -50,17 +50,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // 4. Setup Global Hotkey
         setupHotKey()
-        
+
         // 5. Show Onboarding if first launch
         if !OnboardingViewModel.hasCompletedOnboarding {
             showOnboarding()
         }
     }
-    
+
     private func showOnboarding() {
         // Temporarily switch to regular mode to show the onboarding window
         NSApp.setActivationPolicy(.regular)
-        
+
         onboardingController = OnboardingWindowController()
         onboardingController?.showOnboarding { [weak self] in
             // Onboarding complete - switch back to accessory mode
@@ -154,12 +154,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let window = OverlayWindow()
         window.contentViewController = hostingController
-        
+
         // Set up key event handler for the window
         window.keyEventHandler = { [weak self] event in
             return self?.handleWindowKeyDown(event) ?? false
         }
-        
+
         self.overlayWindow = window
 
         // Monitor local events for navigation only when window is key to avoid interfering globally
@@ -175,11 +175,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             guard let self = self,
                   let window = self.overlayWindow,
                   window.isVisible else { return }
-            
+
             // Get the current mouse location in screen coordinates
             let clickInScreen = NSEvent.mouseLocation
             let windowFrame = window.frame
-            
+
             // If click is outside window frame, dismiss overlay
             if !windowFrame.contains(clickInScreen) {
                 self.closeOverlay()
@@ -193,7 +193,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         HotKeyManager.shared.onHotKeyTriggered = { [weak self] in
             self?.toggleOverlay()
         }
-        
+
         // Listen for shortcut changes
         NotificationCenter.default.addObserver(
             self,
@@ -202,7 +202,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             object: nil
         )
     }
-    
+
     @objc private func reloadHotKey() {
         // Reload the hotkey when user defaults change
         HotKeyManager.shared.reloadFromPreferences()
@@ -247,27 +247,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func handleLocalKeyDown(_ event: NSEvent) -> NSEvent? {
         print("[AppDelegate] handleLocalKeyDown called - keyCode: \(event.keyCode)")
         // Only handle if overlay is visible and key
-        guard let window = overlayWindow, window.isVisible, window.isKeyWindow else { 
+        guard let window = overlayWindow, window.isVisible, window.isKeyWindow else {
             print("[AppDelegate] handleLocalKeyDown - overlay not visible/key, passing event")
-            return event 
+            return event
         }
-        
+
         // Let events pass through to the window's keyDown handler
         // The window handler is more effective at preventing system beeps
         print("[AppDelegate] Passing event to window handler")
         return event
     }
-    
+
     func handleWindowKeyDown(_ event: NSEvent) -> Bool {
         print("[AppDelegate] handleWindowKeyDown called - keyCode: \(event.keyCode)")
         // Only handle if overlay is visible and key
-        guard let window = overlayWindow, window.isVisible else { 
+        guard let window = overlayWindow, window.isVisible else {
             print("[AppDelegate] handleWindowKeyDown - overlay not visible")
-            return false 
+            return false
         }
-        guard let viewModel = overlayViewModel else { 
+        guard let viewModel = overlayViewModel else {
             print("[AppDelegate] handleWindowKeyDown - no viewModel")
-            return false 
+            return false
         }
 
         print("[AppDelegate] Processing window key event")
@@ -317,30 +317,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func openSettings() {
         // Show Dock Icon so the new window has a place to live
         NSApp.setActivationPolicy(.regular)
-        // Activation will happen in windowDidBecomeKey when the window actually appears
+
+        // If settings window is already open, bring it to front
+        if let window = settingsWindow {
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+        }
+
+        // Activation for new windows will happen in windowDidBecomeKey when the window actually appears
     }
 
     @objc func windowDidBecomeKey(_ notification: Notification) {
         guard let window = notification.object as? NSWindow else { return }
-        
+
         // Ignore OverlayWindow completely - it manages its own visibility
         if window is OverlayWindow { return }
-        
+
         // Ignore if the overlay is currently visible - don't interfere with overlay presentation
         if overlayWindow?.isVisible == true { return }
-        
+
         // Only handle normal-level windows (Settings window)
         // SwiftUI Settings windows have .normal level
         guard window.level == .normal else { return }
-        
+
         // Track settings window reference
         self.settingsWindow = window
-        
+
         // Only switch to regular activation policy if not already set
         // This shows the Dock icon when settings window is open
         if NSApp.activationPolicy() != .regular {
             NSApp.setActivationPolicy(.regular)
-            
+
             // Only activate and bring to front when initially showing settings
             // (when activation policy was changed)
             DispatchQueue.main.async {
