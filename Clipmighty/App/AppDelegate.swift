@@ -15,6 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var overlayViewModel: OverlayViewModel?
     var localEventMonitor: Any?
     var globalMouseMonitor: Any?
+    
+    // Onboarding
+    var onboardingController: OnboardingWindowController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Listen for Force Quit notifications from newer instances
@@ -47,6 +50,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // 4. Setup Global Hotkey
         setupHotKey()
+        
+        // 5. Show Onboarding if first launch
+        if !OnboardingViewModel.hasCompletedOnboarding {
+            showOnboarding()
+        }
+    }
+    
+    private func showOnboarding() {
+        // Temporarily switch to regular mode to show the onboarding window
+        NSApp.setActivationPolicy(.regular)
+        
+        onboardingController = OnboardingWindowController()
+        onboardingController?.showOnboarding { [weak self] in
+            // Onboarding complete - switch back to accessory mode
+            NSApp.setActivationPolicy(.accessory)
+            self?.onboardingController = nil
+        }
     }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
