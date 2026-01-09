@@ -15,7 +15,6 @@ struct SyncSettingsView: View {
     var body: some View {
         Form {
             iCloudSection
-            googleDriveSection
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
@@ -58,31 +57,6 @@ struct SyncSettingsView: View {
             }
         } header: {
             Text("iCloud")
-        }
-    }
-
-    // MARK: - Google Drive Section
-
-    private var googleDriveSection: some View {
-        Section {
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Google Drive")
-                    Text("Coming soon")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-
-                Spacer()
-
-                Button("Connect…") {
-                    // Placeholder for OAuth flow
-                }
-                .disabled(true)
-                .controlSize(.regular)
-            }
-        } header: {
-            Text("Other Services")
         }
     }
 
