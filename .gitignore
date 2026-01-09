@@ -145,4 +145,3 @@ Config/TeamConfig.xcconfig
 # AI Agent related
 AGENTS.md
 agents.md
-.agent/

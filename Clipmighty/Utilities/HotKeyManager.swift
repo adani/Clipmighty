@@ -47,7 +47,7 @@ class HotKeyManager {
         
         // Use defaults if not set
         let finalKeyCode = keyCode != 0 ? keyCode : KeyCode.vKey
-        let finalModifiers = modifiers != 0 ? modifiers : (cmdKey | shiftKey)
+        let finalModifiers = modifiers != 0 ? modifiers : controlKey
         
         registerHotKey(keyCode: finalKeyCode, modifiers: finalModifiers)
     }

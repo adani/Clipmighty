@@ -23,7 +23,7 @@ struct GeneralSettingsView: View {
     
     // Keyboard shortcut configuration
     @State private var shortcutKeyCode: Int = KeyCode.vKey
-    @State private var shortcutModifiers: Int = cmdKey | shiftKey
+    @State private var shortcutModifiers: Int = controlKey
 
     enum TimeUnit: String, CaseIterable, Identifiable {
         case minutes
@@ -256,7 +256,7 @@ struct GeneralSettingsView: View {
     // MARK: - Actions
     
     private func loadShortcutPreferences() {
-        // Load saved shortcut or use default (Cmd+Shift+V)
+        // Load saved shortcut or use default (Ctrl+V)
         if let savedKeyCode = UserDefaults.standard.object(forKey: "overlayShortcutKeyCode") as? Int {
             shortcutKeyCode = savedKeyCode
         }

@@ -37,7 +37,7 @@ class KeyRecorderView: NSView {
     var displayKeyCode: Int = KeyCode.vKey {
         didSet { needsDisplay = true }
     }
-    var displayModifiers: Int = cmdKey | shiftKey {
+    var displayModifiers: Int = controlKey {
         didSet { needsDisplay = true }
     }
     
