@@ -18,7 +18,7 @@ protocol PasteboardReadable {
     var types: [NSPasteboard.PasteboardType]? { get }
     func string(forType dataType: NSPasteboard.PasteboardType) -> String?
     func data(forType dataType: NSPasteboard.PasteboardType) -> Data?
-    func readObjects(forClasses classArray: [AnyClass], options: [NSPasteboard.ReadingOptionKey : Any]?) -> [Any]?
+    func readObjects(forClasses classArray: [AnyClass], options: [NSPasteboard.ReadingOptionKey: Any]?) -> [Any]?
     
     // Write methods (Mocking write is useful for verification too)
     @discardableResult func clearContents() -> Int

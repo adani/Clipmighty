@@ -24,6 +24,7 @@ struct GeneralSettingsView: View {
     // Keyboard shortcut configuration
     @State private var shortcutKeyCode: Int = KeyCode.vKey
     @State private var shortcutModifiers: Int = controlKey
+    @State private var timer: Timer?
 
     enum TimeUnit: String, CaseIterable, Identifiable {
         case minutes
@@ -87,8 +88,12 @@ struct GeneralSettingsView: View {
         .scrollContentBackground(.hidden)
         .onAppear {
             checkPermission()
+            startPermissionTimer()
             initializeState()
             loadShortcutPreferences()
+        }
+        .onDisappear {
+            stopPermissionTimer()
         }
         .onChange(of: retentionDuration) { _, newValue in
              // Sync external changes back to local state if needed
@@ -266,7 +271,28 @@ struct GeneralSettingsView: View {
     }
 
     private func checkPermission() {
-        isAccessibilityTrusted = PasteHelper.canPaste()
+        let isTrusted = PasteHelper.canPaste()
+        if isAccessibilityTrusted != isTrusted {
+            isAccessibilityTrusted = isTrusted
+        }
+    }
+    
+    // Polling is useful because the user might toggle permission in System Settings
+    // without the app necessarily becoming "active" in a way that triggers the notification immediately
+    // or if they have the windows side-by-side.
+    private func startPermissionTimer() {
+        // Stop any existing timer
+        timer?.invalidate()
+        
+        // precise timer is not needed, 1-2 seconds is enough
+        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
+            checkPermission()
+        }
+    }
+    
+    private func stopPermissionTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 
     private func openSystemSettings() {
