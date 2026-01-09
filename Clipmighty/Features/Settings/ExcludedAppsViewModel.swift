@@ -176,12 +176,29 @@ class ExcludedAppsViewModel {
     
     /// Add default apps to exclude
     private func addDefaultExclusions() {
-        // Add Keychain Access by default
-        let keychainBundleID = "com.apple.keychainaccess"
-        if let info = appDiscovery.getAppInfo(bundleID: keychainBundleID) {
-            addApp(bundleID: keychainBundleID, name: info.name, icon: info.icon, isManual: false)
+        // ALWAYS exclude Keychain Access
+        let keychainID = "com.apple.keychainaccess"
+        if let info = appDiscovery.getAppInfo(bundleID: keychainID) {
+            addApp(bundleID: keychainID, name: info.name, icon: info.icon, isManual: false)
         } else {
-            addApp(bundleID: keychainBundleID, name: "Keychain Access", icon: nil, isManual: false)
+            addApp(bundleID: keychainID, name: "Keychain Access", icon: nil, isManual: false)
+        }
+        
+        // List of other potential apps to exclude if they are installed
+        let sensitiveApps = [
+            "com.apple.Passwords",          // Apple Passwords (macOS 15+)
+            "com.apple.Wallet",             // Apple Wallet
+            "com.1password.1password",      // 1Password 8
+            "com.agilebits.onepassword7",   // 1Password 7
+            "com.bitwarden.desktop",        // Bitwarden
+            "com.dashlane.Dashlane",        // Dashlane
+            "com.lastpass.LastPass"         // LastPass
+        ]
+        
+        for bundleID in sensitiveApps {
+            if let info = appDiscovery.getAppInfo(bundleID: bundleID) {
+                addApp(bundleID: bundleID, name: info.name, icon: info.icon, isManual: false)
+            }
         }
     }
 }
