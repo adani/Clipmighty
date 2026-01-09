@@ -49,6 +49,9 @@ struct ClipboardItemRow: View {
                 handleCopy()
             }
         }
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("ClipboardRow")
+        .accessibilityLabel(item.content)
     }
 
     // MARK: - Normal Content View

@@ -12,6 +12,23 @@ import AppKit
 import Dispatch
 import SwiftUI
 
+// MARK: - Pasteboard Abstraction for Testing
+protocol PasteboardReadable {
+    var changeCount: Int { get }
+    var types: [NSPasteboard.PasteboardType]? { get }
+    func string(forType dataType: NSPasteboard.PasteboardType) -> String?
+    func data(forType dataType: NSPasteboard.PasteboardType) -> Data?
+    func readObjects(forClasses classArray: [AnyClass], options: [NSPasteboard.ReadingOptionKey : Any]?) -> [Any]?
+    
+    // Write methods (Mocking write is useful for verification too)
+    @discardableResult func clearContents() -> Int
+    func writeObjects(_ objects: [NSPasteboardWriting]) -> Bool
+    func setString(_ string: String, forType dataType: NSPasteboard.PasteboardType) -> Bool
+    func setData(_ data: Data?, forType dataType: NSPasteboard.PasteboardType) -> Bool
+}
+
+extension NSPasteboard: PasteboardReadable {}
+
 @Observable
 class ClipboardMonitor {
     /// Using DispatchSourceTimer instead of Timer for better battery efficiency.
@@ -23,7 +40,7 @@ class ClipboardMonitor {
     // Internal so extensions can update it
     var lastChangeCount: Int = 0
 
-    let pasteboard = NSPasteboard.general
+    let pasteboard: PasteboardReadable
 
     /// Observer for power state changes
     private var powerStateObserver: NSObjectProtocol?
@@ -62,7 +79,10 @@ class ClipboardMonitor {
 
     // MARK: - Initialization
 
-    init() {
+    // MARK: - Initialization
+
+    init(pasteboard: PasteboardReadable = NSPasteboard.general) {
+        self.pasteboard = pasteboard
         self.lastChangeCount = pasteboard.changeCount
         self.currentPowerState = Self.detectPowerState()
 

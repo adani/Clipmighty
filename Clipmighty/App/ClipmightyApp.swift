@@ -11,6 +11,29 @@ struct ClipmightyApp: App {
             ClipboardItem.self
         ])
 
+        // Check for Test Mode
+        let isTestMode = ProcessInfo.processInfo.arguments.contains("-enableTestMode")
+        
+        if isTestMode {
+            let modelConfiguration = ModelConfiguration(
+                schema: schema,
+                isStoredInMemoryOnly: true
+            )
+            do {
+                let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+                
+                // Seed mock data for UI tests
+                Task { @MainActor in
+                    PreviewData.insertMockData(context: container.mainContext)
+                }
+                
+                print("[Clipmighty] Started in TEST MODE with in-memory container and mock data")
+                return container
+            } catch {
+                fatalError("Could not create Test ModelContainer: \(error)")
+            }
+        }
+
         // Read the user's sync preference (defaulting to false if not set)
         let isCloudSyncEnabled = UserDefaults.standard.bool(forKey: "enableCloudSync")
 
