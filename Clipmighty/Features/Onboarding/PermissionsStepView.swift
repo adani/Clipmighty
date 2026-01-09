@@ -28,13 +28,14 @@ struct PermissionsStepView: View {
                 .symbolEffect(.pulse, options: .repeating)
 
             VStack(spacing: 12) {
-                Text("Accessibility Permission")
+                Text("Enable Overlay Auto-Paste")
                     .font(.title)
                     .fontWeight(.semibold)
 
                 Text("""
-                    Clipmighty needs Accessibility permission to detect which app you \
-                    copied from and to paste clipboard items directly into your apps.
+                    To automatically insert history items directly into your active apps, \
+                    Clipmighty needs Accessibility permission. This allows our overlay to \
+                    simulate the "Paste" command for you, saving you manual effort.
                     """)
                     .font(.body)
                     .foregroundColor(.secondary)
@@ -78,12 +79,13 @@ struct PermissionsStepView: View {
                     .font(.title3)
                     .foregroundColor(.secondary)
 
-                Text("We respect your privacy")
+                Text("Privacy First")
                     .font(.headline)
 
                 Text("""
-                    This permission is only used to identify source apps and enable paste \
-                    functionality. We never access or transmit your data.
+                    This permission is strictly used to simulate the 'Paste' command and \
+                    identify source apps. Your clipboard history remains local and is \
+                    never transmitted.
                     """)
                     .font(.caption)
                     .foregroundColor(.secondary)

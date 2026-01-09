@@ -174,7 +174,7 @@ struct GeneralSettingsView: View {
                         .font(.headline)
 
                     Text(
-                        "To paste items directly into apps, Clipmighty needs accessibility permission."
+                        "Clipmighty needs accessibility permission to paste items directly into your active apps using our shortcut overlay."
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
