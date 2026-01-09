@@ -173,8 +173,8 @@ struct ClipboardItemRow: View {
                 .foregroundColor(.blue)
 
         case .webContent:
-            Text("🌐 " + item.content)
-                .lineLimit(3)
+            Text(item.content)
+                .lineLimit(2)
                 .font(.system(size: 13))
                 .foregroundColor(.primary)
 
@@ -226,6 +226,7 @@ struct ClipboardItemRow: View {
                 .foregroundColor(.blue)
             Text(item.content)  // Filename
                 .font(.headline)
+                .lineLimit(1)
         }
         if let url = item.fileURL {
             Text(url.path)
