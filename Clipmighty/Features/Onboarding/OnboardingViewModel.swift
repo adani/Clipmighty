@@ -188,8 +188,9 @@ class OnboardingViewModel {
 
     /// Check if tutorial text was pasted correctly
     func checkTutorialPaste() {
-        if let expected = tutorialCopiedText,
-           tutorialPastedText.trimmingCharacters(in: .whitespacesAndNewlines) == expected {
+        // User requested to allow continuing after pasting ANY text, not just the specific one.
+        // We relax the check to just ensure the text is not empty.
+        if !tutorialPastedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             withAnimation {
                 isTutorialComplete = true
             }
