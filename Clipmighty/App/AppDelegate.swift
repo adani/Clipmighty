@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // Overlay Components
     var overlayWindow: OverlayWindow?
+    var toastWindow: ToastWindow?
     var overlayViewModel: OverlayViewModel?
     var localEventMonitor: Any?
     var globalMouseMonitor: Any?
@@ -225,6 +226,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let window = overlayWindow, let viewModel = overlayViewModel else { return }
 
         viewModel.loadItems()
+        viewModel.checkAccessibility()
 
         // Center on the screen where mouse is before showing
         window.centerOnActiveScreen()
@@ -294,6 +296,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    func showToast() {
+        if toastWindow == nil {
+            toastWindow = ToastWindow()
+        }
+        toastWindow?.show()
+    }
+
     func pasteItem(_ item: ClipboardItem) {
         // 1. Flag clipboard monitor to skip the next change
         clipboardMonitor?.skipNextChange = true
@@ -303,24 +312,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         pasteboard.clearContents()
         pasteboard.setString(item.content, forType: .string)
 
-        // 3. Check for accessibility permission
+        // 3. Close Overlay IMMEDIATELY
+        closeOverlay()
+
+        // 4. Check for accessibility permission
         if !PasteHelper.canPaste() {
             print("[AppDelegate] No accessibility permission - copying to clipboard only")
-            
-            // Show toast
-            withAnimation {
-                overlayViewModel?.showCopiedToast = true
-            }
-            
-            // Wait for user to see the toast, then close
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-                self?.closeOverlay()
+
+            // Show subtle toast after overlay is gone
+            // Using a small delay to ensure visual separation or immediate?
+            // User said "appear only after the overlay disappear".
+            // Overlay fades out or closes instantly? orderOut is instant.
+            // Let's add a tiny delay so it feels like "Overlay Gone -> Toast appear"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.showToast()
             }
             return
         }
-
-        // 4. Hide window and app
-        closeOverlay()
 
         // 5. Synthesize Paste (wait briefly for focus switch)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {

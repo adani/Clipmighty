@@ -12,12 +12,15 @@ struct OverlayView: View {
                 Text("Clipboard History")
                     .font(.headline)
                 Spacer()
-                Text("↵ to paste")
+                Text(pasteInstructionText)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
             .padding()
             .background(.regularMaterial)
+            .onAppear {
+                viewModel.checkAccessibility()
+            }
 
             // List
             ScrollViewReader { proxy in
@@ -69,25 +72,15 @@ struct OverlayView: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.white.opacity(0.1), lineWidth: 1)
         )
-        .overlay(
-            Group {
-                if viewModel.showCopiedToast {
-                    VStack(spacing: 12) {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 40))
-                            .foregroundStyle(.white)
-                        Text("Copied to Clipboard")
-                            .font(.headline)
-                            .foregroundStyle(.white)
-                    }
-                    .padding(24)
-                    .background(Color.black.opacity(0.75))
-                    .cornerRadius(16)
-                    .shadow(radius: 20)
-                    .transition(.scale.combined(with: .opacity))
-                }
-            }
-        )
+
+    }
+
+    private var pasteInstructionText: String {
+        if viewModel.isAccessibilityTrusted {
+            return "↵ to paste"
+        } else {
+            return "↵ to copy"
+        }
     }
 }
 

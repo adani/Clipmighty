@@ -125,7 +125,8 @@ struct GeneralSettingsView: View {
                         .font(.headline)
 
                     Text(
-                        "Allows Clipmighty to insert selected items directly into the active window. This reduces the need for repetitive manual keystrokes and complex key chords."
+                        "Allows Clipmighty to insert selected items directly into the active window. " +
+                        "This reduces the need for repetitive manual keystrokes and complex key chords."
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

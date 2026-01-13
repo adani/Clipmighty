@@ -7,7 +7,7 @@ class OverlayViewModel {
     var selectedIndex: Int = 0
     var items: [ClipboardItem] = []
     var viewID: UUID = UUID()
-    var showCopiedToast: Bool = false
+    var isAccessibilityTrusted: Bool = false
 
     // Dependencies
     var modelContext: ModelContext?
@@ -36,10 +36,13 @@ class OverlayViewModel {
         }
     }
 
+    func checkAccessibility() {
+        isAccessibilityTrusted = PasteHelper.canPaste()
+    }
+
     func reset() {
         selectedIndex = 0
         viewID = UUID()
-        showCopiedToast = false
     }
 
     func moveSelectionDown() {
