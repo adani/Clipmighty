@@ -7,6 +7,7 @@ class OverlayViewModel {
     var selectedIndex: Int = 0
     var items: [ClipboardItem] = []
     var viewID: UUID = UUID()
+    var showCopiedToast: Bool = false
 
     // Dependencies
     var modelContext: ModelContext?
@@ -38,6 +39,7 @@ class OverlayViewModel {
     func reset() {
         selectedIndex = 0
         viewID = UUID()
+        showCopiedToast = false
     }
 
     func moveSelectionDown() {

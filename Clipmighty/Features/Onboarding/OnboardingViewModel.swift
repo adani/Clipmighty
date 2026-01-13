@@ -12,9 +12,9 @@ import AppKit
 /// Represents the steps in the onboarding flow
 enum OnboardingStep: Int, CaseIterable {
     case welcome = 0
-    case permissions = 1
-    case excludedApps = 2
-    case tutorial = 3
+    // permissions case removed
+    case excludedApps = 1
+    case tutorial = 2
 }
 
 /// View model for managing onboarding state
@@ -114,8 +114,7 @@ class OnboardingViewModel {
         switch currentStep {
         case .welcome:
             return true
-        case .permissions:
-            return hasAccessibilityPermission
+        // permissions case removed
         case .excludedApps:
             return true
         case .tutorial:

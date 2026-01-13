@@ -25,8 +25,6 @@ struct OnboardingView: View {
                         switch viewModel.currentStep {
                         case .welcome:
                             WelcomeStepView(viewModel: viewModel)
-                        case .permissions:
-                            PermissionsStepView(viewModel: viewModel)
                         case .excludedApps:
                             ExcludedAppsStepView(viewModel: viewModel)
                         case .tutorial:
@@ -144,13 +142,6 @@ struct OnboardingFooter: View {
             )
             .buttonStyle(.borderedProminent)
             .disabled(!viewModel.isTutorialComplete)
-        } else if viewModel.currentStep == .permissions && !viewModel.hasAccessibilityPermission {
-            Button(
-                action: { viewModel.nextStep() },
-                label: { Text("Skip for now") }
-            )
-            .buttonStyle(.plain)
-            .foregroundColor(.secondary)
         } else {
             Button(
                 action: { viewModel.nextStep() },

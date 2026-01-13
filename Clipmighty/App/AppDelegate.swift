@@ -303,10 +303,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         pasteboard.clearContents()
         pasteboard.setString(item.content, forType: .string)
 
-        // 3. Hide window and app
+        // 3. Check for accessibility permission
+        if !PasteHelper.canPaste() {
+            print("[AppDelegate] No accessibility permission - copying to clipboard only")
+            
+            // Show toast
+            withAnimation {
+                overlayViewModel?.showCopiedToast = true
+            }
+            
+            // Wait for user to see the toast, then close
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                self?.closeOverlay()
+            }
+            return
+        }
+
+        // 4. Hide window and app
         closeOverlay()
 
-        // 4. Synthesize Paste (wait briefly for focus switch)
+        // 5. Synthesize Paste (wait briefly for focus switch)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             PasteHelper.paste()
         }

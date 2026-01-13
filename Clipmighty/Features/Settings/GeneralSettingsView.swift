@@ -28,13 +28,11 @@ struct GeneralSettingsView: View {
 
     var body: some View {
         Form {
-            if !isAccessibilityTrusted {
-                permissionsSection
-            }
-
             shortcutSection
 
             historySection
+
+            permissionsSection
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
@@ -116,31 +114,32 @@ struct GeneralSettingsView: View {
     // MARK: - Permissions Section
 
     private var permissionsSection: some View {
-        Section {
+        Section("Assistive Paste") {
             HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "exclamationmark.triangle.fill")
+                Image(systemName: isAccessibilityTrusted ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                     .font(.title2)
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(isAccessibilityTrusted ? .green : .yellow)
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Accessibility Access Required")
+                    Text(isAccessibilityTrusted ? "Accessibility Access Granted" : "Accessibility Access Required")
                         .font(.headline)
 
                     Text(
-                        "Clipmighty needs accessibility permission to paste items directly into " +
-                        "your active apps using our shortcut overlay."
+                        "Allows Clipmighty to insert selected items directly into the active window. This reduces the need for repetitive manual keystrokes and complex key chords."
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
 
-                    Button("Open System Settings…") {
-                        PasteHelper.requestPermission()
-                        openSystemSettings()
+                    if !isAccessibilityTrusted {
+                        Button("Open System Settings…") {
+                            PasteHelper.requestPermission()
+                            openSystemSettings()
+                        }
+                        .controlSize(.regular)
+                        .padding(.top, 2)
                     }
-                    .controlSize(.regular)
-                    .padding(.top, 2)
                 }
             }
             .padding(.vertical, 8)
