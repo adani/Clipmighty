@@ -29,7 +29,7 @@ struct SettingsView: View {
                 }
                 .tag(Tabs.general)
 
-            RulesSettingsView(monitor: monitor)
+            RulesSettingsView(monitor: monitor, retentionDuration: $retentionDuration)
                 .tabItem {
                     Label("Rules", systemImage: "hand.raised.fill")
                 }
