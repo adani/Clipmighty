@@ -241,7 +241,7 @@ struct ItemRow: View {
             Text("•")
                 .font(.system(size: 10))
                 .foregroundStyle(isSelected ? .white.opacity(0.5) : .secondary.opacity(0.7))
-            Text(item.timestamp.formatted(date: .omitted, time: .shortened))
+            Text(item.timestamp.relativeTimestamp())
                 .font(.system(size: 10))
                 .foregroundStyle(isSelected ? .white.opacity(0.7) : .secondary)
         }

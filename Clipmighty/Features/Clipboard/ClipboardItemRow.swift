@@ -258,7 +258,7 @@ struct ClipboardItemRow: View {
             }
 
             // Timestamp
-            Text(item.timestamp, style: .time)
+            Text(item.timestamp.relativeTimestamp())
                 .font(.system(size: 10))
                 .foregroundColor(.secondary.opacity(0.8))
         }
