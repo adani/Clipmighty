@@ -28,6 +28,8 @@ struct GeneralSettingsView: View {
 
     var body: some View {
         Form {
+            startupSection
+
             shortcutSection
 
             historySection
@@ -86,6 +88,19 @@ struct GeneralSettingsView: View {
         case .forever: retentionDuration = 0
         case .custom:
             retentionDuration = customMinutes * customUnit.secondsMultiplier
+        }
+    }
+
+    // MARK: - Startup Section
+
+    @State private var launchAtLogin: Bool = LaunchAtLoginService.isEnabled
+
+    private var startupSection: some View {
+        Section("Startup") {
+            Toggle("Launch at Login", isOn: $launchAtLogin)
+                .onChange(of: launchAtLogin) { _, newValue in
+                    LaunchAtLoginService.isEnabled = newValue
+                }
         }
     }
 

@@ -74,6 +74,9 @@ struct ClipmightyApp: App {
     }
 
     init() {
+        // Enable "Launch at Login" on first launch
+        LaunchAtLoginService.enableOnFirstLaunchIfNeeded()
+
         // Pass monitor reference to AppDelegate
         appDelegate.clipboardMonitor = monitor
 
