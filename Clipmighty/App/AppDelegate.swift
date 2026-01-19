@@ -307,10 +307,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 1. Flag clipboard monitor to skip the next change
         clipboardMonitor?.skipNextChange = true
 
-        // 2. Copy content to clipboard
-        let pasteboard = NSPasteboard.general
-        pasteboard.clearContents()
-        pasteboard.setString(item.content, forType: .string)
+        // 2. Copy content to clipboard using ClipboardMonitor's method
+        // This properly handles all types: file, image, color, webContent, text
+        if let monitor = clipboardMonitor {
+            monitor.copyToClipboard(item)
+        } else {
+            // Fallback in case monitor is not available
+            let pasteboard = NSPasteboard.general
+            pasteboard.clearContents()
+            pasteboard.setString(item.content, forType: .string)
+        }
 
         // 3. Close Overlay IMMEDIATELY
         closeOverlay()
