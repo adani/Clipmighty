@@ -3,6 +3,8 @@ import SwiftUI
 
 struct OverlayView: View {
     @Bindable var viewModel: OverlayViewModel
+    @State private var rowFrames: [Int: CGRect] = [:]
+    @State private var viewportFrame: CGRect = .zero
 
     var body: some View {
         VStack(spacing: 0) {
@@ -38,12 +40,23 @@ struct OverlayView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.vertical, 40)
+                    .onAppear {
+                        viewModel.visibleIndexRange = nil
+                    }
                 } else {
                     ScrollView {
                         LazyVStack(spacing: 1) {
                             ForEach(Array(viewModel.items.enumerated()), id: \.element.id) { index, item in
                                 ItemRow(item: item, isSelected: index == viewModel.selectedIndex)
                                     .id(index)
+                                    .background(
+                                        GeometryReader { geometry in
+                                            Color.clear.preference(
+                                                key: OverlayRowFramePreferenceKey.self,
+                                                value: [index: geometry.frame(in: .named("overlayListScroll"))]
+                                            )
+                                        }
+                                    )
                                     .onTapGesture {
                                         viewModel.selectedIndex = index
                                     }
@@ -52,7 +65,24 @@ struct OverlayView: View {
                         .id(viewModel.viewID)
                         .padding(.vertical, 4)
                     }
+                    .coordinateSpace(name: "overlayListScroll")
+                    .background(
+                        GeometryReader { geometry in
+                            Color.clear.preference(
+                                key: OverlayViewportFramePreferenceKey.self,
+                                value: geometry.frame(in: .named("overlayListScroll"))
+                            )
+                        }
+                    )
                     .scrollIndicators(.visible)
+                    .onPreferenceChange(OverlayRowFramePreferenceKey.self) { value in
+                        rowFrames = value
+                        updateVisibleIndexRange()
+                    }
+                    .onPreferenceChange(OverlayViewportFramePreferenceKey.self) { value in
+                        viewportFrame = value
+                        updateVisibleIndexRange()
+                    }
                     .onAppear {
                         // Scroll to selected index when view appears
                         proxy.scrollTo(viewModel.selectedIndex, anchor: .center)
@@ -81,6 +111,43 @@ struct OverlayView: View {
         } else {
             return "↵ to copy"
         }
+    }
+
+    private func updateVisibleIndexRange() {
+        guard !viewModel.items.isEmpty else {
+            viewModel.visibleIndexRange = nil
+            return
+        }
+
+        let visibleIndices = rowFrames
+            .compactMap { index, frame in
+                frame.maxY > viewportFrame.minY && frame.minY < viewportFrame.maxY ? index : nil
+            }
+            .sorted()
+
+        guard let first = visibleIndices.first,
+              let last = visibleIndices.last else {
+            viewModel.visibleIndexRange = nil
+            return
+        }
+
+        viewModel.visibleIndexRange = first...last
+    }
+}
+
+private struct OverlayRowFramePreferenceKey: PreferenceKey {
+    static var defaultValue: [Int: CGRect] = [:]
+
+    static func reduce(value: inout [Int: CGRect], nextValue: () -> [Int: CGRect]) {
+        value.merge(nextValue(), uniquingKeysWith: { _, latest in latest })
+    }
+}
+
+private struct OverlayViewportFramePreferenceKey: PreferenceKey {
+    static var defaultValue: CGRect = .zero
+
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        value = nextValue()
     }
 }
 

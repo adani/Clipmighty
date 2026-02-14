@@ -8,6 +8,7 @@ class OverlayViewModel {
     var items: [ClipboardItem] = []
     var viewID: UUID = UUID()
     var isAccessibilityTrusted: Bool = false
+    var visibleIndexRange: ClosedRange<Int>?
 
     // Dependencies
     var modelContext: ModelContext?
@@ -27,6 +28,7 @@ class OverlayViewModel {
             items = try context.fetch(fetchDescriptor)
             print("[OverlayViewModel] Fetched \(items.count) items.")
             selectedIndex = 0
+            visibleIndexRange = nil
             viewID = UUID() // Force complete view refresh
             if items.isEmpty {
                 print("[OverlayViewModel] Warning: No items found in SwiftData.")
@@ -42,6 +44,7 @@ class OverlayViewModel {
 
     func reset() {
         selectedIndex = 0
+        visibleIndexRange = nil
         viewID = UUID()
     }
 
@@ -57,7 +60,47 @@ class OverlayViewModel {
         }
     }
 
+    func moveSelectionPageDown() {
+        guard !items.isEmpty else { return }
+
+        if let visibleIndexRange {
+            selectedIndex = min(visibleIndexRange.upperBound + 1, items.count - 1)
+            return
+        }
+
+        selectedIndex = min(selectedIndex + 1, items.count - 1)
+    }
+
+    func moveSelectionPageUp() {
+        guard !items.isEmpty else { return }
+
+        if let visibleIndexRange {
+            selectedIndex = max(visibleIndexRange.lowerBound - 1, 0)
+            return
+        }
+
+        selectedIndex = max(selectedIndex - 1, 0)
+    }
+
+    func moveSelectionToFirst() {
+        guard !items.isEmpty else { return }
+        selectedIndex = 0
+    }
+
+    func moveSelectionToLast() {
+        guard !items.isEmpty else { return }
+        selectedIndex = items.count - 1
+    }
+
     func getSelectedItem() -> ClipboardItem? {
+        guard !items.isEmpty else { return nil }
+
+        if selectedIndex < 0 {
+            selectedIndex = 0
+        } else if selectedIndex >= items.count {
+            selectedIndex = items.count - 1
+        }
+
         guard items.indices.contains(selectedIndex) else { return nil }
         return items[selectedIndex]
     }

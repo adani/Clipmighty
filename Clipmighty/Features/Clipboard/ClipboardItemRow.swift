@@ -11,6 +11,8 @@ import SwiftUI
 struct ClipboardItemRow: View {
     let item: ClipboardItem
     let isHovering: Bool
+    let isSelected: Bool
+    let onSelect: (() -> Void)?
     let onCopy: () -> Void
     let onEdit: () -> Void
     let onDelete: () -> Void
@@ -39,13 +41,14 @@ struct ClipboardItemRow: View {
                 .fill(
                     isCopied
                         ? Color.green.opacity(0.1)
-                        : Color.primary.opacity(isHovering && !isPendingDeletion ? 0.05 : 0.0)
+                        : Color.primary.opacity((isHovering || isSelected) && !isPendingDeletion ? (isSelected ? 0.08 : 0.05) : 0.0)
                 )
                 .animation(.easeInOut(duration: 0.2), value: isCopied)
         )
         .contentShape(Rectangle())  // Make entire row tappable
         .onTapGesture {
             if !isPendingDeletion {
+                onSelect?()
                 handleCopy()
             }
         }
@@ -273,9 +276,10 @@ struct ClipboardItemRow: View {
         return nil
     }
 
-    // MARK: - Actions
+}
 
-    private func handleCopy() {
+private extension ClipboardItemRow {
+    func handleCopy() {
         onCopy()
 
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
@@ -289,7 +293,7 @@ struct ClipboardItemRow: View {
         }
     }
 
-    private func startDeletionGracePeriod() {
+    func startDeletionGracePeriod() {
         withAnimation {
             isPendingDeletion = true
         }
@@ -305,7 +309,7 @@ struct ClipboardItemRow: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: task)
     }
 
-    private func cancelDeletion() {
+    func cancelDeletion() {
         deletionTask?.cancel()
         deletionTask = nil
         withAnimation {

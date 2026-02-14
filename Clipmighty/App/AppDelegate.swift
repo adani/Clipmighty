@@ -273,27 +273,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         print("[AppDelegate] Processing window key event")
-        switch event.keyCode {
-        case 126:  // Up Arrow
-            print("[AppDelegate] Up arrow in window handler")
-            viewModel.moveSelectionUp()
-            return true  // Event handled
-        case 125:  // Down Arrow
-            print("[AppDelegate] Down arrow in window handler")
-            viewModel.moveSelectionDown()
-            return true  // Event handled
-        case 36:  // Enter/Return
-            print("[AppDelegate] Enter in window handler - pasting")
-            if let item = viewModel.getSelectedItem() {
-                pasteItem(item)
-            }
-            return true  // Event handled - prevents beep
-        default:
-            print("[AppDelegate] Other key in window handler (\(event.keyCode)) - closing")
-            // Any other key dismisses the overlay
-            closeOverlay()
-            return true  // Event handled
+        if handleOverlayNavigationKey(event.keyCode, with: viewModel) {
+            return true
         }
+
+        if handleOverlayPasteKey(event.keyCode, with: viewModel) {
+            return true
+        }
+
+        print("[AppDelegate] Other key in window handler (\(event.keyCode)) - closing")
+        // Any other key dismisses the overlay
+        closeOverlay()
+        return true  // Event handled
     }
 
     func showToast() {
