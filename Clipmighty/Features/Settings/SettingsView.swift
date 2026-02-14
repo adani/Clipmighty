@@ -13,33 +13,35 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("retentionDuration") private var retentionDuration: Int = 604800 // Default 7 days
     @AppStorage("enableCloudSync") private var enableCloudSync: Bool = false
+    @AppStorage(SettingsTab.userDefaultsKey) private var selectedTabRawValue: String =
+        SettingsTab.general.rawValue
     @Environment(ClipboardMonitor.self) private var monitor
 
-    private enum Tabs: Hashable {
-        case general
-        case rules
-        case sync
-    }
-
     var body: some View {
-        TabView {
+        TabView(selection: selectedTabBinding) {
             GeneralSettingsView(retentionDuration: $retentionDuration)
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
-                .tag(Tabs.general)
+                .tag(SettingsTab.general)
 
             RulesSettingsView(monitor: monitor, retentionDuration: $retentionDuration)
                 .tabItem {
                     Label("Rules", systemImage: "hand.raised.fill")
                 }
-                .tag(Tabs.rules)
+                .tag(SettingsTab.rules)
 
             SyncSettingsView(enableCloudSync: $enableCloudSync)
                 .tabItem {
                     Label("Sync", systemImage: "icloud.fill")
                 }
-                .tag(Tabs.sync)
+                .tag(SettingsTab.sync)
+
+            AboutSettingsView()
+                .tabItem {
+                    Label("About", systemImage: "info.circle")
+                }
+                .tag(SettingsTab.about)
         }
         .frame(
             minWidth: 480,
@@ -48,6 +50,17 @@ struct SettingsView: View {
             minHeight: 380,
             idealHeight: 420,
             maxHeight: 600
+        )
+    }
+
+    private var selectedTabBinding: Binding<SettingsTab> {
+        Binding(
+            get: {
+                SettingsTab(rawValue: selectedTabRawValue) ?? .general
+            },
+            set: { newValue in
+                selectedTabRawValue = newValue.rawValue
+            }
         )
     }
 }

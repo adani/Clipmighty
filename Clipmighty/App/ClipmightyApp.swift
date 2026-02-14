@@ -71,6 +71,15 @@ struct ClipmightyApp: App {
                 .environment(monitor)
                 .modelContainer(ClipmightyApp.sharedModelContainer)
         }
+        .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button("About Clipmighty") {
+                    if let delegate = NSApp.delegate as? AppDelegate {
+                        delegate.openAboutSettings()
+                    }
+                }
+            }
+        }
     }
 
     init() {

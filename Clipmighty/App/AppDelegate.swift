@@ -5,6 +5,7 @@ import SwiftUI
 
 // swiftlint:disable file_length
 
+// swiftlint:disable:next type_body_length
 class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
     static var isForceQuit: Bool = false
@@ -356,6 +357,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         // Activation for new windows will happen in windowDidBecomeKey when the window actually appears
+    }
+
+    func openAboutSettings() {
+        UserDefaults.standard.set(SettingsTab.about.rawValue, forKey: SettingsTab.userDefaultsKey)
+        openSettings()
+        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
     }
 
     @objc func windowDidBecomeKey(_ notification: Notification) {
