@@ -15,6 +15,7 @@ struct ClipboardItemRow: View {
     let onSelect: (() -> Void)?
     let onCopy: () -> Void
     let onEdit: () -> Void
+    let onTogglePin: () -> Void
     let onDelete: () -> Void
 
     @State private var isCopied = false
@@ -121,6 +122,15 @@ struct ClipboardItemRow: View {
     private var hoverActionButtons: some View {
         if isHovering && !isCopied {
             HStack(spacing: 16) {
+                Button(action: {
+                    onTogglePin()
+                }, label: {
+                    Image(systemName: item.isPinned ? "pin.fill" : "pin")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(item.isPinned ? .yellow : .primary.opacity(0.8))
+                })
+                .buttonStyle(.plain)
+
                 Button(action: {
                     onEdit()
                 }, label: {

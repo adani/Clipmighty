@@ -17,6 +17,8 @@ struct GeneralSettingsView: View {
     // Keyboard shortcut configuration
     @State private var shortcutKeyCode: Int = KeyCode.vKey
     @State private var shortcutModifiers: Int = controlKey
+    @State private var pinShortcutKeyCode: Int = OverlayPinShortcut.defaultKeyCode
+    @State private var pinShortcutModifiers: Int = OverlayPinShortcut.defaultModifiers
     @State private var timer: Timer?
 
     var body: some View {
@@ -75,13 +77,26 @@ struct GeneralSettingsView: View {
                 Spacer()
                 KeyboardShortcutRecorder(
                     keyCode: $shortcutKeyCode,
-                    modifierFlags: $shortcutModifiers
+                    modifierFlags: $shortcutModifiers,
+                    keyCodeDefaultsKey: "overlayShortcutKeyCode",
+                    modifiersDefaultsKey: "overlayShortcutModifiers"
+                )
+            }
+
+            HStack(alignment: .center) {
+                Text("Pin/Unpin in Overlay:")
+                Spacer()
+                KeyboardShortcutRecorder(
+                    keyCode: $pinShortcutKeyCode,
+                    modifierFlags: $pinShortcutModifiers,
+                    keyCodeDefaultsKey: OverlayPinShortcut.keyCodeDefaultsKey,
+                    modifiersDefaultsKey: OverlayPinShortcut.modifiersDefaultsKey
                 )
             }
         } header: {
             Text("Keyboard Shortcut")
         } footer: {
-            Text("Press a keyboard shortcut to activate the paste overlay. " +
+            Text("Set shortcuts for opening the paste overlay and pinning items in it. " +
                  "The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃).")
                 .font(.caption)
                 .foregroundColor(.secondary)
@@ -135,6 +150,18 @@ struct GeneralSettingsView: View {
         }
         if let savedModifiers = UserDefaults.standard.object(forKey: "overlayShortcutModifiers") as? Int {
             shortcutModifiers = savedModifiers
+        }
+
+        if let savedPinKeyCode = UserDefaults.standard.object(
+            forKey: OverlayPinShortcut.keyCodeDefaultsKey
+        ) as? Int {
+            pinShortcutKeyCode = savedPinKeyCode
+        }
+
+        if let savedPinModifiers = UserDefaults.standard.object(
+            forKey: OverlayPinShortcut.modifiersDefaultsKey
+        ) as? Int {
+            pinShortcutModifiers = savedPinModifiers
         }
     }
 

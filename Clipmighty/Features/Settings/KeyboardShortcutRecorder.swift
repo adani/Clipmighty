@@ -12,6 +12,20 @@ import SwiftUI
 struct KeyboardShortcutRecorder: NSViewRepresentable {
     @Binding var keyCode: Int
     @Binding var modifierFlags: Int
+    let keyCodeDefaultsKey: String
+    let modifiersDefaultsKey: String
+
+    init(
+        keyCode: Binding<Int>,
+        modifierFlags: Binding<Int>,
+        keyCodeDefaultsKey: String = "overlayShortcutKeyCode",
+        modifiersDefaultsKey: String = "overlayShortcutModifiers"
+    ) {
+        self._keyCode = keyCode
+        self._modifierFlags = modifierFlags
+        self.keyCodeDefaultsKey = keyCodeDefaultsKey
+        self.modifiersDefaultsKey = modifiersDefaultsKey
+    }
 
     func makeNSView(context: Context) -> KeyRecorderView {
         let view = KeyRecorderView()
@@ -20,8 +34,8 @@ struct KeyboardShortcutRecorder: NSViewRepresentable {
             self.modifierFlags = modifiers
 
             // Save to UserDefaults
-            UserDefaults.standard.set(keyCode, forKey: "overlayShortcutKeyCode")
-            UserDefaults.standard.set(modifiers, forKey: "overlayShortcutModifiers")
+            UserDefaults.standard.set(keyCode, forKey: keyCodeDefaultsKey)
+            UserDefaults.standard.set(modifiers, forKey: modifiersDefaultsKey)
         }
         return view
     }

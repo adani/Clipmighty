@@ -1,13 +1,21 @@
 import SwiftUI
 
 struct ToastView: View {
+    let message: String
+    let symbolName: String
+
+    init(message: String = "Copied", symbolName: String = "checkmark.circle.fill") {
+        self.message = message
+        self.symbolName = symbolName
+    }
+
     var body: some View {
         HStack(spacing: 8) {
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: symbolName)
                 .font(.system(size: 16))
                 .foregroundStyle(Color.green)
 
-            Text("Copied")
+            Text(message)
                 .font(.system(size: 14, weight: .medium))
                 .foregroundStyle(.white)
                 .lineLimit(1)

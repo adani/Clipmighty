@@ -2,6 +2,8 @@ import AppKit
 import SwiftData
 import SwiftUI
 
+// swiftlint:disable file_length
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(ClipboardMonitor.self) private var monitor
@@ -24,11 +26,22 @@ struct ContentView: View {
     @State private var lastSyncTime: Date = Date()
 
     var filteredItems: [ClipboardItem] {
+        let baseItems: [ClipboardItem]
+
         if searchText.isEmpty {
-            return items
+            baseItems = items
         } else {
-            return items.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
+            baseItems = items.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
         }
+
+        let pinnedItems = baseItems
+            .filter(\.isPinned)
+            .sorted(by: { $0.timestamp > $1.timestamp })
+        let unpinnedItems = baseItems
+            .filter { !$0.isPinned }
+            .sorted(by: { $0.timestamp > $1.timestamp })
+
+        return pinnedItems + unpinnedItems
     }
 
     var body: some View {
@@ -139,6 +152,9 @@ struct ContentView: View {
                             onEdit: {
                                 itemToEdit = item
                             },
+                            onTogglePin: {
+                                togglePin(item)
+                            },
                             onDelete: {
                                 deleteItem(item)
                             }
@@ -164,7 +180,7 @@ struct ContentView: View {
                             Button("Delete", role: .destructive) {
                                 deleteItem(item)
                             }
-                            Button("Pin") {
+                            Button(item.isPinned ? "Unpin" : "Pin") {
                                 togglePin(item)
                             }
                         }
@@ -244,7 +260,16 @@ struct ContentView: View {
     }
 
     private func togglePin(_ item: ClipboardItem) {
-        item.isPinned.toggle()
+        withAnimation {
+            item.isPinned.toggle()
+            item.timestamp = Date()
+        }
+
+        do {
+            try modelContext.save()
+        } catch {
+            print("[ContentView] Failed to toggle pin: \(error)")
+        }
     }
 }
 

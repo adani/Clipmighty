@@ -1,4 +1,4 @@
-import Foundation
+import AppKit
 
 extension AppDelegate {
     func handleOverlayNavigationKey(_ keyCode: UInt16, with viewModel: OverlayViewModel) -> Bool {
@@ -52,5 +52,19 @@ extension AppDelegate {
             pasteItem(item)
         }
         return true  // Event handled - prevents beep
+    }
+
+    func handleOverlayPinKey(_ event: NSEvent, with viewModel: OverlayViewModel) -> Bool {
+        guard OverlayPinShortcut.matches(keyCode: event.keyCode, modifiers: event.modifierFlags) else {
+            return false
+        }
+
+        print("[AppDelegate] Pin/unpin shortcut in window handler")
+        let result = viewModel.togglePinForSelectedItem()
+        if result == .pinned {
+            showToast(message: "Pinned", symbolName: "pin.fill", duration: 0.8)
+        }
+
+        return result != .failed
     }
 }

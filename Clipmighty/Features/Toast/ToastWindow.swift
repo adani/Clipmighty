@@ -27,13 +27,19 @@ class ToastWindow: NSPanel {
     }
 
     // Helper to center and show
-    func show(duration: TimeInterval = 1.5) {
+    func show(message: String = "Copied", symbolName: String = "checkmark.circle.fill", duration: TimeInterval = 1.5) {
         // Layout the content
         guard let screen = NSScreen.main else { return }
 
         // Create hosting controller if needed or ensuring view is fresh
         if self.contentViewController == nil {
-            self.contentViewController = NSHostingController(rootView: ToastView())
+            self.contentViewController = NSHostingController(
+                rootView: ToastView(message: message, symbolName: symbolName)
+            )
+        } else {
+            self.contentViewController = NSHostingController(
+                rootView: ToastView(message: message, symbolName: symbolName)
+            )
         }
 
         // Size to fit content

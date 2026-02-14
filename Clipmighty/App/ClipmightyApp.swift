@@ -187,6 +187,14 @@ struct ClipmightyApp: App {
 
         let retentionDuration = UserDefaults.standard.integer(forKey: "retentionDuration")
 
+        let keepPinnedItemsOnCleanup: Bool
+        if UserDefaults.standard.object(forKey: "keepPinnedItemsOnCleanup") == nil {
+            UserDefaults.standard.set(true, forKey: "keepPinnedItemsOnCleanup")
+            keepPinnedItemsOnCleanup = true
+        } else {
+            keepPinnedItemsOnCleanup = UserDefaults.standard.bool(forKey: "keepPinnedItemsOnCleanup")
+        }
+
         // 0 means keep forever
         guard retentionDuration > 0 else { return }
 
@@ -198,7 +206,11 @@ struct ClipmightyApp: App {
         do {
             let oldItems = try context.fetch(descriptor)
             var deletedCount = 0
-            for item in oldItems where !item.isPinned {
+            for item in oldItems {
+                if keepPinnedItemsOnCleanup && item.isPinned {
+                    continue
+                }
+
                 context.delete(item)
                 deletedCount += 1
             }

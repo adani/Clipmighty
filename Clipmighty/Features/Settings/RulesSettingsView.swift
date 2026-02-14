@@ -8,8 +8,11 @@
 import SwiftUI
 import SwiftData
 
+// swiftlint:disable file_length
+
 struct RulesSettingsView: View {
     @AppStorage("ignoreConcealedContent") private var ignoreConcealedContent: Bool = true
+    @AppStorage("keepPinnedItemsOnCleanup") private var keepPinnedItemsOnCleanup: Bool = true
     @Environment(ClipboardMonitor.self) private var monitor
     @Environment(\.modelContext) private var modelContext
     @Binding var retentionDuration: Int // seconds
@@ -233,6 +236,8 @@ struct RulesSettingsView: View {
                 .onChange(of: customMinutes) { _, _ in updateRetention() }
                 .onChange(of: customUnit) { _, _ in updateRetention() }
             }
+
+            Toggle("Keep pinned items", isOn: $keepPinnedItemsOnCleanup)
         } header: {
             Text("History")
         } footer: {

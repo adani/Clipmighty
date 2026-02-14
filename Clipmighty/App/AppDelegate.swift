@@ -3,6 +3,8 @@ import Carbon
 import SwiftData
 import SwiftUI
 
+// swiftlint:disable file_length
+
 class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
     static var isForceQuit: Bool = false
@@ -277,6 +279,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return true
         }
 
+        if handleOverlayPinKey(event, with: viewModel) {
+            return true
+        }
+
         if handleOverlayPasteKey(event.keyCode, with: viewModel) {
             return true
         }
@@ -287,11 +293,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true  // Event handled
     }
 
-    func showToast() {
+    func showToast(
+        message: String = "Copied",
+        symbolName: String = "checkmark.circle.fill",
+        duration: TimeInterval = 1.5
+    ) {
         if toastWindow == nil {
             toastWindow = ToastWindow()
         }
-        toastWindow?.show()
+        toastWindow?.show(message: message, symbolName: symbolName, duration: duration)
     }
 
     func pasteItem(_ item: ClipboardItem) {

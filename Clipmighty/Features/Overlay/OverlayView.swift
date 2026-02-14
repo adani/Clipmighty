@@ -106,10 +106,12 @@ struct OverlayView: View {
     }
 
     private var pasteInstructionText: String {
+        let pinInstruction = "Use \(OverlayPinShortcut.formattedShortcut()) to pin/unpin"
+
         if viewModel.isAccessibilityTrusted {
-            return "↵ to paste"
+            return "↵ to paste • \(pinInstruction)"
         } else {
-            return "↵ to copy"
+            return "↵ to copy • \(pinInstruction)"
         }
     }
 
@@ -169,6 +171,12 @@ struct ItemRow: View {
             }
 
             Spacer()
+
+            if item.isPinned {
+                Image(systemName: "pin.fill")
+                    .font(.caption)
+                    .foregroundStyle(isSelected ? .white.opacity(0.85) : .yellow)
+            }
 
             if isSelected {
                 Image(systemName: "return")

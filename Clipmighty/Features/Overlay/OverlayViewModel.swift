@@ -2,6 +2,12 @@ import SwiftUI
 import SwiftData
 import Combine
 
+enum PinToggleResult: Equatable {
+    case pinned
+    case unpinned
+    case failed
+}
+
 @Observable
 class OverlayViewModel {
     var selectedIndex: Int = 0
@@ -25,7 +31,8 @@ class OverlayViewModel {
 
         do {
             print("[OverlayViewModel] Fetching items...")
-            items = try context.fetch(fetchDescriptor)
+            let fetchedItems = try context.fetch(fetchDescriptor)
+            items = sortedWithPinnedFirst(fetchedItems)
             print("[OverlayViewModel] Fetched \(items.count) items.")
             selectedIndex = 0
             visibleIndexRange = nil
@@ -35,6 +42,33 @@ class OverlayViewModel {
             }
         } catch {
             print("[OverlayViewModel] Failed to fetch items: \(error)")
+        }
+    }
+
+    @discardableResult
+    func togglePinForSelectedItem() -> PinToggleResult {
+        guard let context = modelContext,
+              items.indices.contains(selectedIndex) else {
+            return .failed
+        }
+
+        let selectedItem = items[selectedIndex]
+        let selectedItemID = selectedItem.id
+        selectedItem.isPinned.toggle()
+        let isPinnedAfterToggle = selectedItem.isPinned
+        selectedItem.timestamp = Date()
+
+        do {
+            try context.save()
+            items = sortedWithPinnedFirst(items)
+            if let newIndex = items.firstIndex(where: { $0.id == selectedItemID }) {
+                selectedIndex = newIndex
+            }
+            viewID = UUID()
+            return isPinnedAfterToggle ? .pinned : .unpinned
+        } catch {
+            print("[OverlayViewModel] Failed to toggle pin: \(error)")
+            return .failed
         }
     }
 
@@ -103,5 +137,16 @@ class OverlayViewModel {
 
         guard items.indices.contains(selectedIndex) else { return nil }
         return items[selectedIndex]
+    }
+
+    private func sortedWithPinnedFirst(_ sourceItems: [ClipboardItem]) -> [ClipboardItem] {
+        let pinnedItems = sourceItems
+            .filter(\.isPinned)
+            .sorted(by: { $0.timestamp > $1.timestamp })
+        let unpinnedItems = sourceItems
+            .filter { !$0.isPinned }
+            .sorted(by: { $0.timestamp > $1.timestamp })
+
+        return pinnedItems + unpinnedItems
     }
 }
