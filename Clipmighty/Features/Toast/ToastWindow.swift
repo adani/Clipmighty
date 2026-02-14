@@ -4,7 +4,7 @@ import SwiftUI
 class ToastWindow: NSPanel {
     init() {
         super.init(
-            contentRect: NSRect(x: 0, y: 0, width: 200, height: 60), // Roughly sized, will resize to fit
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 60), // Sized to fit content without ellipsizing
             styleMask: [.nonactivatingPanel, .fullSizeContentView, .borderless],
             backing: .buffered,
             defer: false
