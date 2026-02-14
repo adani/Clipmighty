@@ -25,7 +25,7 @@ enum AboutSupport {
 
     static func contactMailURL() -> URL? {
         let subject = "Feedback for Clipmighty"
-        let body = "Hi Clipmighty team,%0A%0A"
+        let body = "Hi Clipmighty team,"
         return mailtoURL(subject: subject, body: body)
     }
 
@@ -163,7 +163,7 @@ enum AboutSupport {
         let lines = [
             "Hi Clipmighty team,",
             "",
-            "Please describe the issue:",
+            "Issue description:",
             "",
             "Expected behavior:",
             "",
