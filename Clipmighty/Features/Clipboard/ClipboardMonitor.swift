@@ -77,6 +77,9 @@ class ClipboardMonitor {
     // Changed signature to pass the whole ClipboardItem object or params for it
     var onNewItem: ((ClipboardItem) -> Void)?
 
+    // Callback when an existing history item is copied from an overlay/menu
+    var onHistoryItemCopied: ((UUID) -> Void)?
+
     // MARK: - Initialization
 
     // MARK: - Initialization

@@ -128,6 +128,22 @@ struct ClipmightyApp: App {
             }
         }
 
+        monitor.onHistoryItemCopied = { itemID in
+            Task { @MainActor in
+                let context = ModelContext(container)
+                let descriptor = FetchDescriptor<ClipboardItem>(
+                    predicate: #Predicate<ClipboardItem> { existing in
+                        existing.id == itemID
+                    }
+                )
+
+                if let existingItem = try? context.fetch(descriptor).first {
+                    existingItem.timestamp = Date()
+                    try? context.save()
+                }
+            }
+        }
+
         // Apply user settings to the monitor
         // Default to true (ignore concealed content) if not explicitly set
         let ignoreConcealedDefault =

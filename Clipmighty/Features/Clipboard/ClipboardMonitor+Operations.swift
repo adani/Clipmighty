@@ -49,6 +49,10 @@ extension ClipboardMonitor {
         // NOTE: writeObjects implies changeCount increment.
         self.updateLastChangeCount()
         self.currentContent = item.content
+
+        if UserDefaults.standard.bool(forKey: "reorderCopiedItemsToTop") {
+            onHistoryItemCopied?(item.id)
+        }
     }
 
     private func copyFileToClipboard(_ item: ClipboardItem) {

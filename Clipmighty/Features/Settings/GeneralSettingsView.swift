@@ -12,6 +12,7 @@ import SwiftUI
 struct GeneralSettingsView: View {
     @Binding var retentionDuration: Int // seconds
     @State private var isAccessibilityTrusted: Bool = PasteHelper.canPaste()
+    @AppStorage("reorderCopiedItemsToTop") private var reorderCopiedItemsToTop: Bool = false
 
     // Keyboard shortcut configuration
     @State private var shortcutKeyCode: Int = KeyCode.vKey
@@ -21,6 +22,8 @@ struct GeneralSettingsView: View {
     var body: some View {
         Form {
             startupSection
+
+            historyBehaviorSection
 
             shortcutSection
 
@@ -54,6 +57,12 @@ struct GeneralSettingsView: View {
                 .onChange(of: launchAtLogin) { _, newValue in
                     LaunchAtLoginService.isEnabled = newValue
                 }
+        }
+    }
+
+    private var historyBehaviorSection: some View {
+        Section("History") {
+            Toggle("Move copied history item to top", isOn: $reorderCopiedItemsToTop)
         }
     }
 

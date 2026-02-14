@@ -261,10 +261,12 @@ struct RulesSettingsView: View {
                 "This will permanently delete all clipboard history. This action cannot be undone.")
         }
     }
-    
+}
+
+private extension RulesSettingsView {
     // MARK: - Helper Methods
-    
-    private func initializeState() {
+
+    func initializeState() {
         selectedOption = RetentionOption.from(seconds: retentionDuration)
         if selectedOption == .custom {
             // Determine best unit for current seconds
@@ -280,8 +282,8 @@ struct RulesSettingsView: View {
             }
         }
     }
-    
-    private func updateRetention() {
+
+    func updateRetention() {
         switch selectedOption {
         case .minutes30: retentionDuration = 1800
         case .hours8: retentionDuration = 28800
@@ -292,8 +294,8 @@ struct RulesSettingsView: View {
             retentionDuration = customMinutes * customUnit.secondsMultiplier
         }
     }
-    
-    private func clearHistory() {
+
+    func clearHistory() {
         do {
             try modelContext.delete(model: ClipboardItem.self)
         } catch {
