@@ -34,12 +34,12 @@ class OnboardingViewModel {
     // For the rotating features animation
     var currentFeatureIndex = 0
     let features = [
-        "📋 Instant clipboard history",
-        "🔍 Powerful search",
-        "⌨️ Quick keyboard shortcuts",
-        "🔒 Privacy-focused design",
-        "☁️ iCloud sync support",
-        "🚫 App exclusion rules"
+        L10n.onboardingFeatureInstantHistory.string,
+        L10n.onboardingFeaturePowerfulSearch.string,
+        L10n.onboardingFeatureKeyboardShortcuts.string,
+        L10n.onboardingFeaturePrivacyFocused.string,
+        L10n.onboardingFeatureICloudSync.string,
+        L10n.onboardingFeatureAppExclusions.string
     ]
 
     // For app picker
@@ -237,7 +237,7 @@ class OnboardingViewModel {
         if let info = appDiscovery.getAppInfo(bundleID: keychainID) {
             excludedApps.append(ExcludedApp(bundleID: keychainID, name: info.name, icon: info.icon))
         } else {
-            excludedApps.append(ExcludedApp(bundleID: keychainID, name: "Keychain Access"))
+            excludedApps.append(ExcludedApp(bundleID: keychainID, name: L10n.defaultAppKeychainAccess.string))
         }
 
         // Add other apps if they're installed

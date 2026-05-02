@@ -51,7 +51,7 @@ struct ClipmightyApp: App {
     }()
 
     var body: some Scene {
-        MenuBarExtra("Clipmighty", systemImage: "clipboard") {
+        MenuBarExtra(L10n.appMenuTitle.text, systemImage: "clipboard") {
             ContentView()
                 .environment(monitor)
                 .modelContainer(ClipmightyApp.sharedModelContainer)
@@ -73,7 +73,7 @@ struct ClipmightyApp: App {
         }
         .commands {
             CommandGroup(replacing: .appInfo) {
-                Button("About Clipmighty") {
+                Button(L10n.appAboutMenuTitle.text) {
                     if let delegate = NSApp.delegate as? AppDelegate {
                         delegate.openAboutSettings()
                     }

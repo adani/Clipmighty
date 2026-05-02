@@ -216,11 +216,11 @@ extension ClipboardMonitor {
         }
 
         // Downscale if too huge? For now store as is but maybe limit size?
-        // Let's store a generic "Image" text
+        // Store a localized generic image description for history rows.
         let sizeStr = "\(Int(image.size.width))x\(Int(image.size.height))"
 
         return ClipboardItem(
-            content: "Image \(sizeStr)",
+            content: L10n.clipboardGeneratedImageLabel.string(sizeStr),
             itemType: .image,
             sourceAppBundleID: bundleID,
             sourceAppName: appName,
@@ -230,7 +230,7 @@ extension ClipboardMonitor {
 
     func createWebContentItem(bundleID: String?, appName: String?) -> ClipboardItem? {
         // Try to get plain text first for content preview
-        let plainText = pasteboard.string(forType: .string) ?? "Rich Text Content"
+        let plainText = pasteboard.string(forType: .string) ?? L10n.clipboardRichTextContent.string
 
         var rtfData: Data?
         var format: String?

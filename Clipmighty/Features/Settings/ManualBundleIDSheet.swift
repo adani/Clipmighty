@@ -36,7 +36,11 @@ struct ManualBundleIDSheet: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Bundle ID", text: $bundleID, prompt: Text("com.example.myapp"))
+                    TextField(
+                        L10n.manualBundleIDField.text,
+                        text: $bundleID,
+                        prompt: Text(L10n.manualBundleIDPrompt.text)
+                    )
                         .textFieldStyle(.roundedBorder)
                         .autocorrectionDisabled()
                         .font(.system(.body, design: .monospaced))
@@ -44,11 +48,11 @@ struct ManualBundleIDSheet: View {
                             validateBundleID(newValue)
                         }
 
-                    Text("Enter the bundle identifier of the application you want to exclude.")
+                    Text(L10n.manualBundleIDDescription.text)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } header: {
-                    Text("Bundle Identifier")
+                    Text(L10n.manualBundleIDSection.text)
                 }
 
                 // Validation feedback
@@ -64,7 +68,7 @@ struct ManualBundleIDSheet: View {
                                 }
 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Label("Application Found", systemImage: "checkmark.circle.fill")
+                                    Label(L10n.manualBundleIDApplicationFound.text, systemImage: "checkmark.circle.fill")
                                         .foregroundStyle(.green)
                                     Text(name)
                                         .font(.body)
@@ -72,21 +76,21 @@ struct ManualBundleIDSheet: View {
                             }
 
                         case .notFound:
-                            Label("Application not found on this system", systemImage: "exclamationmark.triangle.fill")
+                            Label(L10n.manualBundleIDNotFound.text, systemImage: "exclamationmark.triangle.fill")
                                 .foregroundStyle(.orange)
-                            Text("You can still add this bundle ID, but the app may not be installed.")
+                            Text(L10n.manualBundleIDNotFoundDescription.text)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
 
                         case .invalid:
-                            Label("Invalid bundle ID format", systemImage: "xmark.circle.fill")
+                            Label(L10n.manualBundleIDInvalid.text, systemImage: "xmark.circle.fill")
                                 .foregroundStyle(.red)
-                            Text("Bundle IDs should follow the format: com.company.appname")
+                            Text(L10n.manualBundleIDInvalidDescription.text)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
                     } header: {
-                        Text("Validation")
+                        Text(L10n.manualBundleIDValidation.text)
                     }
                 }
 
@@ -100,16 +104,16 @@ struct ManualBundleIDSheet: View {
             }
             .formStyle(.grouped)
             .frame(width: 500, height: 350)
-            .navigationTitle("Add Bundle ID")
+            .navigationTitle(L10n.manualBundleIDTitle.text)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(L10n.appPickerCancel.text) {
                         dismiss()
                     }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button(L10n.appPickerAdd.text) {
                         addBundleID()
                     }
                     .disabled(!canAdd)

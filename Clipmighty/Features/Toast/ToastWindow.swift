@@ -27,7 +27,11 @@ class ToastWindow: NSPanel {
     }
 
     // Helper to center and show
-    func show(message: String = "Copied", symbolName: String = "checkmark.circle.fill", duration: TimeInterval = 1.5) {
+    func show(
+        message: String = L10n.toastCopied.string,
+        symbolName: String = "checkmark.circle.fill",
+        duration: TimeInterval = 1.5
+    ) {
         // Layout the content
         guard let screen = NSScreen.main else { return }
 

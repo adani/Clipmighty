@@ -28,15 +28,11 @@ struct PermissionsStepView: View {
                 .symbolEffect(.pulse, options: .repeating)
 
             VStack(spacing: 12) {
-                Text("Enable Overlay Auto-Paste")
+                Text(L10n.onboardingPermissionsTitle.text)
                     .font(.title)
                     .fontWeight(.semibold)
 
-                Text("""
-                    To automatically insert history items directly into your active apps, \
-                    Clipmighty needs Accessibility permission. This allows our overlay to \
-                    simulate the "Paste" command for you, saving you manual effort.
-                    """)
+                Text(L10n.onboardingPermissionsDescription.text)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -52,7 +48,11 @@ struct PermissionsStepView: View {
                         .font(.title2)
                         .foregroundColor(viewModel.hasAccessibilityPermission ? .green : .orange)
 
-                    Text(viewModel.hasAccessibilityPermission ? "Permission Granted" : "Permission Required")
+                    Text(
+                        viewModel.hasAccessibilityPermission
+                        ? L10n.onboardingPermissionGranted.text
+                        : L10n.onboardingPermissionRequired.text
+                    )
                         .font(.headline)
                         .foregroundColor(viewModel.hasAccessibilityPermission ? .green : .primary)
                 }
@@ -63,7 +63,7 @@ struct PermissionsStepView: View {
                         label: {
                             HStack {
                                 Image(systemName: "gear")
-                                Text("Open System Settings")
+                                Text(L10n.onboardingOpenSystemSettings.text)
                             }
                         }
                     )
@@ -79,14 +79,10 @@ struct PermissionsStepView: View {
                     .font(.title3)
                     .foregroundColor(.secondary)
 
-                Text("Privacy First")
+                Text(L10n.onboardingPrivacyFirst.text)
                     .font(.headline)
 
-                Text("""
-                    This permission is strictly used to simulate the 'Paste' command and \
-                    identify source apps. Your clipboard history remains local and is \
-                    never transmitted.
-                    """)
+                Text(L10n.onboardingPrivacyFirstDescription.text)
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)

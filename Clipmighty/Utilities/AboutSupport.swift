@@ -6,31 +6,31 @@ enum AboutSupport {
 
     static func versionDescription(infoDictionary: [String: Any]? = Bundle.main.infoDictionary) -> String {
         guard let infoDictionary else {
-            return "Version Unknown"
+            return L10n.supportVersionUnknown.string
         }
 
         let version = infoDictionary["CFBundleShortVersionString"] as? String
         let build = infoDictionary["CFBundleVersion"] as? String
 
         if let version, let build {
-            return "Version \(version) (Build \(build))"
+            return L10n.supportVersionBuildFormat.string(version, build)
         }
 
         if let version {
-            return "Version \(version)"
+            return L10n.supportVersionFormat.string(version)
         }
 
-        return "Version Unknown"
+        return L10n.supportVersionUnknown.string
     }
 
     static func contactMailURL() -> URL? {
-        let subject = "Feedback for Clipmighty"
-        let body = "Hi Clipmighty team,"
+        let subject = L10n.supportContactSubject.string
+        let body = L10n.supportContactBody.string
         return mailtoURL(subject: subject, body: body)
     }
 
     static func bugReportMailURL() -> URL? {
-        let subject = "Bug Report for Clipmighty"
+        let subject = L10n.supportBugReportSubject.string
         let body = defaultBugBody()
         return mailtoURL(subject: subject, body: body)
     }
@@ -49,12 +49,12 @@ enum AboutSupport {
         let fileURL = directory.appendingPathComponent("clipmighty-support-\(timestamp).log")
 
         var lines: [String] = [
-            "Clipmighty Support Log",
-            "Generated: \(ISO8601DateFormatter().string(from: Date()))",
+            L10n.supportLogTitle.string,
+            L10n.supportLogGeneratedFormat.string(ISO8601DateFormatter().string(from: Date())),
             versionDescription(infoDictionary: infoDictionary),
-            "macOS: \(ProcessInfo.processInfo.operatingSystemVersionString)",
+            L10n.supportLogMacOSFormat.string(ProcessInfo.processInfo.operatingSystemVersionString),
             "",
-            "Preferences Snapshot:",
+            L10n.supportLogPreferencesSnapshot.string,
             "enableCloudSync=\(UserDefaults.standard.bool(forKey: "enableCloudSync"))",
             "ignoreConcealedContent=\(UserDefaults.standard.object(forKey: "ignoreConcealedContent") as? Bool ?? true)",
             "retentionDuration=\(UserDefaults.standard.integer(forKey: "retentionDuration"))",
@@ -121,7 +121,7 @@ enum AboutSupport {
             let body = defaultBugBody().replacingOccurrences(of: "%0A", with: "\n")
             let script = mailAppleScript(
                 to: supportEmail,
-                subject: "Bug Report for Clipmighty",
+                subject: L10n.supportBugReportSubject.string,
                 body: body,
                 attachmentFileURL: attachmentURL
             )
@@ -161,18 +161,18 @@ enum AboutSupport {
 
     private static func defaultBugBody() -> String {
         let lines = [
-            "Hi Clipmighty team,",
+            L10n.supportContactBody.string,
             "",
-            "Issue description:",
+            L10n.supportBugIssueDescription.string,
             "",
-            "Expected behavior:",
+            L10n.supportBugExpectedBehavior.string,
             "",
-            "Actual behavior:",
+            L10n.supportBugActualBehavior.string,
             "",
             "---",
             versionDescription(),
-            "macOS: \(ProcessInfo.processInfo.operatingSystemVersionString)",
-            "Timestamp: \(ISO8601DateFormatter().string(from: Date()))"
+            L10n.supportLogMacOSFormat.string(ProcessInfo.processInfo.operatingSystemVersionString),
+            L10n.supportBugTimestampFormat.string(ISO8601DateFormatter().string(from: Date()))
         ]
 
         return lines.joined(separator: "\n")

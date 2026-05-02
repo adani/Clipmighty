@@ -83,11 +83,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // or user forcefully activated it, ask for confirmation.
         if NSApp.activationPolicy() == .regular {
             let alert = NSAlert()
-            alert.messageText = "Quit Clipmighty?"
+            alert.messageText = L10n.quitAlertTitle.string
             alert.informativeText =
-                "Are you sure you want to quit the application? It will stop monitoring your clipboard."
-            alert.addButton(withTitle: "Quit")
-            alert.addButton(withTitle: "Cancel")
+                L10n.quitAlertMessage.string
+            alert.addButton(withTitle: L10n.quitAlertQuit.string)
+            alert.addButton(withTitle: L10n.quitAlertCancel.string)
 
             let response = alert.runModal()
             if response == .alertFirstButtonReturn {
@@ -295,7 +295,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func showToast(
-        message: String = "Copied",
+        message: String = L10n.toastCopied.string,
         symbolName: String = "checkmark.circle.fill",
         duration: TimeInterval = 1.5
     ) {

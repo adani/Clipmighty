@@ -11,7 +11,7 @@ struct OverlayView: View {
             // Header
             HStack {
                 Image(systemName: "clipboard")
-                Text("Clipboard History")
+                Text(L10n.overlayTitle.text)
                     .font(.headline)
                 Spacer()
                 Text(pasteInstructionText)
@@ -31,10 +31,10 @@ struct OverlayView: View {
                         Image(systemName: "clipboard")
                             .font(.largeTitle)
                             .foregroundStyle(.secondary)
-                        Text("No Clipboard History")
+                        Text(L10n.overlayEmptyTitle.text)
                             .font(.headline)
                             .foregroundStyle(.secondary)
-                        Text("Copy something to see it here.")
+                        Text(L10n.overlayEmptyMessage.text)
                             .font(.caption)
                             .foregroundStyle(.tertiary)
                     }
@@ -106,12 +106,12 @@ struct OverlayView: View {
     }
 
     private var pasteInstructionText: String {
-        let pinInstruction = "Use \(OverlayPinShortcut.formattedShortcut()) to pin/unpin"
+        let pinInstruction = L10n.overlayPinInstruction.string(OverlayPinShortcut.formattedShortcut())
 
         if viewModel.isAccessibilityTrusted {
-            return "↵ to paste • \(pinInstruction)"
+            return L10n.overlayPasteInstruction.string(pinInstruction)
         } else {
-            return "↵ to copy • \(pinInstruction)"
+            return L10n.overlayCopyInstruction.string(pinInstruction)
         }
     }
 
@@ -263,7 +263,7 @@ struct ItemRow: View {
                 HStack(spacing: 4) {
                     Image(systemName: "photo")
                         .font(.system(size: 11))
-                    Text("Image")
+                    Text(L10n.overlayImage.text)
                         .font(.system(size: 13))
                 }
                 .foregroundStyle(isSelected ? .white.opacity(0.8) : .secondary)

@@ -18,13 +18,13 @@ struct SyncSettingsView: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .alert("Restart Required", isPresented: $showRestartAlert) {
-            Button("Restart Now", role: .destructive) {
+        .alert(L10n.syncRestartTitle.text, isPresented: $showRestartAlert) {
+            Button(L10n.syncRestartNow.text, role: .destructive) {
                 restartApp()
             }
-            Button("Later", role: .cancel) {}
+            Button(L10n.syncLater.text, role: .cancel) {}
         } message: {
-            Text("Clipmighty needs to restart to apply changes to sync settings.")
+            Text(L10n.syncRestartMessage.text)
         }
     }
 
@@ -34,17 +34,15 @@ struct SyncSettingsView: View {
         Section {
             Toggle(isOn: $enableCloudSync) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Sync with iCloud")
+                    Text(L10n.syncWithICloud.text)
                     if enableCloudSync {
-                        Text(
-                            "Clipboard history syncs across your devices signed into the same iCloud account."
-                        )
+                        Text(L10n.syncICloudEnabledDescription.text)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .lineLimit(nil)
                         .fixedSize(horizontal: false, vertical: true)
                     } else {
-                        Text("Enable to sync clipboard history across your devices.")
+                        Text(L10n.syncICloudDisabledDescription.text)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .lineLimit(nil)
@@ -56,7 +54,7 @@ struct SyncSettingsView: View {
                 showRestartAlert = true
             }
         } header: {
-            Text("iCloud")
+            Text(L10n.syncICloudSection.text)
         }
     }
 

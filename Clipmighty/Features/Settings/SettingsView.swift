@@ -21,25 +21,25 @@ struct SettingsView: View {
         TabView(selection: selectedTabBinding) {
             GeneralSettingsView(retentionDuration: $retentionDuration)
                 .tabItem {
-                    Label("General", systemImage: "gearshape")
+                    Label(L10n.settingsGeneralTab.text, systemImage: "gearshape")
                 }
                 .tag(SettingsTab.general)
 
             RulesSettingsView(monitor: monitor, retentionDuration: $retentionDuration)
                 .tabItem {
-                    Label("Rules", systemImage: "hand.raised.fill")
+                    Label(L10n.settingsRulesTab.text, systemImage: "hand.raised.fill")
                 }
                 .tag(SettingsTab.rules)
 
             SyncSettingsView(enableCloudSync: $enableCloudSync)
                 .tabItem {
-                    Label("Sync", systemImage: "icloud.fill")
+                    Label(L10n.settingsSyncTab.text, systemImage: "icloud.fill")
                 }
                 .tag(SettingsTab.sync)
 
             AboutSettingsView()
                 .tabItem {
-                    Label("About", systemImage: "info.circle")
+                    Label(L10n.settingsAboutTab.text, systemImage: "info.circle")
                 }
                 .tag(SettingsTab.about)
         }

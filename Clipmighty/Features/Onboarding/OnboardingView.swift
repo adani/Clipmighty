@@ -89,7 +89,7 @@ struct OnboardingFooter: View {
                         label: {
                             HStack(spacing: 4) {
                                 Image(systemName: "chevron.left")
-                                Text("Back")
+                                Text(L10n.onboardingBack.text)
                             }
                         }
                     )
@@ -135,7 +135,7 @@ struct OnboardingFooter: View {
                 },
                 label: {
                     HStack(spacing: 4) {
-                        Text("Get Started")
+                        Text(L10n.onboardingGetStarted.text)
                         Image(systemName: "arrow.right")
                     }
                 }
@@ -147,7 +147,7 @@ struct OnboardingFooter: View {
                 action: { viewModel.nextStep() },
                 label: {
                     HStack(spacing: 4) {
-                        Text("Continue")
+                        Text(L10n.onboardingContinue.text)
                         Image(systemName: "chevron.right")
                     }
                 }

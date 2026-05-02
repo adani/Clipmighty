@@ -27,14 +27,11 @@ struct ExcludedAppsStepView: View {
                         )
                     )
 
-                Text("Excluded Apps")
+                Text(L10n.onboardingExcludedAppsTitle.text)
                     .font(.title)
                     .fontWeight(.semibold)
 
-                Text("""
-                    Clipboard content from these apps won't be saved. \
-                    Great for password managers and sensitive apps.
-                    """)
+                Text(L10n.onboardingExcludedAppsDescription.text)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -63,7 +60,7 @@ struct ExcludedAppsStepView: View {
                 label: {
                     HStack {
                         Image(systemName: "plus.circle")
-                        Text("Add Another App")
+                        Text(L10n.onboardingAddAnotherApp.text)
                     }
                 }
             )
@@ -107,7 +104,7 @@ struct OnboardingAppPickerSheet: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
-                    TextField("Search applications...", text: $searchText)
+                    TextField(L10n.appPickerSearchPlaceholder.text, text: $searchText)
                         .textFieldStyle(.plain)
 
                     if !searchText.isEmpty {
@@ -131,7 +128,7 @@ struct OnboardingAppPickerSheet: View {
                 if viewModel.isLoadingApps {
                     VStack {
                         Spacer()
-                        ProgressView("Loading applications...")
+                        ProgressView(L10n.appPickerLoading.text)
                         Spacer()
                     }
                 } else if filteredApps.isEmpty {
@@ -140,7 +137,7 @@ struct OnboardingAppPickerSheet: View {
                         Image(systemName: "app.dashed")
                             .font(.system(size: 48))
                             .foregroundStyle(.secondary)
-                        Text(searchText.isEmpty ? "No applications found" : "No matching applications")
+                        Text(searchText.isEmpty ? L10n.appPickerNoApplications.text : L10n.appPickerNoMatchingApplications.text)
                             .font(.headline)
                             .foregroundStyle(.secondary)
                             .padding(.top)
@@ -163,16 +160,16 @@ struct OnboardingAppPickerSheet: View {
                 }
             }
             .frame(width: 500, height: 400)
-            .navigationTitle("Select Applications to Exclude")
+            .navigationTitle(L10n.appPickerTitle.text)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(L10n.appPickerCancel.text) {
                         dismiss()
                     }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button(L10n.appPickerAdd.text) {
                         viewModel.addApps(Array(selectedApps))
                         dismiss()
                     }
@@ -226,11 +223,11 @@ struct OnboardingAppPickerRow: View {
 
             // Status indicator
             if isExcluded {
-                Label("Already excluded", systemImage: "checkmark.circle.fill")
+                Label(L10n.appPickerAlreadyExcluded.text, systemImage: "checkmark.circle.fill")
                     .labelStyle(.iconOnly)
                     .foregroundStyle(.green)
             } else if isSelected {
-                Label("Selected", systemImage: "checkmark.circle.fill")
+                Label(L10n.appPickerSelected.text, systemImage: "checkmark.circle.fill")
                     .labelStyle(.iconOnly)
                     .foregroundStyle(.blue)
             }

@@ -4,7 +4,7 @@ struct ToastView: View {
     let message: String
     let symbolName: String
 
-    init(message: String = "Copied", symbolName: String = "checkmark.circle.fill") {
+    init(message: String = L10n.toastCopied.string, symbolName: String = "checkmark.circle.fill") {
         self.message = message
         self.symbolName = symbolName
     }

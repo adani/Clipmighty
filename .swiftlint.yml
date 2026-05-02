@@ -13,3 +13,4 @@ included:
 excluded:
   - Pods
   - Build
+  - Clipmighty/Resources/L10n.swift

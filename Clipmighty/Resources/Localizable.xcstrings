@@ -1,0 +1,2334 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "app.menu.about": {
+      "comment": "Menu item in the macOS status-bar menu that opens the About window for Clipmighty. Audited call site(s): Clipmighty/App/ClipmightyApp.swift:76.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About Clipmighty"
+          }
+        }
+      }
+    },
+    "app.menu.title": {
+      "comment": "Title for the macOS menu bar extra. Keep the product name Clipmighty unchanged. Audited call site(s): Clipmighty/App/ClipmightyApp.swift:54.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty"
+          }
+        }
+      }
+    },
+    "appPicker.add": {
+      "comment": "Confirmation toolbar button in both AppPickerSheet and OnboardingAppPickerSheet that adds selected installed apps to the exclusion list; also reused as the Add button in ManualBundleIDSheet. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:116, Clipmighty/Features/Settings/AppPickerSheet.swift:102, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:172.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        }
+      }
+    },
+    "appPicker.alreadyExcluded": {
+      "comment": "Icon-only status label in app picker rows in Settings and onboarding, shown when an installed app is already excluded from clipboard capture. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:156, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:226.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Already excluded"
+          }
+        }
+      }
+    },
+    "appPicker.cancel": {
+      "comment": "Cancellation toolbar button in AppPickerSheet, OnboardingAppPickerSheet, and ManualBundleIDSheet; dismisses the sheet without adding apps or bundle IDs. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:110, Clipmighty/Features/Settings/AppPickerSheet.swift:96, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:166.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "appPicker.loading": {
+      "comment": "ProgressView label in the Settings and onboarding app picker sheets while installed applications are loading. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:61, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:131.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading applications..."
+          }
+        }
+      }
+    },
+    "appPicker.noApplications": {
+      "comment": "Empty-state headline in the Settings and onboarding app picker sheets when the installed-app list is empty and no search is active. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:70, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:140.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No applications found"
+          }
+        }
+      }
+    },
+    "appPicker.noMatchingApplications": {
+      "comment": "Empty-state headline in the Settings and onboarding app picker sheets when the current search matches no installed apps. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:70, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:140.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No matching applications"
+          }
+        }
+      }
+    },
+    "appPicker.search.placeholder": {
+      "comment": "Placeholder for the installed-application search field in both Settings AppPickerSheet and onboarding OnboardingAppPickerSheet. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:37, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:107.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search applications..."
+          }
+        }
+      }
+    },
+    "appPicker.selected": {
+      "comment": "Icon-only status label in app picker rows in Settings and onboarding, shown when the user has selected an app to add. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:160, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:230.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selected"
+          }
+        }
+      }
+    },
+    "appPicker.title": {
+      "comment": "Navigation title for the installed-app picker sheets used from Rules settings and onboarding excluded-app setup. Audited call site(s): Clipmighty/Features/Settings/AppPickerSheet.swift:93, Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:163.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select Applications to Exclude"
+          }
+        }
+      }
+    },
+    "clipboard.context.delete": {
+      "comment": "Delete action label reused in the clipboard item context menu and the excluded-app swipe action. It means remove the current item/row. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:180, Clipmighty/Features/Settings/RulesSettingsView.swift:149.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        }
+      }
+    },
+    "clipboard.context.edit": {
+      "comment": "Context menu action for opening a clipboard history item in the edit view. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:177.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        }
+      }
+    },
+    "clipboard.context.pin": {
+      "comment": "Context menu action for pinning a clipboard history item so it remains available. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:183.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin"
+          }
+        }
+      }
+    },
+    "clipboard.context.unpin": {
+      "comment": "Context menu action for removing the pinned state from a clipboard history item. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:183.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpin"
+          }
+        }
+      }
+    },
+    "clipboard.generated.imageLabel": {
+      "comment": "Generated ClipboardItem.content for image pasteboard entries in ClipboardMonitor+Operations. The placeholder is the pixel size string such as 640x480. Audited call site(s): Clipmighty/Features/Clipboard/ClipboardMonitor+Operations.swift:223.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Image %@"
+          }
+        }
+      }
+    },
+    "clipboard.generated.richTextContent": {
+      "comment": "Fallback ClipboardItem.content in ClipboardMonitor+Operations when HTML/RTF pasteboard content has no plain-text string. Audited call site(s): Clipmighty/Features/Clipboard/ClipboardMonitor+Operations.swift:233.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rich Text Content"
+          }
+        }
+      }
+    },
+    "clipboard.row.deleted": {
+      "comment": "Temporary status text shown in a clipboard history row after the user deletes that item. Audited call site(s): Clipmighty/Features/Clipboard/ClipboardItemRow.swift:103.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deleted"
+          }
+        }
+      }
+    },
+    "clipboard.row.imageUnavailable": {
+      "comment": "Clipboard row fallback shown when an image preview cannot be loaded. Audited call site(s): Clipmighty/Features/Clipboard/ClipboardItemRow.swift:211.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Image (Unavailable)"
+          }
+        }
+      }
+    },
+    "clipboard.row.undo": {
+      "comment": "Button in a deleted clipboard row that restores the recently deleted item. Audited call site(s): Clipmighty/Features/Clipboard/ClipboardItemRow.swift:111.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Undo"
+          }
+        }
+      }
+    },
+    "clipboard.search.placeholder": {
+      "comment": "Placeholder in the main clipboard history search field. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:91.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search clipboard..."
+          }
+        }
+      }
+    },
+    "clipboard.sync.ago": {
+      "comment": "Small relative-time suffix shown after the last iCloud sync time, as in \"5 minutes ago\". Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:239.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ago"
+          }
+        }
+      }
+    },
+    "clipboard.sync.synced": {
+      "comment": "Status label indicating clipboard history has synced with iCloud. Audited call site(s): Clipmighty/Features/Clipboard/ContentView.swift:230.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud Synced"
+          }
+        }
+      }
+    },
+    "date.yesterday.format": {
+      "comment": "Date.relativeTimestamp() output for clipboard item timestamps from yesterday. The placeholder is Foundation-formatted localized time. Audited call site(s): Clipmighty/Extensions/Date+Formatting.swift:16.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yesterday, %@"
+          }
+        }
+      }
+    },
+    "defaultApp.keychainAccess": {
+      "comment": "Display name used when adding Apple Keychain Access as a default excluded app in onboarding and settings view models. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:240, Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:184.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keychain Access"
+          }
+        }
+      }
+    },
+    "edit.cancel": {
+      "comment": "Cancel button in the edit clipboard item sheet that discards changes. Audited call site(s): Clipmighty/Features/Edit/EditView.swift:25.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "edit.saveCopy": {
+      "comment": "Primary button in the edit clipboard item sheet that saves the edited content as a copied item. Audited call site(s): Clipmighty/Features/Edit/EditView.swift:31.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save Copy"
+          }
+        }
+      }
+    },
+    "edit.title": {
+      "comment": "Navigation title for the sheet where a clipboard item can be edited. Audited call site(s): Clipmighty/Features/Edit/EditView.swift:13.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Clipboard Item"
+          }
+        }
+      }
+    },
+    "error.appAlreadyExcluded": {
+      "comment": "Error message shown when the user tries to add an app that is already in the exclusion list. Audited call site(s): Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:59, Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:119.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App is already excluded"
+          }
+        }
+      }
+    },
+    "error.invalidBundleID": {
+      "comment": "Validation error for manually entered bundle identifiers. The example com.example.app should remain in reverse-DNS format. Audited call site(s): Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:113.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invalid bundle ID format. Expected format: com.example.app"
+          }
+        }
+      }
+    },
+    "error.loadApplications": {
+      "comment": "Error message when installed applications cannot be loaded. The placeholder contains the system error description. Audited call site(s): Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:50.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failed to load applications: %@"
+          }
+        }
+      }
+    },
+    "error.saveChanges": {
+      "comment": "Error message shown when Clipmighty cannot save changes to excluded app settings. Audited call site(s): Clipmighty/Features/Settings/ExcludedAppsViewModel.swift:167.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failed to save changes"
+          }
+        }
+      }
+    },
+    "manualBundleID.applicationFound": {
+      "comment": "Validation status label in the manual bundle ID sheet when the entered app is installed. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:71.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Application Found"
+          }
+        }
+      }
+    },
+    "manualBundleID.description": {
+      "comment": "Instructional text explaining that the user can manually enter an app bundle identifier to exclude it. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:51.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter the bundle identifier of the application you want to exclude."
+          }
+        }
+      }
+    },
+    "manualBundleID.field": {
+      "comment": "Text field label for entering an application bundle identifier. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:40.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle ID"
+          }
+        }
+      }
+    },
+    "manualBundleID.invalid": {
+      "comment": "Validation status label in the manual bundle ID sheet for malformed bundle identifiers. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:86.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invalid bundle ID format"
+          }
+        }
+      }
+    },
+    "manualBundleID.invalid.description": {
+      "comment": "Helper text explaining the expected reverse-DNS bundle identifier format. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:88.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle IDs should follow the format: com.company.appname"
+          }
+        }
+      }
+    },
+    "manualBundleID.notFound": {
+      "comment": "Validation status label when the entered bundle identifier does not match an installed app. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:79.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Application not found on this system"
+          }
+        }
+      }
+    },
+    "manualBundleID.notFound.description": {
+      "comment": "Helper text reassuring the user that a bundle ID can still be excluded even if the app is not installed now. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:81.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can still add this bundle ID, but the app may not be installed."
+          }
+        }
+      }
+    },
+    "manualBundleID.prompt": {
+      "comment": "Example placeholder for the manual bundle ID text field. Keep this as a reverse-DNS identifier example. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:42.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "com.example.myapp"
+          }
+        }
+      }
+    },
+    "manualBundleID.section": {
+      "comment": "Section header in the manual bundle ID sheet for the bundle identifier input. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:55.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle Identifier"
+          }
+        }
+      }
+    },
+    "manualBundleID.title": {
+      "comment": "Navigation title for the sheet where users manually add an app bundle identifier to exclude. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:107.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Bundle ID"
+          }
+        }
+      }
+    },
+    "manualBundleID.validation": {
+      "comment": "Section header in the manual bundle ID sheet for validation feedback. Audited call site(s): Clipmighty/Features/Settings/ManualBundleIDSheet.swift:93.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Validation"
+          }
+        }
+      }
+    },
+    "onboarding.back": {
+      "comment": "Back navigation button in the onboarding flow. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingView.swift:92.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        }
+      }
+    },
+    "onboarding.continue": {
+      "comment": "Continue button in the onboarding flow for advancing to the next step. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingView.swift:150.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        }
+      }
+    },
+    "onboarding.excludedApps.addAnother": {
+      "comment": "Button in onboarding that opens app selection so the user can exclude another sensitive app. Audited call site(s): Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:63.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Another App"
+          }
+        }
+      }
+    },
+    "onboarding.excludedApps.description": {
+      "comment": "Onboarding body text explaining that clipboard content from excluded apps is not stored, with password managers as an example. Audited call site(s): Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:34.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipboard content from these apps won't be saved. Great for password managers and sensitive apps."
+          }
+        }
+      }
+    },
+    "onboarding.excludedApps.title": {
+      "comment": "Onboarding step title for configuring apps that Clipmighty should ignore. Audited call site(s): Clipmighty/Features/Onboarding/ExcludedAppsStepView.swift:30.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluded Apps"
+          }
+        }
+      }
+    },
+    "onboarding.feature.appExclusions": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces app exclusion rules. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:42.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🚫 App exclusion rules"
+          }
+        }
+      }
+    },
+    "onboarding.feature.icloudSync": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces iCloud sync. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:41.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "☁️ iCloud sync support"
+          }
+        }
+      }
+    },
+    "onboarding.feature.instantHistory": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces clipboard history. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:37.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📋 Instant clipboard history"
+          }
+        }
+      }
+    },
+    "onboarding.feature.keyboardShortcuts": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces keyboard shortcuts. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:39.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌨️ Quick keyboard shortcuts"
+          }
+        }
+      }
+    },
+    "onboarding.feature.powerfulSearch": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces search. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:38.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🔍 Powerful search"
+          }
+        }
+      }
+    },
+    "onboarding.feature.privacyFocused": {
+      "comment": "Short animated feature highlight on the onboarding welcome screen. The leading icon reinforces privacy. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingViewModel.swift:40.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🔒 Privacy-focused design"
+          }
+        }
+      }
+    },
+    "onboarding.getStarted": {
+      "comment": "Primary button on the first onboarding screen that starts setup. Audited call site(s): Clipmighty/Features/Onboarding/OnboardingView.swift:138.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Started"
+          }
+        }
+      }
+    },
+    "onboarding.permissions.description": {
+      "comment": "Onboarding body text explaining why Accessibility permission enables automatic paste into the active app. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:35.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To automatically insert history items directly into your active apps, Clipmighty needs Accessibility permission. This allows our overlay to simulate the \"Paste\" command for you, saving you manual effort."
+          }
+        }
+      }
+    },
+    "onboarding.permissions.granted": {
+      "comment": "Status label indicating macOS Accessibility permission has already been granted. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:53.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permission Granted"
+          }
+        }
+      }
+    },
+    "onboarding.permissions.openSystemSettings": {
+      "comment": "Button that opens macOS System Settings so the user can grant Accessibility permission. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:66.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open System Settings"
+          }
+        }
+      }
+    },
+    "onboarding.permissions.privacyFirst": {
+      "comment": "Subheading in onboarding that emphasizes the privacy implications of the requested permission. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:82.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy First"
+          }
+        }
+      }
+    },
+    "onboarding.permissions.privacyFirst.description": {
+      "comment": "Onboarding body text explaining Accessibility permission is used only for paste simulation and app identification, not data transmission. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:85.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This permission is strictly used to simulate the 'Paste' command and identify source apps. Your clipboard history remains local and is never transmitted."
+          }
+        }
+      }
+    },
+    "onboarding.permissions.required": {
+      "comment": "Status label indicating macOS Accessibility permission is still required. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:54.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permission Required"
+          }
+        }
+      }
+    },
+    "onboarding.permissions.title": {
+      "comment": "Onboarding step title for enabling automatic paste from the overlay using Accessibility permission. Audited call site(s): Clipmighty/Features/Onboarding/PermissionsStepView.swift:31.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable Overlay Auto-Paste"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.clickToCopy": {
+      "comment": "Label above sample text chips in the onboarding tutorial, prompting users to copy one. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:49.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Click to copy:"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.description": {
+      "comment": "Onboarding tutorial body text instructing the user to copy sample text and paste it with the shortcut. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:39.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Let's try out Clipmighty! Copy one of the texts below, then paste it using the shortcut."
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.great": {
+      "comment": "Positive confirmation shown in onboarding after the user completes the paste tutorial. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:103.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Great!"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.menuBar.description": {
+      "comment": "Onboarding hint explaining how to open Clipmighty from the menu bar or with the default shortcut. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:73.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Click the clipboard icon or use ⌃V to see your history"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.menuBar.title": {
+      "comment": "Onboarding tutorial subheading that points users to the Clipmighty menu bar icon. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:70.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find Clipmighty in your menu bar"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.pasteLabel": {
+      "comment": "Label above the tutorial paste field where users paste copied sample text. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:86.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paste here to complete:"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.pastePlaceholder": {
+      "comment": "Placeholder in the onboarding tutorial text field where users paste sample clipboard content. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:90.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paste here..."
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.ready": {
+      "comment": "Completion message at the end of the onboarding tutorial. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:108.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You're ready to use Clipmighty!"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.sample.copyMe": {
+      "comment": "Sample text shown in onboarding for users to copy during the tutorial. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:16.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy me and paste below!"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.sample.hello": {
+      "comment": "Sample greeting shown in onboarding for users to copy during the tutorial. Keep Clipmighty as the product name. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:15.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hello from Clipmighty! 🎉"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.sample.history": {
+      "comment": "Sample text shown in onboarding for users to copy during the tutorial, referencing clipboard history. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:17.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your clipboard history awaits"
+          }
+        }
+      }
+    },
+    "onboarding.tutorial.title": {
+      "comment": "Onboarding step title for the interactive clipboard tutorial. Audited call site(s): Clipmighty/Features/Onboarding/TutorialStepView.swift:35.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quick Tutorial"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.and": {
+      "comment": "Connector text between Terms of Service and Privacy Policy links on the onboarding welcome screen. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:60.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "and"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.privacy": {
+      "comment": "Link label for the Privacy Policy on the onboarding welcome screen. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:66.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.subtitle": {
+      "comment": "Short tagline under the welcome title on the first onboarding screen. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:32.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your powerful clipboard manager"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.terms": {
+      "comment": "Link label for the Terms of Service on the onboarding welcome screen. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:55.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Service"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.termsPrefix": {
+      "comment": "Introductory text before Terms of Service and Privacy Policy links on the onboarding welcome screen. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:49.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By continuing, you agree to our"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.title": {
+      "comment": "Title on the first onboarding screen. Keep Clipmighty as the product name. Audited call site(s): Clipmighty/Features/Onboarding/WelcomeStepView.swift:28.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Welcome to Clipmighty"
+          }
+        }
+      }
+    },
+    "overlay.empty.message": {
+      "comment": "Empty-state body text in the clipboard overlay when no clipboard history exists yet. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:37.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy something to see it here."
+          }
+        }
+      }
+    },
+    "overlay.empty.title": {
+      "comment": "Empty-state title in the clipboard overlay when there are no saved clipboard items. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:34.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Clipboard History"
+          }
+        }
+      }
+    },
+    "overlay.image": {
+      "comment": "Short content-type label in the overlay for clipboard items that contain images. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:266.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Image"
+          }
+        }
+      }
+    },
+    "overlay.instruction.copy": {
+      "comment": "Header instruction in OverlayView when Accessibility permission is not trusted, so Enter copies the selected item instead of direct-pasting it. The placeholder is the pin/unpin instruction fragment. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:114.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↵ to copy • %@"
+          }
+        }
+      }
+    },
+    "overlay.instruction.paste": {
+      "comment": "Header instruction in OverlayView when Accessibility permission is trusted, so Enter pastes the selected item into the active app. The placeholder is the pin/unpin instruction fragment. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:112.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↵ to paste • %@"
+          }
+        }
+      }
+    },
+    "overlay.instruction.pin": {
+      "comment": "Instruction fragment composed inside OverlayView.pasteInstructionText. The placeholder is OverlayPinShortcut.formattedShortcut(). Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:109.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use %@ to pin/unpin"
+          }
+        }
+      }
+    },
+    "overlay.title": {
+      "comment": "Title at the top of the quick paste overlay showing clipboard history. Audited call site(s): Clipmighty/Features/Overlay/OverlayView.swift:14.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipboard History"
+          }
+        }
+      }
+    },
+    "quit.alert.cancel": {
+      "comment": "Cancel button in the quit confirmation alert that keeps Clipmighty running. Audited call site(s): Clipmighty/App/AppDelegate.swift:90.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "quit.alert.message": {
+      "comment": "Quit confirmation message explaining that clipboard monitoring stops after quitting. Audited call site(s): Clipmighty/App/AppDelegate.swift:88.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to quit the application? It will stop monitoring your clipboard."
+          }
+        }
+      }
+    },
+    "quit.alert.quit": {
+      "comment": "Destructive confirmation button in the quit alert that closes Clipmighty. Audited call site(s): Clipmighty/App/AppDelegate.swift:89.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit"
+          }
+        }
+      }
+    },
+    "quit.alert.title": {
+      "comment": "Title of the confirmation alert shown when the user attempts to quit Clipmighty. Audited call site(s): Clipmighty/App/AppDelegate.swift:86.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit Clipmighty?"
+          }
+        }
+      }
+    },
+    "settings.about.attachLog": {
+      "comment": "Button in the support log prompt that attaches a diagnostic log to the support email. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:15.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attach Log"
+          }
+        }
+      }
+    },
+    "settings.about.attachSupportLog.message": {
+      "comment": "Alert message explaining that a support log can help diagnose the reported issue. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:23.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty can attach a support log to help diagnose the issue."
+          }
+        }
+      }
+    },
+    "settings.about.attachSupportLog.title": {
+      "comment": "Alert title asking whether to attach a support log to a support or bug report email. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:14.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attach support log?"
+          }
+        }
+      }
+    },
+    "settings.about.cancel": {
+      "comment": "Cancel button in the About settings support-log prompt. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:21.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "settings.about.contact": {
+      "comment": "Button in About settings for composing a general feedback email. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:49.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact"
+          }
+        }
+      }
+    },
+    "settings.about.emailError.message": {
+      "comment": "Alert message shown when Clipmighty cannot open or compose an email in the default mail app. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:28.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please make sure a mail app is available and try again."
+          }
+        }
+      }
+    },
+    "settings.about.emailError.title": {
+      "comment": "Alert title shown when email composition fails. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:25.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to compose email"
+          }
+        }
+      }
+    },
+    "settings.about.noThanks": {
+      "comment": "Button in the support log prompt that continues without attaching a diagnostic log. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:18.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Thanks"
+          }
+        }
+      }
+    },
+    "settings.about.ok": {
+      "comment": "Acknowledgement button in the email error alert. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:26.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "settings.about.reportBug": {
+      "comment": "Button in About settings for composing a bug report email. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:45.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Report Bug"
+          }
+        }
+      }
+    },
+    "settings.about.support": {
+      "comment": "Section header in About settings for support actions. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:55.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        }
+      }
+    },
+    "settings.about.support.footer": {
+      "comment": "Footer text in About settings with the support email address for issues, feedback, and feature requests. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:57.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Report issues, feedback, and feature requests at support@nalarin.com."
+          }
+        }
+      }
+    },
+    "settings.about.tab": {
+      "comment": "Settings tab label for the About pane; also reused as the section header above the version row inside About settings. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:33, Clipmighty/Features/Settings/SettingsView.swift:42.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        }
+      }
+    },
+    "settings.about.version": {
+      "comment": "Label for the app version row in About settings. Audited call site(s): Clipmighty/Features/Settings/AboutSettingsView.swift:35.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
+          }
+        }
+      }
+    },
+    "settings.cancel": {
+      "comment": "Cancel button in the Rules settings clear-history confirmation dialog. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:257.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "settings.general.launchAtLogin": {
+      "comment": "Toggle label in General settings for starting Clipmighty automatically when the user logs in. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:58.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Launch at Login"
+          }
+        }
+      }
+    },
+    "settings.general.startup": {
+      "comment": "Section header in General settings for startup behavior. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:57.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Startup"
+          }
+        }
+      }
+    },
+    "settings.general.tab": {
+      "comment": "Sidebar tab label for the General pane in Settings. Audited call site(s): Clipmighty/Features/Settings/SettingsView.swift:24.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General"
+          }
+        }
+      }
+    },
+    "settings.history.clear.message": {
+      "comment": "Destructive confirmation message warning that all clipboard history will be permanently deleted. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:259.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This will permanently delete all clipboard history. This action cannot be undone."
+          }
+        }
+      }
+    },
+    "settings.history.clear.title": {
+      "comment": "Title of the confirmation dialog for clearing all clipboard history. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:250.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear Clipboard History?"
+          }
+        }
+      }
+    },
+    "settings.history.clearAll": {
+      "comment": "Destructive button in History settings that opens the clear-history confirmation dialog. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:240.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear All History…"
+          }
+        }
+      }
+    },
+    "settings.history.days": {
+      "comment": "Unit option for custom clipboard history retention duration. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:223.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Days"
+          }
+        }
+      }
+    },
+    "settings.history.deleteAll": {
+      "comment": "Destructive confirmation button that permanently deletes all clipboard history. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:254.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete All"
+          }
+        }
+      }
+    },
+    "settings.history.duration": {
+      "comment": "Label for the numeric duration field shown when custom history retention is selected. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:213.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duration:"
+          }
+        }
+      }
+    },
+    "settings.history.hours": {
+      "comment": "Unit option for custom clipboard history retention duration. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:222.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hours"
+          }
+        }
+      }
+    },
+    "settings.history.keepHistory": {
+      "comment": "Picker label in History settings for choosing how long clipboard history is retained. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:199.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep history:"
+          }
+        }
+      }
+    },
+    "settings.history.keepPinnedItems": {
+      "comment": "Toggle label in History settings for preserving pinned items during cleanup. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:234.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep pinned items"
+          }
+        }
+      }
+    },
+    "settings.history.minutes": {
+      "comment": "Unit option for custom clipboard history retention duration. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:221.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minutes"
+          }
+        }
+      }
+    },
+    "settings.history.moveCopiedItemToTop": {
+      "comment": "Toggle label in History settings for moving an item to the top after it is copied again. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:67.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Move copied history item to top"
+          }
+        }
+      }
+    },
+    "settings.history.retention.custom": {
+      "comment": "Picker option that lets the user enter a custom clipboard history retention duration. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:383.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom..."
+          }
+        }
+      }
+    },
+    "settings.history.retention.days7": {
+      "comment": "Picker option for retaining clipboard history for seven days. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:381.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 Days"
+          }
+        }
+      }
+    },
+    "settings.history.retention.forever": {
+      "comment": "Picker option for retaining clipboard history indefinitely. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:382.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forever"
+          }
+        }
+      }
+    },
+    "settings.history.retention.hours24": {
+      "comment": "Picker option for retaining clipboard history for twenty-four hours. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:380.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 Hours"
+          }
+        }
+      }
+    },
+    "settings.history.retention.hours8": {
+      "comment": "Picker option for retaining clipboard history for eight hours. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:379.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "8 Hours"
+          }
+        }
+      }
+    },
+    "settings.history.retention.minutes30": {
+      "comment": "Picker option for retaining clipboard history for thirty minutes. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:378.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 Minutes"
+          }
+        }
+      }
+    },
+    "settings.history.section": {
+      "comment": "Settings section header reused in General settings for history behavior and Rules settings for retention/clear-history controls. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:236, Clipmighty/Features/Settings/GeneralSettingsView.swift:66.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "History"
+          }
+        }
+      }
+    },
+    "settings.permissions.assistivePaste": {
+      "comment": "Section header in General settings for paste automation that uses Accessibility permission. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:136.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistive Paste"
+          }
+        }
+      }
+    },
+    "settings.permissions.directPaste": {
+      "comment": "Setting label for direct paste from the overlay into the active application. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:110.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Direct Paste from Overlay"
+          }
+        }
+      }
+    },
+    "settings.permissions.disableAccessibility": {
+      "comment": "Button label that opens macOS Accessibility settings so the user can disable Clipmighty permission. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:127.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disable in Accessibility Settings"
+          }
+        }
+      }
+    },
+    "settings.permissions.disabled": {
+      "comment": "Status badge showing Accessibility-based direct paste is disabled. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:114.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disabled"
+          }
+        }
+      }
+    },
+    "settings.permissions.enableAccessibility": {
+      "comment": "Button label that opens macOS Accessibility settings so the user can enable Clipmighty permission. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:128.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable in Accessibility Settings"
+          }
+        }
+      }
+    },
+    "settings.permissions.enabled": {
+      "comment": "Status badge showing Accessibility-based direct paste is enabled. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:114.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enabled"
+          }
+        }
+      }
+    },
+    "settings.permissions.footer": {
+      "comment": "Footer text explaining the benefit of direct paste from the overlay and the need for Accessibility permission. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:138.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allows Clipmighty to insert selected items directly into the active window. This reduces the need for repetitive manual keystrokes and complex key chords."
+          }
+        }
+      }
+    },
+    "settings.rules.addApp": {
+      "comment": "Button in Rules settings that opens the installed application picker for exclusion rules. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:175.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add App..."
+          }
+        }
+      }
+    },
+    "settings.rules.addBundleID": {
+      "comment": "Button in Rules settings that opens manual bundle identifier entry for exclusion rules. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:180.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Bundle ID..."
+          }
+        }
+      }
+    },
+    "settings.rules.excludedApps": {
+      "comment": "Section header in Rules settings for applications ignored by clipboard capture. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:187.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluded Apps"
+          }
+        }
+      }
+    },
+    "settings.rules.excludedApps.description": {
+      "comment": "Description above the excluded apps list explaining clipboard content from listed apps is ignored. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:112.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipboard content from these apps will be ignored:"
+          }
+        }
+      }
+    },
+    "settings.rules.excludedApps.footer": {
+      "comment": "Footer text explaining the two ways to add excluded apps: browsing installed apps or entering a bundle ID. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:189.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use 'Add App...' to browse installed applications or 'Add Bundle ID...' to manually enter a bundle identifier."
+          }
+        }
+      }
+    },
+    "settings.rules.ignorePasswordManagerEntries": {
+      "comment": "Toggle label in Rules settings for skipping clipboard entries marked private by password managers. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:74.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ignore password manager entries"
+          }
+        }
+      }
+    },
+    "settings.rules.ignorePasswordManagerEntries.description": {
+      "comment": "Description under the password-manager privacy toggle explaining that private or auto-generated clipboard entries are skipped. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:75.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detects and skips clipboard content marked as private or auto-generated."
+          }
+        }
+      }
+    },
+    "settings.rules.manuallyAdded": {
+      "comment": "Help tooltip for the manual-entry indicator icon on excluded-app rows in Rules settings. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:343.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manually added"
+          }
+        }
+      }
+    },
+    "settings.rules.noExcludedApps": {
+      "comment": "Empty-state text in Rules settings when no applications have been excluded. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:120.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No excluded apps"
+          }
+        }
+      }
+    },
+    "settings.rules.privacy": {
+      "comment": "Section header in Rules settings for privacy-related clipboard capture options. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:90.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy"
+          }
+        }
+      }
+    },
+    "settings.rules.privacy.footer": {
+      "comment": "Footer text noting that password-manager detection depends on standard markers and browser extensions may not provide them. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:97.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This feature relies on standard markers that most password managers use. Browser extensions may not always apply these markers."
+          }
+        }
+      }
+    },
+    "settings.rules.removeApp.help": {
+      "comment": "Tooltip for the remove button in the excluded apps list. The placeholder is the app name. Audited call site(s): Clipmighty/Features/Settings/RulesSettingsView.swift:143.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove %@"
+          }
+        }
+      }
+    },
+    "settings.rules.tab": {
+      "comment": "Sidebar tab label for the Rules pane in Settings. Audited call site(s): Clipmighty/Features/Settings/SettingsView.swift:30.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rules"
+          }
+        }
+      }
+    },
+    "settings.shortcut.footer": {
+      "comment": "Footer text in Keyboard Shortcut settings explaining shortcuts and the requirement for a modifier key. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:99.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set shortcuts for opening the paste overlay and pinning items in it. The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃)."
+          }
+        }
+      }
+    },
+    "settings.shortcut.pasteOverlay": {
+      "comment": "Label for the keyboard shortcut recorder that opens the paste overlay. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:76.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paste Overlay:"
+          }
+        }
+      }
+    },
+    "settings.shortcut.pinUnpinOverlay": {
+      "comment": "Label for the keyboard shortcut recorder that pins or unpins the selected overlay item. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:87.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin/Unpin in Overlay:"
+          }
+        }
+      }
+    },
+    "settings.shortcut.section": {
+      "comment": "Section header in General settings for keyboard shortcut configuration. Audited call site(s): Clipmighty/Features/Settings/GeneralSettingsView.swift:97.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keyboard Shortcut"
+          }
+        }
+      }
+    },
+    "settings.sync.icloud.disabledDescription": {
+      "comment": "Description under the iCloud sync toggle when sync is off, inviting the user to enable cross-device history sync. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:45.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable to sync clipboard history across your devices."
+          }
+        }
+      }
+    },
+    "settings.sync.icloud.enabledDescription": {
+      "comment": "Description under the iCloud sync toggle when sync is on, explaining history syncs across devices on the same iCloud account. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:39.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipboard history syncs across your devices signed into the same iCloud account."
+          }
+        }
+      }
+    },
+    "settings.sync.icloud.section": {
+      "comment": "Section header in Sync settings for iCloud-related controls. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:57.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        }
+      }
+    },
+    "settings.sync.icloud.toggle": {
+      "comment": "Toggle label in Sync settings for enabling or disabling iCloud clipboard history sync. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:37.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sync with iCloud"
+          }
+        }
+      }
+    },
+    "settings.sync.restart.later": {
+      "comment": "Cancel-style button in the sync restart alert that postpones restarting Clipmighty. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:25.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Later"
+          }
+        }
+      }
+    },
+    "settings.sync.restart.message": {
+      "comment": "Alert message explaining that Clipmighty must restart before sync setting changes take effect. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:27.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty needs to restart to apply changes to sync settings."
+          }
+        }
+      }
+    },
+    "settings.sync.restart.now": {
+      "comment": "Primary button in the sync restart alert that restarts Clipmighty immediately. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:22.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restart Now"
+          }
+        }
+      }
+    },
+    "settings.sync.restart.title": {
+      "comment": "Alert title shown after changing sync settings when a restart is required. Audited call site(s): Clipmighty/Features/Settings/SyncSettingsView.swift:21.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restart Required"
+          }
+        }
+      }
+    },
+    "settings.sync.tab": {
+      "comment": "Sidebar tab label for the Sync pane in Settings. Audited call site(s): Clipmighty/Features/Settings/SettingsView.swift:36.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sync"
+          }
+        }
+      }
+    },
+    "shortcut.key.space": {
+      "comment": "Display name for the Space key in KeyboardShortcutFormatter and in system shortcut conflict descriptions such as Command-Space. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:322, Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:402, Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:412.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Space"
+          }
+        }
+      }
+    },
+    "shortcut.recording.placeholder": {
+      "comment": "Placeholder shown in the shortcut recorder before the user presses a shortcut. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:178.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Press shortcut..."
+          }
+        }
+      }
+    },
+    "shortcut.system.closeWindow": {
+      "comment": "System shortcut description used in validation messages for Command-W conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:357.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close Window"
+          }
+        }
+      }
+    },
+    "shortcut.system.copy": {
+      "comment": "System shortcut description used in validation messages for Command-C conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:382.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy"
+          }
+        }
+      }
+    },
+    "shortcut.system.cut": {
+      "comment": "System shortcut description used in validation messages for Command-X conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:387.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cut"
+          }
+        }
+      }
+    },
+    "shortcut.system.emojiSymbols": {
+      "comment": "System shortcut description used in validation messages for Control-Command-Space conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:412.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emoji & Symbols"
+          }
+        }
+      }
+    },
+    "shortcut.system.hideApplication": {
+      "comment": "System shortcut description used in validation messages for Command-H conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:367.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hide Application"
+          }
+        }
+      }
+    },
+    "shortcut.system.minimizeWindow": {
+      "comment": "System shortcut description used in validation messages for Command-M conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:362.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimize Window"
+          }
+        }
+      }
+    },
+    "shortcut.system.paste": {
+      "comment": "System shortcut description used in validation messages for Command-V conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:392.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paste"
+          }
+        }
+      }
+    },
+    "shortcut.system.preferences": {
+      "comment": "System shortcut description used in validation messages for Command-comma conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:372.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences"
+          }
+        }
+      }
+    },
+    "shortcut.system.quitApplication": {
+      "comment": "System shortcut description used in validation messages for Command-Q conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:352.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit Application"
+          }
+        }
+      }
+    },
+    "shortcut.system.selectAll": {
+      "comment": "System shortcut description used in validation messages for Command-A conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:377.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select All"
+          }
+        }
+      }
+    },
+    "shortcut.system.spotlight": {
+      "comment": "System shortcut description used in validation messages for Command-Space conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:402.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spotlight"
+          }
+        }
+      }
+    },
+    "shortcut.system.switchApps": {
+      "comment": "System shortcut description used in validation messages for Command-Tab conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:407.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch Apps"
+          }
+        }
+      }
+    },
+    "shortcut.system.undo": {
+      "comment": "System shortcut description used in validation messages for Command-Z conflicts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:397.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Undo"
+          }
+        }
+      }
+    },
+    "shortcut.validation.conflict": {
+      "comment": "Keyboard shortcut validation message from KeyboardShortcutRecorder when a chosen shortcut conflicts with reserved system shortcuts. The placeholder is a comma-separated list of conflict descriptions. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:158.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conflicts with system shortcut: %@"
+          }
+        }
+      }
+    },
+    "shortcut.validation.invalid.title": {
+      "comment": "Title for the alert shown when the user records an invalid keyboard shortcut. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:166.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invalid Shortcut"
+          }
+        }
+      }
+    },
+    "shortcut.validation.noModifier": {
+      "comment": "Validation message requiring the user to include at least one modifier key in custom shortcuts. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:152.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please use at least one modifier key (⌘, ⇧, ⌥, or ⌃)"
+          }
+        }
+      }
+    },
+    "shortcut.validation.ok": {
+      "comment": "Acknowledgement button in the invalid shortcut alert. Audited call site(s): Clipmighty/Features/Settings/KeyboardShortcutRecorder.swift:169.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "support.bug.actualBehavior": {
+      "comment": "Prompt label inserted into the bug report email body asking the user to describe what happened. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:170.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actual behavior:"
+          }
+        }
+      }
+    },
+    "support.bug.expectedBehavior": {
+      "comment": "Prompt label inserted into the bug report email body asking the user to describe what they expected. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:168.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expected behavior:"
+          }
+        }
+      }
+    },
+    "support.bug.issueDescription": {
+      "comment": "Prompt label inserted into the bug report email body asking the user to summarize the issue. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:166.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issue description:"
+          }
+        }
+      }
+    },
+    "support.bug.timestampFormat": {
+      "comment": "Bug-report email line showing when the report body was generated. The placeholder is an ISO-8601 timestamp. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:175.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timestamp: %@"
+          }
+        }
+      }
+    },
+    "support.bugReport.subject": {
+      "comment": "Default email subject for bug report messages sent to Clipmighty support. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:33, Clipmighty/Utilities/AboutSupport.swift:124.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bug Report for Clipmighty"
+          }
+        }
+      }
+    },
+    "support.contact.body": {
+      "comment": "Opening line inserted into general feedback emails and also reused at the top of the generated bug-report email body. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:28, Clipmighty/Utilities/AboutSupport.swift:164.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hi Clipmighty team,"
+          }
+        }
+      }
+    },
+    "support.contact.subject": {
+      "comment": "Default email subject for general feedback messages sent to Clipmighty support. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:27.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feedback for Clipmighty"
+          }
+        }
+      }
+    },
+    "support.log.generatedFormat": {
+      "comment": "Support log line showing when the log was generated. The placeholder is an ISO-8601 timestamp. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:53.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generated: %@"
+          }
+        }
+      }
+    },
+    "support.log.macOSFormat": {
+      "comment": "Diagnostic support log line and bug-report email line showing the macOS version. The placeholder is ProcessInfo.operatingSystemVersionString. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:55, Clipmighty/Utilities/AboutSupport.swift:174.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS: %@"
+          }
+        }
+      }
+    },
+    "support.log.preferencesSnapshot": {
+      "comment": "Section heading in the diagnostic support log before app preference values. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:57.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences Snapshot:"
+          }
+        }
+      }
+    },
+    "support.log.title": {
+      "comment": "Title at the top of the diagnostic support log attached to support emails. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:52.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty Support Log"
+          }
+        }
+      }
+    },
+    "support.version.buildFormat": {
+      "comment": "Version label that includes app version and build number. The placeholders are version first, build number second. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:16.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@ (Build %@)"
+          }
+        }
+      }
+    },
+    "support.version.format": {
+      "comment": "Version label that includes only the app version. The placeholder is the version number. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:20.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
+          }
+        }
+      }
+    },
+    "support.version.unknown": {
+      "comment": "Fallback version label shown when the app version cannot be read from the bundle. Audited call site(s): Clipmighty/Utilities/AboutSupport.swift:9, Clipmighty/Utilities/AboutSupport.swift:23.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version Unknown"
+          }
+        }
+      }
+    },
+    "toast.copied": {
+      "comment": "Default toast text used by AppDelegate.showToast, ToastWindow.show, and ToastView after a history item is copied. Audited call site(s): Clipmighty/App/AppDelegate.swift:298, Clipmighty/Features/Toast/ToastView.swift:7, Clipmighty/Features/Toast/ToastWindow.swift:31.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copied"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

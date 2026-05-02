@@ -34,7 +34,7 @@ struct AppPickerSheet: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
-                    TextField("Search applications...", text: $searchText)
+                    TextField(L10n.appPickerSearchPlaceholder.text, text: $searchText)
                         .textFieldStyle(.plain)
 
                     if !searchText.isEmpty {
@@ -58,7 +58,7 @@ struct AppPickerSheet: View {
                 if viewModel.isLoadingApps {
                     VStack {
                         Spacer()
-                        ProgressView("Loading applications...")
+                        ProgressView(L10n.appPickerLoading.text)
                         Spacer()
                     }
                 } else if filteredApps.isEmpty {
@@ -67,7 +67,7 @@ struct AppPickerSheet: View {
                         Image(systemName: "app.dashed")
                             .font(.system(size: 48))
                             .foregroundStyle(.secondary)
-                        Text(searchText.isEmpty ? "No applications found" : "No matching applications")
+                        Text(searchText.isEmpty ? L10n.appPickerNoApplications.text : L10n.appPickerNoMatchingApplications.text)
                             .font(.headline)
                             .foregroundStyle(.secondary)
                             .padding(.top)
@@ -90,16 +90,16 @@ struct AppPickerSheet: View {
                 }
             }
             .frame(width: 600, height: 500)
-            .navigationTitle("Select Applications to Exclude")
+            .navigationTitle(L10n.appPickerTitle.text)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(L10n.appPickerCancel.text) {
                         dismiss()
                     }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button(L10n.appPickerAdd.text) {
                         viewModel.addApps(Array(selectedApps))
                         dismiss()
                     }
@@ -153,11 +153,11 @@ struct AppPickerRow: View {
 
             // Status indicator
             if isExcluded {
-                Label("Already excluded", systemImage: "checkmark.circle.fill")
+                Label(L10n.appPickerAlreadyExcluded.text, systemImage: "checkmark.circle.fill")
                     .labelStyle(.iconOnly)
                     .foregroundStyle(.green)
             } else if isSelected {
-                Label("Selected", systemImage: "checkmark.circle.fill")
+                Label(L10n.appPickerSelected.text, systemImage: "checkmark.circle.fill")
                     .labelStyle(.iconOnly)
                     .foregroundStyle(.blue)
             }

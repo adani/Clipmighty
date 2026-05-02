@@ -12,9 +12,8 @@ extension Date {
             // Today: Only show the time component
             return self.formatted(date: .omitted, time: .shortened)
         } else if calendar.isDateInYesterday(self) {
-            // Yesterday: "Yesterday, HH:mm"
             let time = self.formatted(date: .omitted, time: .shortened)
-            return "Yesterday, \(time)"
+            return L10n.dateYesterdayFormat.string(time)
         } else {
             // More than 2 days ago: Date + Time
             // .dateTime.day().month().hour().minute() automatically handles the order

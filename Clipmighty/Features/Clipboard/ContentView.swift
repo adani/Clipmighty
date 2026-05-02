@@ -88,7 +88,7 @@ struct ContentView: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.secondary)
-            TextField("Search clipboard...", text: $searchText)
+            TextField(L10n.clipboardSearchPlaceholder.text, text: $searchText)
                 .textFieldStyle(.plain)
 
             Spacer()
@@ -174,13 +174,13 @@ struct ContentView: View {
                             }
                         }
                         .contextMenu {
-                            Button("Edit") {
+                            Button(L10n.clipboardContextEdit.text) {
                                 itemToEdit = item
                             }
-                            Button("Delete", role: .destructive) {
+                            Button(L10n.clipboardContextDelete.text, role: .destructive) {
                                 deleteItem(item)
                             }
-                            Button(item.isPinned ? "Unpin" : "Pin") {
+                            Button(item.isPinned ? L10n.clipboardContextUnpin.text : L10n.clipboardContextPin.text) {
                                 togglePin(item)
                             }
                         }
@@ -227,7 +227,7 @@ struct ContentView: View {
                 .font(.system(size: 11))
                 .foregroundColor(.blue)
 
-            Text("iCloud Synced")
+            Text(L10n.clipboardSynced.text)
                 .font(.system(size: 11))
                 .foregroundColor(.secondary)
 
@@ -236,7 +236,7 @@ struct ContentView: View {
             Text(lastSyncTime, style: .relative)
                 .font(.system(size: 10))
                 .foregroundColor(.secondary)
-            Text("ago")
+            Text(L10n.clipboardRelativeAgo.text)
                 .font(.system(size: 10))
                 .foregroundColor(.secondary)
         }

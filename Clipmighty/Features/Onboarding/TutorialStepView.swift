@@ -12,9 +12,9 @@ import AppKit
 struct TutorialStepView: View {
     @Bindable var viewModel: OnboardingViewModel
     @State private var copiedTexts = [
-        "Hello from Clipmighty! 🎉",
-        "Copy me and paste below!",
-        "Your clipboard history awaits"
+        L10n.onboardingTutorialSampleHello.string,
+        L10n.onboardingTutorialSampleCopyMe.string,
+        L10n.onboardingTutorialSampleHistory.string
     ]
     @State private var showCopiedFeedback = false
 
@@ -32,14 +32,11 @@ struct TutorialStepView: View {
                         )
                     )
 
-                Text("Quick Tutorial")
+                Text(L10n.onboardingTutorialTitle.text)
                     .font(.title)
                     .fontWeight(.semibold)
 
-                Text("""
-                    Let's try out Clipmighty! Copy one of the texts below, \
-                    then paste it using the shortcut.
-                    """)
+                Text(L10n.onboardingTutorialDescription.text)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -49,7 +46,7 @@ struct TutorialStepView: View {
 
             // Copyable texts
             VStack(spacing: 8) {
-                Text("Click to copy:")
+                Text(L10n.onboardingTutorialClickToCopy.text)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
@@ -70,10 +67,10 @@ struct TutorialStepView: View {
                     .foregroundColor(.accentColor)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Find Clipmighty in your menu bar")
+                    Text(L10n.onboardingTutorialMenuBarTitle.text)
                         .font(.headline)
 
-                    Text("Click the clipboard icon or use ⌃V to see your history")
+                    Text(L10n.onboardingTutorialMenuBarDescription.text)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -86,11 +83,11 @@ struct TutorialStepView: View {
 
             // Paste area
             VStack(spacing: 8) {
-                Text("Paste here to complete:")
+                Text(L10n.onboardingTutorialPasteLabel.text)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
-                TextField("Paste here...", text: $viewModel.tutorialPastedText)
+                TextField(L10n.onboardingTutorialPastePlaceholder.text, text: $viewModel.tutorialPastedText)
                     .textFieldStyle(.roundedBorder)
                     .frame(maxWidth: 400)
                     .onChange(of: viewModel.tutorialPastedText) {
@@ -103,12 +100,12 @@ struct TutorialStepView: View {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.title2)
                                 .foregroundColor(.green)
-                            Text("Great!")
+                            Text(L10n.onboardingTutorialGreat.text)
                                 .font(.title2)
                                 .foregroundColor(.green)
                                 .fontWeight(.semibold)
                         }
-                        Text("You're ready to use Clipmighty!")
+                        Text(L10n.onboardingTutorialReady.text)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

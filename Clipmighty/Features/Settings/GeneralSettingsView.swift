@@ -54,8 +54,8 @@ struct GeneralSettingsView: View {
     @State private var launchAtLogin: Bool = LaunchAtLoginService.isEnabled
 
     private var startupSection: some View {
-        Section("Startup") {
-            Toggle("Launch at Login", isOn: $launchAtLogin)
+        Section(L10n.settingsStartupSection.text) {
+            Toggle(L10n.settingsLaunchAtLogin.text, isOn: $launchAtLogin)
                 .onChange(of: launchAtLogin) { _, newValue in
                     LaunchAtLoginService.isEnabled = newValue
                 }
@@ -63,8 +63,8 @@ struct GeneralSettingsView: View {
     }
 
     private var historyBehaviorSection: some View {
-        Section("History") {
-            Toggle("Move copied history item to top", isOn: $reorderCopiedItemsToTop)
+        Section(L10n.settingsHistorySection.text) {
+            Toggle(L10n.settingsMoveCopiedItemToTop.text, isOn: $reorderCopiedItemsToTop)
         }
     }
 
@@ -73,7 +73,7 @@ struct GeneralSettingsView: View {
     private var shortcutSection: some View {
         Section {
             HStack(alignment: .center) {
-                Text("Paste Overlay:")
+                Text(L10n.settingsPasteOverlay.text)
                 Spacer()
                 KeyboardShortcutRecorder(
                     keyCode: $shortcutKeyCode,
@@ -84,7 +84,7 @@ struct GeneralSettingsView: View {
             }
 
             HStack(alignment: .center) {
-                Text("Pin/Unpin in Overlay:")
+                Text(L10n.settingsPinUnpinOverlay.text)
                 Spacer()
                 KeyboardShortcutRecorder(
                     keyCode: $pinShortcutKeyCode,
@@ -94,10 +94,9 @@ struct GeneralSettingsView: View {
                 )
             }
         } header: {
-            Text("Keyboard Shortcut")
+            Text(L10n.settingsKeyboardShortcut.text)
         } footer: {
-            Text("Set shortcuts for opening the paste overlay and pinning items in it. " +
-                 "The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃).")
+            Text(L10n.settingsKeyboardShortcutFooter.text)
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -108,11 +107,11 @@ struct GeneralSettingsView: View {
     private var permissionsSection: some View {
         Section {
             HStack {
-                Text("Direct Paste from Overlay")
+                Text(L10n.settingsDirectPaste.text)
                 Spacer()
                 HStack(spacing: 8) {
                     // Status badge
-                    Text(isAccessibilityTrusted ? "Enabled" : "Disabled")
+                    Text(isAccessibilityTrusted ? L10n.settingsEnabled.text : L10n.settingsDisabled.text)
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundColor(.white)
@@ -123,19 +122,20 @@ struct GeneralSettingsView: View {
                                 .fill(isAccessibilityTrusted ? Color.green : Color.secondary.opacity(0.5))
                         )
                     
-                    Button(isAccessibilityTrusted ? "Disable in Accessibility Settings" : "Enable in Accessibility Settings") {
+                    Button(
+                        isAccessibilityTrusted
+                        ? L10n.settingsDisableAccessibility.text
+                        : L10n.settingsEnableAccessibility.text
+                    ) {
                         openSystemSettings()
                     }
                     .controlSize(.regular)
                 }
             }
         } header: {
-            Text("Assistive Paste")
+            Text(L10n.settingsAssistivePaste.text)
         } footer: {
-            Text(
-                "Allows Clipmighty to insert selected items directly into the active window. " +
-                "This reduces the need for repetitive manual keystrokes and complex key chords."
-            )
+            Text(L10n.settingsAssistivePasteFooter.text)
             .font(.caption)
             .foregroundColor(.secondary)
         }

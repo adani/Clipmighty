@@ -47,7 +47,7 @@ class ExcludedAppsViewModel {
             installedApps = await appDiscovery.getInstalledApplications()
             isLoadingApps = false
         } catch {
-            errorMessage = "Failed to load applications: \(error.localizedDescription)"
+            errorMessage = L10n.errorLoadApplications.string(error.localizedDescription)
             isLoadingApps = false
         }
     }
@@ -56,7 +56,7 @@ class ExcludedAppsViewModel {
     func addApp(bundleID: String, name: String, icon: NSImage?, isManual: Bool) {
         // Check for duplicates
         guard !excludedApps.contains(where: { $0.bundleID == bundleID }) else {
-            errorMessage = "App is already excluded"
+            errorMessage = L10n.errorAppAlreadyExcluded.string
             return
         }
 
@@ -110,13 +110,13 @@ class ExcludedAppsViewModel {
 
         // Validate format
         guard appDiscovery.validateBundleID(trimmedID) else {
-            errorMessage = "Invalid bundle ID format. Expected format: com.example.app"
+            errorMessage = L10n.errorInvalidBundleID.string
             return false
         }
 
         // Check for duplicates
         guard !excludedApps.contains(where: { $0.bundleID == trimmedID }) else {
-            errorMessage = "App is already excluded"
+            errorMessage = L10n.errorAppAlreadyExcluded.string
             return false
         }
 
@@ -164,7 +164,7 @@ class ExcludedAppsViewModel {
             UserDefaults.standard.set(data, forKey: userDefaultsKey)
         } catch {
             print("Failed to save excluded apps: \(error)")
-            errorMessage = "Failed to save changes"
+            errorMessage = L10n.errorSaveChanges.string
         }
     }
 
@@ -181,7 +181,7 @@ class ExcludedAppsViewModel {
         if let info = appDiscovery.getAppInfo(bundleID: keychainID) {
             addApp(bundleID: keychainID, name: info.name, icon: info.icon, isManual: false)
         } else {
-            addApp(bundleID: keychainID, name: "Keychain Access", icon: nil, isManual: false)
+            addApp(bundleID: keychainID, name: L10n.defaultAppKeychainAccess.string, icon: nil, isManual: false)
         }
 
         // List of other potential apps to exclude if they are installed

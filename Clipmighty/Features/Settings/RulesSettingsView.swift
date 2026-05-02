@@ -8,8 +8,6 @@
 import SwiftUI
 import SwiftData
 
-// swiftlint:disable file_length
-
 struct RulesSettingsView: View {
     @AppStorage("ignoreConcealedContent") private var ignoreConcealedContent: Bool = true
     @AppStorage("keepPinnedItemsOnCleanup") private var keepPinnedItemsOnCleanup: Bool = true
@@ -73,8 +71,8 @@ struct RulesSettingsView: View {
         Section {
             Toggle(isOn: $ignoreConcealedContent) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Ignore password manager entries")
-                    Text("Detects and skips clipboard content marked as private or auto-generated.")
+                    Text(L10n.rulesIgnorePasswordManagerEntries.text)
+                    Text(L10n.rulesIgnorePasswordManagerEntriesDescription.text)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .lineLimit(nil)
@@ -89,17 +87,14 @@ struct RulesSettingsView: View {
                 )
             }
         } header: {
-            Text("Privacy")
+            Text(L10n.rulesPrivacySection.text)
         } footer: {
             HStack(alignment: .top, spacing: 6) {
                 Image(systemName: "info.circle")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
-                Text(
-                    "This feature relies on standard markers that most password managers use. " +
-                    "Browser extensions may not always apply these markers."
-                )
+                Text(L10n.rulesPrivacyFooter.text)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .lineLimit(nil)
@@ -114,7 +109,7 @@ struct RulesSettingsView: View {
     private var excludeApplicationsSection: some View {
         Section {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Clipboard content from these apps will be ignored:")
+                Text(L10n.rulesExcludedAppsDescription.text)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(nil)
@@ -122,7 +117,7 @@ struct RulesSettingsView: View {
 
                 // Excluded apps list
                 if viewModel.excludedApps.isEmpty {
-                    Text("No excluded apps")
+                    Text(L10n.rulesNoExcludedApps.text)
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -145,13 +140,13 @@ struct RulesSettingsView: View {
                                         .foregroundStyle(.red)
                                 }
                                 .buttonStyle(.plain)
-                                .help("Remove \(app.name)")
+                                .help(L10n.rulesRemoveAppHelp.string(app.name))
                             }
                             .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                                 Button(role: .destructive) {
                                     viewModel.removeApp(id: app.id)
                                 } label: {
-                                    Label("Delete", systemImage: "trash")
+                                    Label(L10n.clipboardContextDelete.text, systemImage: "trash")
                                 }
                             }
                         }
@@ -177,22 +172,21 @@ struct RulesSettingsView: View {
 
                 // Add buttons
                 HStack(spacing: 12) {
-                    Button("Add App...") {
+                    Button(L10n.rulesAddApp.text) {
                         viewModel.showAppPicker = true
                     }
                     .controlSize(.regular)
 
-                    Button("Add Bundle ID...") {
+                    Button(L10n.rulesAddBundleID.text) {
                         viewModel.showManualEntry = true
                     }
                     .controlSize(.regular)
                 }
             }
         } header: {
-            Text("Excluded Apps")
+            Text(L10n.rulesExcludedAppsSection.text)
         } footer: {
-            Text("Use 'Add App...' to browse installed applications or 'Add Bundle ID...' " +
-                 "to manually enter a bundle identifier.")
+            Text(L10n.rulesExcludedAppsFooter.text)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -202,21 +196,21 @@ struct RulesSettingsView: View {
     
     private var historySection: some View {
         Section {
-            Picker("Keep history:", selection: $selectedOption) {
-                Text(RetentionOption.minutes30.label).tag(RetentionOption.minutes30)
-                Text(RetentionOption.hours8.label).tag(RetentionOption.hours8)
-                Text(RetentionOption.hours24.label).tag(RetentionOption.hours24)
-                Text(RetentionOption.days7.label).tag(RetentionOption.days7)
+            Picker(L10n.rulesKeepHistory.text, selection: $selectedOption) {
+                Text(RetentionOption.minutes30.localizedLabel).tag(RetentionOption.minutes30)
+                Text(RetentionOption.hours8.localizedLabel).tag(RetentionOption.hours8)
+                Text(RetentionOption.hours24.localizedLabel).tag(RetentionOption.hours24)
+                Text(RetentionOption.days7.localizedLabel).tag(RetentionOption.days7)
                 Divider()
-                Text(RetentionOption.forever.label).tag(RetentionOption.forever)
+                Text(RetentionOption.forever.localizedLabel).tag(RetentionOption.forever)
                 Divider()
-                Text(RetentionOption.custom.label).tag(RetentionOption.custom)
+                Text(RetentionOption.custom.localizedLabel).tag(RetentionOption.custom)
             }
             .pickerStyle(.menu)
             .onChange(of: selectedOption) { _, _ in updateRetention() }
 
             if selectedOption == .custom {
-                LabeledContent("Duration:") {
+                LabeledContent(L10n.rulesDuration.text) {
                     HStack(spacing: 8) {
                         TextField("", value: $customMinutes, format: .number)
                             .labelsHidden()
@@ -224,9 +218,9 @@ struct RulesSettingsView: View {
                             .multilineTextAlignment(.trailing)
 
                         Picker("", selection: $customUnit) {
-                            Text("Minutes").tag(TimeUnit.minutes)
-                            Text("Hours").tag(TimeUnit.hours)
-                            Text("Days").tag(TimeUnit.days)
+                            Text(L10n.rulesMinutes.text).tag(TimeUnit.minutes)
+                            Text(L10n.rulesHours.text).tag(TimeUnit.hours)
+                            Text(L10n.rulesDays.text).tag(TimeUnit.days)
                         }
                         .labelsHidden()
                         .fixedSize()
@@ -237,13 +231,13 @@ struct RulesSettingsView: View {
                 .onChange(of: customUnit) { _, _ in updateRetention() }
             }
 
-            Toggle("Keep pinned items", isOn: $keepPinnedItemsOnCleanup)
+            Toggle(L10n.rulesKeepPinnedItems.text, isOn: $keepPinnedItemsOnCleanup)
         } header: {
-            Text("History")
+            Text(L10n.settingsHistorySection.text)
         } footer: {
             HStack {
                 Spacer()
-                Button("Clear All History…", role: .destructive) {
+                Button(L10n.rulesClearAllHistory.text, role: .destructive) {
                     showingClearConfirmation = true
                 }
                 .buttonStyle(.borderless)
@@ -253,17 +247,16 @@ struct RulesSettingsView: View {
             .padding(.top, 8)
         }
         .confirmationDialog(
-            "Clear Clipboard History?",
+            L10n.rulesClearHistoryTitle.text,
             isPresented: $showingClearConfirmation,
             titleVisibility: .visible
         ) {
-            Button("Delete All", role: .destructive) {
+            Button(L10n.rulesDeleteAll.text, role: .destructive) {
                 clearHistory()
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.rulesCancel.text, role: .cancel) {}
         } message: {
-            Text(
-                "This will permanently delete all clipboard history. This action cannot be undone.")
+            Text(L10n.rulesClearHistoryMessage.text)
         }
     }
 }
@@ -347,7 +340,7 @@ struct ExcludedAppRow: View {
                 Image(systemName: "text.badge.checkmark")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .help("Manually added")
+                    .help(L10n.rulesManuallyAdded.string)
             }
         }
         .padding(.vertical, 2)
@@ -380,14 +373,14 @@ private enum RetentionOption: Hashable {
     case forever
     case custom
 
-    var label: String {
+    var localizedLabel: LocalizedStringKey {
         switch self {
-        case .minutes30: return "30 Minutes"
-        case .hours8: return "8 Hours"
-        case .hours24: return "24 Hours"
-        case .days7: return "7 Days"
-        case .forever: return "Forever"
-        case .custom: return "Custom..."
+        case .minutes30: return L10n.retentionMinutes30.text
+        case .hours8: return L10n.retentionHours8.text
+        case .hours24: return L10n.retentionHours24.text
+        case .days7: return L10n.retentionDays7.text
+        case .forever: return L10n.retentionForever.text
+        case .custom: return L10n.retentionCustom.text
         }
     }
 

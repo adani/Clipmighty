@@ -10,7 +10,7 @@ struct EditView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Edit Clipboard Item")
+            Text(L10n.editTitle.text)
                 .font(.headline)
                 .padding(.bottom, 8)
 
@@ -22,13 +22,13 @@ struct EditView: View {
                 .frame(minHeight: 150)
 
             HStack {
-                Button("Cancel") {
+                Button(L10n.editCancel.text) {
                     dismiss()
                 }
 
                 Spacer()
 
-                Button("Save Copy") {
+                Button(L10n.editSaveCopy.text) {
                     saveAndCopy()
                 }
                 .buttonStyle(.borderedProminent)

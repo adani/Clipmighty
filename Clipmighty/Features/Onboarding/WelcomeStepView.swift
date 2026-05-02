@@ -25,11 +25,11 @@ struct WelcomeStepView: View {
 
             // Welcome text
             VStack(spacing: 8) {
-                Text("Welcome to Clipmighty")
+                Text(L10n.onboardingWelcomeTitle.text)
                     .font(.largeTitle)
                     .fontWeight(.bold)
 
-                Text("Your powerful clipboard manager")
+                Text(L10n.onboardingWelcomeSubtitle.text)
                     .font(.title3)
                     .foregroundColor(.secondary)
             }
@@ -46,20 +46,26 @@ struct WelcomeStepView: View {
 
             // Terms and Privacy links
             HStack(spacing: 4) {
-                Text("By continuing, you agree to our")
+                Text(L10n.onboardingTermsPrefix.text)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
                 // swiftlint:disable:next force_unwrapping
-                Link("Terms of Service", destination: URL(string: "https://nalarin.com/clipmighty/terms")!)
+                Link(
+                    L10n.onboardingTermsOfService.string,
+                    destination: URL(string: "https://nalarin.com/clipmighty/terms")!
+                )
                     .font(.caption)
 
-                Text("and")
+                Text(L10n.onboardingTermsAnd.text)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
                 // swiftlint:disable:next force_unwrapping
-                Link("Privacy Policy", destination: URL(string: "https://nalarin.com/clipmighty/privacy")!)
+                Link(
+                    L10n.onboardingPrivacyPolicy.string,
+                    destination: URL(string: "https://nalarin.com/clipmighty/privacy")!
+                )
                     .font(.caption)
             }
             .padding(.bottom, 8)

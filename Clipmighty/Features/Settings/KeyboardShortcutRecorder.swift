@@ -9,6 +9,7 @@ import AppKit
 import Carbon
 import SwiftUI
 
+// swiftlint:disable file_length
 struct KeyboardShortcutRecorder: NSViewRepresentable {
     @Binding var keyCode: Int
     @Binding var modifierFlags: Int
@@ -148,13 +149,13 @@ class KeyRecorderView: NSView {
     private func validateShortcut(keyCode: Int, modifiers: Int) -> String? {
         // Require at least one modifier key
         if modifiers == 0 {
-            return "Please use at least one modifier key (⌘, ⇧, ⌥, or ⌃)"
+            return L10n.shortcutValidationNoModifier.string
         }
 
         // Check for common system shortcuts to avoid conflicts
         let conflicts = SystemShortcuts.conflicts(keyCode: keyCode, modifiers: modifiers)
         if !conflicts.isEmpty {
-            return "Conflicts with system shortcut: \(conflicts.joined(separator: ", "))"
+            return L10n.shortcutValidationConflict.string(conflicts.joined(separator: ", "))
         }
 
         return nil
@@ -162,10 +163,10 @@ class KeyRecorderView: NSView {
 
     private func showValidationError(_ message: String) {
         let alert = NSAlert()
-        alert.messageText = "Invalid Shortcut"
+        alert.messageText = L10n.shortcutValidationInvalidTitle.string
         alert.informativeText = message
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: L10n.shortcutValidationOK.string)
         alert.runModal()
     }
 
@@ -174,7 +175,7 @@ class KeyRecorderView: NSView {
 
         let displayString: String
         if isRecording {
-            displayString = "Press shortcut..."
+            displayString = L10n.shortcutRecordingPlaceholder.string
         } else {
             displayString = KeyboardShortcutFormatter.format(keyCode: displayKeyCode, modifiers: displayModifiers)
         }
@@ -318,7 +319,7 @@ struct KeyboardShortcutFormatter {
         switch keyCode {
         case 0x24: return "↩"
         case 0x30: return "⇥"
-        case 0x31: return "Space"
+        case 0x31: return L10n.shortcutKeySpace.string
         case 0x33: return "⌫"
         case 0x35: return "⎋"
         case 0x7B: return "←"
@@ -345,19 +346,71 @@ struct SystemShortcuts {
 
         // Common system shortcuts to check
         let systemShortcuts: [SystemShortcut] = [
-            SystemShortcut(keyCode: 0x0C, modifiers: cmdKey, description: "⌘Q - Quit Application"),
-            SystemShortcut(keyCode: 0x0D, modifiers: cmdKey, description: "⌘W - Close Window"),
-            SystemShortcut(keyCode: 0x2E, modifiers: cmdKey, description: "⌘M - Minimize Window"),
-            SystemShortcut(keyCode: 0x04, modifiers: cmdKey, description: "⌘H - Hide Application"),
-            SystemShortcut(keyCode: 0x2B, modifiers: cmdKey, description: "⌘, - Preferences"),
-            SystemShortcut(keyCode: 0x00, modifiers: cmdKey, description: "⌘A - Select All"),
-            SystemShortcut(keyCode: 0x08, modifiers: cmdKey, description: "⌘C - Copy"),
-            SystemShortcut(keyCode: 0x07, modifiers: cmdKey, description: "⌘X - Cut"),
-            SystemShortcut(keyCode: 0x09, modifiers: cmdKey, description: "⌘V - Paste"),
-            SystemShortcut(keyCode: 0x06, modifiers: cmdKey, description: "⌘Z - Undo"),
-            SystemShortcut(keyCode: 0x31, modifiers: cmdKey, description: "⌘Space - Spotlight"),
-            SystemShortcut(keyCode: 0x30, modifiers: cmdKey, description: "⌘Tab - Switch Apps"),
-            SystemShortcut(keyCode: 0x31, modifiers: cmdKey | controlKey, description: "⌃⌘Space - Emoji & Symbols")
+            SystemShortcut(
+                keyCode: 0x0C,
+                modifiers: cmdKey,
+                description: "⌘Q - \(L10n.shortcutSystemQuitApplication.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x0D,
+                modifiers: cmdKey,
+                description: "⌘W - \(L10n.shortcutSystemCloseWindow.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x2E,
+                modifiers: cmdKey,
+                description: "⌘M - \(L10n.shortcutSystemMinimizeWindow.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x04,
+                modifiers: cmdKey,
+                description: "⌘H - \(L10n.shortcutSystemHideApplication.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x2B,
+                modifiers: cmdKey,
+                description: "⌘, - \(L10n.shortcutSystemPreferences.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x00,
+                modifiers: cmdKey,
+                description: "⌘A - \(L10n.shortcutSystemSelectAll.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x08,
+                modifiers: cmdKey,
+                description: "⌘C - \(L10n.shortcutSystemCopy.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x07,
+                modifiers: cmdKey,
+                description: "⌘X - \(L10n.shortcutSystemCut.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x09,
+                modifiers: cmdKey,
+                description: "⌘V - \(L10n.shortcutSystemPaste.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x06,
+                modifiers: cmdKey,
+                description: "⌘Z - \(L10n.shortcutSystemUndo.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x31,
+                modifiers: cmdKey,
+                description: "⌘\(L10n.shortcutKeySpace.string) - \(L10n.shortcutSystemSpotlight.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x30,
+                modifiers: cmdKey,
+                description: "⌘Tab - \(L10n.shortcutSystemSwitchApps.string)"
+            ),
+            SystemShortcut(
+                keyCode: 0x31,
+                modifiers: cmdKey | controlKey,
+                description: "⌃⌘\(L10n.shortcutKeySpace.string) - \(L10n.shortcutSystemEmojiSymbols.string)"
+            )
         ]
 
         for shortcut in systemShortcuts {

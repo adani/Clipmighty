@@ -11,28 +11,28 @@ struct AboutSettingsView: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .alert("Attach support log?", isPresented: $showAttachLogPrompt) {
-            Button("Attach Log") {
+        .alert(L10n.aboutAttachSupportLogTitle.text, isPresented: $showAttachLogPrompt) {
+            Button(L10n.aboutAttachLog.text) {
                 sendBugReport(includeLog: true)
             }
-            Button("No Thanks") {
+            Button(L10n.aboutNoThanks.text) {
                 sendBugReport(includeLog: false)
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.aboutCancel.text, role: .cancel) {}
         } message: {
-            Text("Clipmighty can attach a support log to help diagnose the issue.")
+            Text(L10n.aboutAttachSupportLogMessage.text)
         }
-        .alert("Unable to compose email", isPresented: $showEmailErrorAlert) {
-            Button("OK", role: .cancel) {}
+        .alert(L10n.aboutEmailErrorTitle.text, isPresented: $showEmailErrorAlert) {
+            Button(L10n.aboutOK.text, role: .cancel) {}
         } message: {
-            Text("Please make sure a mail app is available and try again.")
+            Text(L10n.aboutEmailErrorMessage.text)
         }
     }
 
     private var appInfoSection: some View {
-        Section("About") {
+        Section(L10n.settingsAboutTab.text) {
             HStack {
-                Text("Version")
+                Text(L10n.aboutVersion.text)
                 Spacer()
                 Text(AboutSupport.versionDescription())
                     .foregroundStyle(.secondary)
@@ -42,19 +42,19 @@ struct AboutSettingsView: View {
 
     private var supportSection: some View {
         Section {
-            Button("Report Bug") {
+            Button(L10n.aboutReportBug.text) {
                 showAttachLogPrompt = true
             }
 
-            Button("Contact") {
+            Button(L10n.aboutContact.text) {
                 if !AboutSupport.openContactEmail() {
                     showEmailErrorAlert = true
                 }
             }
         } header: {
-            Text("Support")
+            Text(L10n.aboutSupport.text)
         } footer: {
-            Text("Report issues, feedback, and feature requests at support@nalarin.com.")
+            Text(L10n.aboutSupportFooter.text)
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

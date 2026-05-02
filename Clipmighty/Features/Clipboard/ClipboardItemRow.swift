@@ -100,7 +100,7 @@ struct ClipboardItemRow: View {
         HStack {
             Image(systemName: "trash.fill")
                 .foregroundColor(.red)
-            Text("Deleted")
+            Text(L10n.clipboardDeleted.text)
                 .foregroundColor(.secondary)
 
             Spacer()
@@ -108,7 +108,7 @@ struct ClipboardItemRow: View {
             Button(action: {
                 cancelDeletion()
             }, label: {
-                Text("Undo")
+                Text(L10n.clipboardUndo.text)
             })
             .buttonStyle(.borderedProminent)
             .tint(.blue)
@@ -208,7 +208,7 @@ struct ClipboardItemRow: View {
                 .frame(maxHeight: 100)
                 .cornerRadius(4)
         } else {
-            Text("🖼️ Image (Unavailable)")
+            Text("🖼️ \(L10n.clipboardImageUnavailable.string)")
                 .italic()
                 .foregroundColor(.secondary)
         }
