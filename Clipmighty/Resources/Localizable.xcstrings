@@ -10,6 +10,12 @@
             "state": "translated",
             "value": "About Clipmighty"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentang Clipmighty"
+          }
         }
       }
     },
@@ -18,6 +24,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "Clipmighty"
@@ -34,6 +46,12 @@
             "state": "translated",
             "value": "Add"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah"
+          }
         }
       }
     },
@@ -45,6 +63,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Already excluded"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dikecualikan"
           }
         }
       }
@@ -58,6 +82,12 @@
             "state": "translated",
             "value": "Cancel"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal"
+          }
         }
       }
     },
@@ -69,6 +99,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Loading applications..."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memuat aplikasi..."
           }
         }
       }
@@ -82,6 +118,12 @@
             "state": "translated",
             "value": "No applications found"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada aplikasi ditemukan"
+          }
         }
       }
     },
@@ -93,6 +135,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "No matching applications"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada aplikasi yang cocok"
           }
         }
       }
@@ -106,6 +154,12 @@
             "state": "translated",
             "value": "Search applications..."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari aplikasi..."
+          }
         }
       }
     },
@@ -117,6 +171,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Selected"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dipilih"
           }
         }
       }
@@ -130,6 +190,12 @@
             "state": "translated",
             "value": "Select Applications to Exclude"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih Aplikasi untuk Dikecualikan"
+          }
         }
       }
     },
@@ -142,6 +208,12 @@
             "state": "translated",
             "value": "Delete"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus"
+          }
         }
       }
     },
@@ -150,6 +222,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "Edit"
@@ -166,6 +244,12 @@
             "state": "translated",
             "value": "Pin"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sematkan"
+          }
         }
       }
     },
@@ -177,6 +261,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Unpin"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lepas sematan"
           }
         }
       }
@@ -190,6 +280,12 @@
             "state": "translated",
             "value": "Image %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar %@"
+          }
         }
       }
     },
@@ -201,6 +297,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rich Text Content"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten Teks Kaya"
           }
         }
       }
@@ -214,6 +316,12 @@
             "state": "translated",
             "value": "Deleted"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihapus"
+          }
         }
       }
     },
@@ -225,6 +333,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Image (Unavailable)"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar (Tidak tersedia)"
           }
         }
       }
@@ -238,6 +352,12 @@
             "state": "translated",
             "value": "Undo"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Urungkan"
+          }
         }
       }
     },
@@ -249,6 +369,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Search clipboard..."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cari clipboard..."
           }
         }
       }
@@ -262,6 +388,12 @@
             "state": "translated",
             "value": "ago"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "yang lalu"
+          }
         }
       }
     },
@@ -273,6 +405,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "iCloud Synced"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud tersinkronisasi"
           }
         }
       }
@@ -286,6 +424,12 @@
             "state": "translated",
             "value": "Yesterday, %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemarin, %@"
+          }
         }
       }
     },
@@ -297,6 +441,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Keychain Access"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akses Rantai Kunci"
           }
         }
       }
@@ -310,6 +460,12 @@
             "state": "translated",
             "value": "Cancel"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal"
+          }
         }
       }
     },
@@ -321,6 +477,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Save Copy"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan Salinan"
           }
         }
       }
@@ -334,6 +496,12 @@
             "state": "translated",
             "value": "Edit Clipboard Item"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Item Clipboard"
+          }
         }
       }
     },
@@ -345,6 +513,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "App is already excluded"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi sudah dikecualikan"
           }
         }
       }
@@ -358,6 +532,12 @@
             "state": "translated",
             "value": "Invalid bundle ID format. Expected format: com.example.app"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Format bundle ID tidak valid. Format yang diharapkan: com.example.app"
+          }
         }
       }
     },
@@ -369,6 +549,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Failed to load applications: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gagal memuat aplikasi: %@"
           }
         }
       }
@@ -382,6 +568,12 @@
             "state": "translated",
             "value": "Failed to save changes"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gagal menyimpan perubahan"
+          }
         }
       }
     },
@@ -393,6 +585,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Application Found"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi ditemukan"
           }
         }
       }
@@ -406,6 +604,12 @@
             "state": "translated",
             "value": "Enter the bundle identifier of the application you want to exclude."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan bundle identifier aplikasi yang ingin Anda kecualikan."
+          }
         }
       }
     },
@@ -414,6 +618,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle ID"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "Bundle ID"
@@ -430,6 +640,12 @@
             "state": "translated",
             "value": "Invalid bundle ID format"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Format bundle ID tidak valid"
+          }
         }
       }
     },
@@ -441,6 +657,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bundle IDs should follow the format: com.company.appname"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle ID harus mengikuti format: com.company.appname"
           }
         }
       }
@@ -454,6 +676,12 @@
             "state": "translated",
             "value": "Application not found on this system"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi tidak ditemukan di sistem ini"
+          }
         }
       }
     },
@@ -466,6 +694,12 @@
             "state": "translated",
             "value": "You can still add this bundle ID, but the app may not be installed."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda tetap dapat menambahkan bundle ID ini, tetapi aplikasinya mungkin belum terinstal."
+          }
         }
       }
     },
@@ -474,6 +708,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "com.example.myapp"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "com.example.myapp"
@@ -490,6 +730,12 @@
             "state": "translated",
             "value": "Bundle Identifier"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bundle Identifier"
+          }
         }
       }
     },
@@ -501,6 +747,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Add Bundle ID"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah Bundle ID"
           }
         }
       }
@@ -514,6 +766,12 @@
             "state": "translated",
             "value": "Validation"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Validasi"
+          }
         }
       }
     },
@@ -525,6 +783,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Back"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembali"
           }
         }
       }
@@ -538,6 +802,12 @@
             "state": "translated",
             "value": "Continue"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanjutkan"
+          }
         }
       }
     },
@@ -549,6 +819,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Add Another App"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah Aplikasi Lain"
           }
         }
       }
@@ -562,6 +838,12 @@
             "state": "translated",
             "value": "Clipboard content from these apps won't be saved. Great for password managers and sensitive apps."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten clipboard dari aplikasi ini tidak akan disimpan. Cocok untuk pengelola kata sandi dan aplikasi sensitif."
+          }
         }
       }
     },
@@ -573,6 +855,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Excluded Apps"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi yang Dikecualikan"
           }
         }
       }
@@ -586,6 +874,12 @@
             "state": "translated",
             "value": "🚫 App exclusion rules"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🚫 Aturan pengecualian aplikasi"
+          }
         }
       }
     },
@@ -597,6 +891,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "☁️ iCloud sync support"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "☁️ Dukungan sinkronisasi iCloud"
           }
         }
       }
@@ -610,6 +910,12 @@
             "state": "translated",
             "value": "📋 Instant clipboard history"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📋 Riwayat clipboard instan"
+          }
         }
       }
     },
@@ -621,6 +927,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "⌨️ Quick keyboard shortcuts"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌨️ Pintasan keyboard cepat"
           }
         }
       }
@@ -634,6 +946,12 @@
             "state": "translated",
             "value": "🔍 Powerful search"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🔍 Pencarian andal"
+          }
         }
       }
     },
@@ -645,6 +963,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "🔒 Privacy-focused design"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🔒 Desain berfokus privasi"
           }
         }
       }
@@ -658,6 +982,12 @@
             "state": "translated",
             "value": "Get Started"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai"
+          }
         }
       }
     },
@@ -669,6 +999,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "To automatically insert history items directly into your active apps, Clipmighty needs Accessibility permission. This allows our overlay to simulate the \"Paste\" command for you, saving you manual effort."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Untuk menyisipkan item riwayat secara otomatis langsung ke aplikasi aktif Anda, Clipmighty memerlukan izin Aksesibilitas. Izin ini memungkinkan overlay kami mensimulasikan perintah \"Tempel\" untuk Anda, sehingga Anda tidak perlu melakukannya secara manual."
           }
         }
       }
@@ -682,6 +1018,12 @@
             "state": "translated",
             "value": "Permission Granted"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izin diberikan"
+          }
         }
       }
     },
@@ -693,6 +1035,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Open System Settings"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka Pengaturan Sistem"
           }
         }
       }
@@ -706,6 +1054,12 @@
             "state": "translated",
             "value": "Privacy First"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privasi Diutamakan"
+          }
         }
       }
     },
@@ -717,6 +1071,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "This permission is strictly used to simulate the 'Paste' command and identify source apps. Your clipboard history remains local and is never transmitted."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izin ini hanya digunakan untuk mensimulasikan perintah 'Tempel' dan mengidentifikasi aplikasi sumber. Riwayat clipboard Anda tetap tersimpan lokal dan tidak pernah dikirim."
           }
         }
       }
@@ -730,6 +1090,12 @@
             "state": "translated",
             "value": "Permission Required"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Izin diperlukan"
+          }
         }
       }
     },
@@ -741,6 +1107,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enable Overlay Auto-Paste"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan Tempel Otomatis dari Overlay"
           }
         }
       }
@@ -754,6 +1126,12 @@
             "state": "translated",
             "value": "Click to copy:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik untuk menyalin:"
+          }
         }
       }
     },
@@ -765,6 +1143,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Let's try out Clipmighty! Copy one of the texts below, then paste it using the shortcut."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mari coba Clipmighty! Salin salah satu teks di bawah, lalu tempel menggunakan pintasan."
           }
         }
       }
@@ -778,6 +1162,12 @@
             "state": "translated",
             "value": "Great!"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagus!"
+          }
         }
       }
     },
@@ -789,6 +1179,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Click the clipboard icon or use ⌃V to see your history"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik ikon clipboard atau gunakan ⌃V untuk melihat riwayat Anda"
           }
         }
       }
@@ -802,6 +1198,12 @@
             "state": "translated",
             "value": "Find Clipmighty in your menu bar"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temukan Clipmighty di bilah menu"
+          }
         }
       }
     },
@@ -813,6 +1215,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paste here to complete:"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempel di sini untuk menyelesaikan:"
           }
         }
       }
@@ -826,6 +1234,12 @@
             "state": "translated",
             "value": "Paste here..."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempel di sini..."
+          }
         }
       }
     },
@@ -837,6 +1251,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "You're ready to use Clipmighty!"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda siap menggunakan Clipmighty!"
           }
         }
       }
@@ -850,6 +1270,12 @@
             "state": "translated",
             "value": "Copy me and paste below!"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salin saya dan tempel di bawah!"
+          }
         }
       }
     },
@@ -861,6 +1287,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hello from Clipmighty! 🎉"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halo dari Clipmighty! 🎉"
           }
         }
       }
@@ -874,6 +1306,12 @@
             "state": "translated",
             "value": "Your clipboard history awaits"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riwayat clipboard Anda siap digunakan"
+          }
         }
       }
     },
@@ -885,6 +1323,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Quick Tutorial"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutorial Singkat"
           }
         }
       }
@@ -898,6 +1342,12 @@
             "state": "translated",
             "value": "and"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan"
+          }
         }
       }
     },
@@ -909,6 +1359,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Privacy Policy"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kebijakan Privasi"
           }
         }
       }
@@ -922,6 +1378,12 @@
             "state": "translated",
             "value": "Your powerful clipboard manager"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengelola clipboard andal Anda"
+          }
         }
       }
     },
@@ -933,6 +1395,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terms of Service"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ketentuan Layanan"
           }
         }
       }
@@ -946,6 +1414,12 @@
             "state": "translated",
             "value": "By continuing, you agree to our"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dengan melanjutkan, Anda menyetujui"
+          }
         }
       }
     },
@@ -957,6 +1431,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Welcome to Clipmighty"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selamat datang di Clipmighty"
           }
         }
       }
@@ -970,6 +1450,12 @@
             "state": "translated",
             "value": "Copy something to see it here."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salin sesuatu untuk melihatnya di sini."
+          }
         }
       }
     },
@@ -981,6 +1467,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "No Clipboard History"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum Ada Riwayat Clipboard"
           }
         }
       }
@@ -994,6 +1486,12 @@
             "state": "translated",
             "value": "Image"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar"
+          }
         }
       }
     },
@@ -1005,6 +1503,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "↵ to copy • %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↵ untuk menyalin • %@"
           }
         }
       }
@@ -1018,6 +1522,12 @@
             "state": "translated",
             "value": "↵ to paste • %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↵ untuk menempel • %@"
+          }
         }
       }
     },
@@ -1029,6 +1539,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Use %@ to pin/unpin"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gunakan %@ untuk menyematkan/melepas sematan"
           }
         }
       }
@@ -1042,6 +1558,12 @@
             "state": "translated",
             "value": "Clipboard History"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riwayat Clipboard"
+          }
         }
       }
     },
@@ -1053,6 +1575,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancel"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal"
           }
         }
       }
@@ -1066,6 +1594,12 @@
             "state": "translated",
             "value": "Are you sure you want to quit the application? It will stop monitoring your clipboard."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda yakin ingin menutup aplikasi? Clipmighty akan berhenti memantau clipboard Anda."
+          }
         }
       }
     },
@@ -1077,6 +1611,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Quit"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar"
           }
         }
       }
@@ -1090,6 +1630,12 @@
             "state": "translated",
             "value": "Quit Clipmighty?"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar dari Clipmighty?"
+          }
         }
       }
     },
@@ -1101,6 +1647,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Attach Log"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampirkan Log"
           }
         }
       }
@@ -1114,6 +1666,12 @@
             "state": "translated",
             "value": "Clipmighty can attach a support log to help diagnose the issue."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty dapat melampirkan log dukungan untuk membantu mendiagnosis masalah."
+          }
         }
       }
     },
@@ -1125,6 +1683,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Attach support log?"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampirkan log dukungan?"
           }
         }
       }
@@ -1138,6 +1702,12 @@
             "state": "translated",
             "value": "Cancel"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal"
+          }
         }
       }
     },
@@ -1149,6 +1719,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Contact"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontak"
           }
         }
       }
@@ -1162,6 +1738,12 @@
             "state": "translated",
             "value": "Please make sure a mail app is available and try again."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pastikan aplikasi email tersedia, lalu coba lagi."
+          }
         }
       }
     },
@@ -1173,6 +1755,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Unable to compose email"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat membuat email"
           }
         }
       }
@@ -1186,6 +1774,12 @@
             "state": "translated",
             "value": "No Thanks"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak, terima kasih"
+          }
         }
       }
     },
@@ -1194,6 +1788,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -1210,6 +1810,12 @@
             "state": "translated",
             "value": "Report Bug"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan Bug"
+          }
         }
       }
     },
@@ -1221,6 +1827,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Support"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dukungan"
           }
         }
       }
@@ -1234,6 +1846,12 @@
             "state": "translated",
             "value": "Report issues, feedback, and feature requests at support@nalarin.com."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan masalah, masukan, dan permintaan fitur ke support@nalarin.com."
+          }
         }
       }
     },
@@ -1245,6 +1863,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "About"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentang"
           }
         }
       }
@@ -1258,6 +1882,12 @@
             "state": "translated",
             "value": "Version"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi"
+          }
         }
       }
     },
@@ -1269,6 +1899,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancel"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batal"
           }
         }
       }
@@ -1282,6 +1918,12 @@
             "state": "translated",
             "value": "Launch at Login"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka saat Login"
+          }
         }
       }
     },
@@ -1293,6 +1935,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Startup"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai"
           }
         }
       }
@@ -1306,6 +1954,12 @@
             "state": "translated",
             "value": "General"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umum"
+          }
         }
       }
     },
@@ -1317,6 +1971,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "This will permanently delete all clipboard history. This action cannot be undone."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tindakan ini akan menghapus seluruh riwayat clipboard secara permanen. Tindakan ini tidak dapat diurungkan."
           }
         }
       }
@@ -1330,6 +1990,12 @@
             "state": "translated",
             "value": "Clear Clipboard History?"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus Riwayat Clipboard?"
+          }
         }
       }
     },
@@ -1341,6 +2007,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Clear All History…"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus Semua Riwayat…"
           }
         }
       }
@@ -1354,6 +2026,12 @@
             "state": "translated",
             "value": "Days"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari"
+          }
         }
       }
     },
@@ -1365,6 +2043,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Delete All"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus Semua"
           }
         }
       }
@@ -1378,6 +2062,12 @@
             "state": "translated",
             "value": "Duration:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durasi:"
+          }
         }
       }
     },
@@ -1389,6 +2079,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hours"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam"
           }
         }
       }
@@ -1402,6 +2098,12 @@
             "state": "translated",
             "value": "Keep history:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan riwayat:"
+          }
         }
       }
     },
@@ -1413,6 +2115,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Keep pinned items"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan item yang disematkan"
           }
         }
       }
@@ -1426,6 +2134,12 @@
             "state": "translated",
             "value": "Minutes"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menit"
+          }
         }
       }
     },
@@ -1437,6 +2151,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Move copied history item to top"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pindahkan item riwayat yang disalin ke atas"
           }
         }
       }
@@ -1450,6 +2170,12 @@
             "state": "translated",
             "value": "Custom..."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Khusus..."
+          }
         }
       }
     },
@@ -1461,6 +2187,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "7 Days"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 Hari"
           }
         }
       }
@@ -1474,6 +2206,12 @@
             "state": "translated",
             "value": "Forever"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selamanya"
+          }
         }
       }
     },
@@ -1485,6 +2223,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "24 Hours"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 Jam"
           }
         }
       }
@@ -1498,6 +2242,12 @@
             "state": "translated",
             "value": "8 Hours"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "8 Jam"
+          }
         }
       }
     },
@@ -1509,6 +2259,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "30 Minutes"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 Menit"
           }
         }
       }
@@ -1522,6 +2278,12 @@
             "state": "translated",
             "value": "History"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riwayat"
+          }
         }
       }
     },
@@ -1533,6 +2295,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Assistive Paste"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempel Berbantuan"
           }
         }
       }
@@ -1546,6 +2314,12 @@
             "state": "translated",
             "value": "Direct Paste from Overlay"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempel Langsung dari Overlay"
+          }
         }
       }
     },
@@ -1557,6 +2331,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Disable in Accessibility Settings"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nonaktifkan di Pengaturan Aksesibilitas"
           }
         }
       }
@@ -1570,6 +2350,12 @@
             "state": "translated",
             "value": "Disabled"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nonaktif"
+          }
         }
       }
     },
@@ -1581,6 +2367,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enable in Accessibility Settings"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan di Pengaturan Aksesibilitas"
           }
         }
       }
@@ -1594,6 +2386,12 @@
             "state": "translated",
             "value": "Enabled"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif"
+          }
         }
       }
     },
@@ -1605,6 +2403,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Allows Clipmighty to insert selected items directly into the active window. This reduces the need for repetitive manual keystrokes and complex key chords."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memungkinkan Clipmighty menyisipkan item yang dipilih langsung ke jendela aktif. Ini mengurangi kebutuhan penekanan tombol manual berulang dan kombinasi tombol yang rumit."
           }
         }
       }
@@ -1618,6 +2422,12 @@
             "state": "translated",
             "value": "Add App..."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah Aplikasi..."
+          }
         }
       }
     },
@@ -1629,6 +2439,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Add Bundle ID..."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah Bundle ID..."
           }
         }
       }
@@ -1642,6 +2458,12 @@
             "state": "translated",
             "value": "Excluded Apps"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi yang Dikecualikan"
+          }
         }
       }
     },
@@ -1653,6 +2475,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Clipboard content from these apps will be ignored:"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten clipboard dari aplikasi ini akan diabaikan:"
           }
         }
       }
@@ -1666,6 +2494,12 @@
             "state": "translated",
             "value": "Use 'Add App...' to browse installed applications or 'Add Bundle ID...' to manually enter a bundle identifier."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gunakan 'Tambah Aplikasi...' untuk menelusuri aplikasi terinstal atau 'Tambah Bundle ID...' untuk memasukkan bundle identifier secara manual."
+          }
         }
       }
     },
@@ -1677,6 +2511,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ignore password manager entries"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abaikan entri pengelola kata sandi"
           }
         }
       }
@@ -1690,6 +2530,12 @@
             "state": "translated",
             "value": "Detects and skips clipboard content marked as private or auto-generated."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mendeteksi dan melewati konten clipboard yang ditandai privat atau dibuat otomatis."
+          }
         }
       }
     },
@@ -1701,6 +2547,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Manually added"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ditambahkan manual"
           }
         }
       }
@@ -1714,6 +2566,12 @@
             "state": "translated",
             "value": "No excluded apps"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada aplikasi yang dikecualikan"
+          }
         }
       }
     },
@@ -1725,6 +2583,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Privacy"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privasi"
           }
         }
       }
@@ -1738,6 +2602,12 @@
             "state": "translated",
             "value": "This feature relies on standard markers that most password managers use. Browser extensions may not always apply these markers."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fitur ini bergantung pada penanda standar yang digunakan sebagian besar pengelola kata sandi. Ekstensi browser mungkin tidak selalu menerapkan penanda ini."
+          }
         }
       }
     },
@@ -1749,6 +2619,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Remove %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus %@"
           }
         }
       }
@@ -1762,6 +2638,12 @@
             "state": "translated",
             "value": "Rules"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aturan"
+          }
         }
       }
     },
@@ -1773,6 +2655,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Set shortcuts for opening the paste overlay and pinning items in it. The shortcut must include at least one modifier key (⌘, ⇧, ⌥, or ⌃)."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atur pintasan untuk membuka overlay tempel dan menyematkan item di dalamnya. Pintasan harus menyertakan setidaknya satu tombol pengubah (⌘, ⇧, ⌥, atau ⌃)."
           }
         }
       }
@@ -1786,6 +2674,12 @@
             "state": "translated",
             "value": "Paste Overlay:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overlay Tempel:"
+          }
         }
       }
     },
@@ -1797,6 +2691,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pin/Unpin in Overlay:"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semat/Lepas Sematan di Overlay:"
           }
         }
       }
@@ -1810,6 +2710,12 @@
             "state": "translated",
             "value": "Keyboard Shortcut"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pintasan Keyboard"
+          }
         }
       }
     },
@@ -1821,6 +2727,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enable to sync clipboard history across your devices."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan untuk menyinkronkan riwayat clipboard di semua perangkat Anda."
           }
         }
       }
@@ -1834,6 +2746,12 @@
             "state": "translated",
             "value": "Clipboard history syncs across your devices signed into the same iCloud account."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riwayat clipboard disinkronkan di semua perangkat yang masuk ke akun iCloud yang sama."
+          }
         }
       }
     },
@@ -1842,6 +2760,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
@@ -1858,6 +2782,12 @@
             "state": "translated",
             "value": "Sync with iCloud"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinkronkan dengan iCloud"
+          }
         }
       }
     },
@@ -1869,6 +2799,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Later"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nanti"
           }
         }
       }
@@ -1882,6 +2818,12 @@
             "state": "translated",
             "value": "Clipmighty needs to restart to apply changes to sync settings."
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clipmighty perlu dimulai ulang untuk menerapkan perubahan pengaturan sinkronisasi."
+          }
         }
       }
     },
@@ -1893,6 +2835,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Restart Now"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai Ulang Sekarang"
           }
         }
       }
@@ -1906,6 +2854,12 @@
             "state": "translated",
             "value": "Restart Required"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai Ulang Diperlukan"
+          }
         }
       }
     },
@@ -1917,6 +2871,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sync"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinkronisasi"
           }
         }
       }
@@ -1930,6 +2890,12 @@
             "state": "translated",
             "value": "Space"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spasi"
+          }
         }
       }
     },
@@ -1941,6 +2907,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Press shortcut..."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekan pintasan..."
           }
         }
       }
@@ -1954,6 +2926,12 @@
             "state": "translated",
             "value": "Close Window"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutup Jendela"
+          }
         }
       }
     },
@@ -1965,6 +2943,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copy"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salin"
           }
         }
       }
@@ -1978,6 +2962,12 @@
             "state": "translated",
             "value": "Cut"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potong"
+          }
         }
       }
     },
@@ -1989,6 +2979,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Emoji & Symbols"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emoji & Simbol"
           }
         }
       }
@@ -2002,6 +2998,12 @@
             "state": "translated",
             "value": "Hide Application"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan Aplikasi"
+          }
         }
       }
     },
@@ -2013,6 +3015,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Minimize Window"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimalkan Jendela"
           }
         }
       }
@@ -2026,6 +3034,12 @@
             "state": "translated",
             "value": "Paste"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempel"
+          }
         }
       }
     },
@@ -2037,6 +3051,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Preferences"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferensi"
           }
         }
       }
@@ -2050,6 +3070,12 @@
             "state": "translated",
             "value": "Quit Application"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar dari Aplikasi"
+          }
         }
       }
     },
@@ -2062,6 +3088,12 @@
             "state": "translated",
             "value": "Select All"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih Semua"
+          }
         }
       }
     },
@@ -2070,6 +3102,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spotlight"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "Spotlight"
@@ -2086,6 +3124,12 @@
             "state": "translated",
             "value": "Switch Apps"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beralih Aplikasi"
+          }
         }
       }
     },
@@ -2097,6 +3141,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Undo"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Urungkan"
           }
         }
       }
@@ -2110,6 +3160,12 @@
             "state": "translated",
             "value": "Conflicts with system shortcut: %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bertentangan dengan pintasan sistem: %@"
+          }
         }
       }
     },
@@ -2121,6 +3177,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Invalid Shortcut"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pintasan Tidak Valid"
           }
         }
       }
@@ -2134,6 +3196,12 @@
             "state": "translated",
             "value": "Please use at least one modifier key (⌘, ⇧, ⌥, or ⌃)"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gunakan setidaknya satu tombol pengubah (⌘, ⇧, ⌥, atau ⌃)"
+          }
         }
       }
     },
@@ -2142,6 +3210,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -2158,6 +3232,12 @@
             "state": "translated",
             "value": "Actual behavior:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perilaku aktual:"
+          }
         }
       }
     },
@@ -2169,6 +3249,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Expected behavior:"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perilaku yang diharapkan:"
           }
         }
       }
@@ -2182,6 +3268,12 @@
             "state": "translated",
             "value": "Issue description:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deskripsi masalah:"
+          }
         }
       }
     },
@@ -2193,6 +3285,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Timestamp: %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stempel waktu: %@"
           }
         }
       }
@@ -2206,6 +3304,12 @@
             "state": "translated",
             "value": "Bug Report for Clipmighty"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporan Bug untuk Clipmighty"
+          }
         }
       }
     },
@@ -2217,6 +3321,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hi Clipmighty team,"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halo tim Clipmighty,"
           }
         }
       }
@@ -2230,6 +3340,12 @@
             "state": "translated",
             "value": "Feedback for Clipmighty"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukan untuk Clipmighty"
+          }
         }
       }
     },
@@ -2242,6 +3358,12 @@
             "state": "translated",
             "value": "Generated: %@"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dibuat: %@"
+          }
         }
       }
     },
@@ -2250,6 +3372,12 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS: %@"
+          }
+        },
+        "id": {
           "stringUnit": {
             "state": "translated",
             "value": "macOS: %@"
@@ -2266,6 +3394,12 @@
             "state": "translated",
             "value": "Preferences Snapshot:"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Snapshot Preferensi:"
+          }
         }
       }
     },
@@ -2277,6 +3411,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Clipmighty Support Log"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log Dukungan Clipmighty"
           }
         }
       }
@@ -2290,6 +3430,12 @@
             "state": "translated",
             "value": "Version %@ (Build %@)"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi %@ (Build %@)"
+          }
         }
       }
     },
@@ -2301,6 +3447,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Version %@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi %@"
           }
         }
       }
@@ -2314,6 +3466,12 @@
             "state": "translated",
             "value": "Version Unknown"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versi Tidak Diketahui"
+          }
         }
       }
     },
@@ -2325,6 +3483,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copied"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disalin"
           }
         }
       }

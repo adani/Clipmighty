@@ -39,6 +39,45 @@ final class LocalizationCatalogTests: XCTestCase {
         XCTAssertTrue(missingComments.isEmpty, "Missing translator comments: \(missingComments)")
     }
 
+    func testLocalizationEntriesHaveIndonesianTranslations() throws {
+        let catalog = try loadStringCatalog()
+        let missingTranslations = L10n.allEntries.compactMap { entry -> String? in
+            guard let stringUnit = catalog.strings[entry.key]?.localizations["id"]?.stringUnit else {
+                return entry.key
+            }
+
+            return stringUnit.state == "translated" && !stringUnit.value.isEmpty ? nil : entry.key
+        }
+
+        XCTAssertTrue(missingTranslations.isEmpty, "Missing Indonesian translations: \(missingTranslations)")
+    }
+
+    func testIndonesianTranslationsPreserveFormatSpecifiers() throws {
+        let catalog = try loadStringCatalog()
+        let mismatchedEntries = L10n.allEntries.compactMap { entry -> String? in
+            guard let localizedValue = catalog.strings[entry.key]?.localizations["id"]?.stringUnit.value else {
+                return nil
+            }
+
+            return formatSpecifiers(in: localizedValue) == formatSpecifiers(in: entry.defaultValue) ? nil : entry.key
+        }
+
+        XCTAssertTrue(mismatchedEntries.isEmpty, "Indonesian translations changed format specifiers: \(mismatchedEntries)")
+    }
+
+    func testProjectSupportsIndonesianLocalization() throws {
+        let testFileURL = URL(fileURLWithPath: #filePath)
+        let projectRoot = testFileURL
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+        let projectFileURL = projectRoot
+            .appendingPathComponent("Clipmighty.xcodeproj")
+            .appendingPathComponent("project.pbxproj")
+        let projectContents = try String(contentsOf: projectFileURL)
+
+        XCTAssertTrue(projectContents.contains("\n\t\t\t\tid,\n"), "Clipmighty.xcodeproj must list id as a known region.")
+    }
+
     func testLocalizationKeysAreUniqueAndNonEmpty() {
         let keys = L10n.allEntries.map(\.key)
 
@@ -76,6 +115,20 @@ final class LocalizationCatalogTests: XCTestCase {
         let data = try Data(contentsOf: catalogURL)
         return try JSONDecoder().decode(StringCatalog.self, from: data)
     }
+
+    private func formatSpecifiers(in value: String) -> [String] {
+        let pattern = "%(?:\\d+\\$)?(?:@|d|lld)"
+        let regex = try! NSRegularExpression(pattern: pattern)
+        let range = NSRange(value.startIndex..<value.endIndex, in: value)
+
+        return regex.matches(in: value, range: range).compactMap { match in
+            guard let range = Range(match.range, in: value) else {
+                return nil
+            }
+
+            return String(value[range])
+        }
+    }
 }
 
 private struct StringCatalog: Decodable {
@@ -92,5 +145,6 @@ private struct StringCatalogLocalization: Decodable {
 }
 
 private struct StringCatalogStringUnit: Decodable {
+    let state: String
     let value: String
 }
