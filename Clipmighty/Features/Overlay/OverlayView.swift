@@ -9,14 +9,18 @@ struct OverlayView: View {
     var body: some View {
         VStack(spacing: 0) {
             // Header
-            HStack {
-                Image(systemName: "clipboard")
-                Text(L10n.overlayTitle.text)
-                    .font(.headline)
-                Spacer()
-                Text(pasteInstructionText)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+            VStack(spacing: 10) {
+                HStack {
+                    Image(systemName: "clipboard")
+                    Text(L10n.overlayTitle.text)
+                        .font(.headline)
+                    Spacer()
+                    Text(pasteInstructionText)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                searchField
             }
             .padding()
             .background(.regularMaterial)
@@ -28,13 +32,13 @@ struct OverlayView: View {
             ScrollViewReader { proxy in
                 if viewModel.items.isEmpty {
                     VStack(spacing: 12) {
-                        Image(systemName: "clipboard")
+                        Image(systemName: viewModel.searchQuery.isEmpty ? "clipboard" : "magnifyingglass")
                             .font(.largeTitle)
                             .foregroundStyle(.secondary)
-                        Text(L10n.overlayEmptyTitle.text)
+                        Text(viewModel.searchQuery.isEmpty ? L10n.overlayEmptyTitle.text : L10n.overlayNoMatchesTitle.text)
                             .font(.headline)
                             .foregroundStyle(.secondary)
-                        Text(L10n.overlayEmptyMessage.text)
+                        Text(viewModel.searchQuery.isEmpty ? L10n.overlayEmptyMessage.text : L10n.overlayNoMatchesMessage.text)
                             .font(.caption)
                             .foregroundStyle(.tertiary)
                     }
@@ -103,6 +107,26 @@ struct OverlayView: View {
                 .stroke(Color.white.opacity(0.1), lineWidth: 1)
         )
 
+    }
+
+    private var searchField: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 12, weight: .medium))
+                .foregroundStyle(.secondary)
+
+            TextField(L10n.overlaySearchPlaceholder.text, text: $viewModel.searchQuery)
+                .textFieldStyle(.plain)
+                .disabled(true)
+                .foregroundStyle(.primary)
+        }
+        .padding(.vertical, 7)
+        .padding(.horizontal, 10)
+        .background(Color.primary.opacity(0.06), in: RoundedRectangle(cornerRadius: 8))
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.primary.opacity(0.08), lineWidth: 1)
+        )
     }
 
     private var pasteInstructionText: String {
@@ -237,7 +261,7 @@ struct ItemRow: View {
                 .foregroundStyle(isSelected ? .white : .blue)
 
         case .webContent:
-            Text("🌐 " + item.content)
+            Text(verbatim: "🌐 " + item.content)
                 .lineLimit(1)
                 .font(.system(size: 13))
                 .foregroundStyle(isSelected ? .white : .primary)
@@ -313,7 +337,7 @@ struct ItemRow: View {
                     .font(.system(size: 11))
                     .foregroundStyle(isSelected ? .white.opacity(0.7) : .secondary)
             }
-            Text("•")
+            Text(verbatim: "•")
                 .font(.system(size: 10))
                 .foregroundStyle(isSelected ? .white.opacity(0.5) : .secondary.opacity(0.7))
             Text(item.timestamp.relativeTimestamp())

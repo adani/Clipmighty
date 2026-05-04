@@ -54,6 +54,23 @@ extension AppDelegate {
         return true  // Event handled - prevents beep
     }
 
+    func handleOverlaySearchKey(_ event: NSEvent, with viewModel: OverlayViewModel) -> Bool {
+        let modifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+        guard modifiers.isDisjoint(with: [.command, .control, .option]) else {
+            return false
+        }
+
+        if event.keyCode == 51 {
+            return viewModel.deleteLastSearchCharacter()
+        }
+
+        guard let characters = event.characters, characters.count == 1 else {
+            return false
+        }
+
+        return viewModel.handleSearchCharacter(characters)
+    }
+
     func handleOverlayPinKey(_ event: NSEvent, with viewModel: OverlayViewModel) -> Bool {
         guard OverlayPinShortcut.matches(keyCode: event.keyCode, modifiers: event.modifierFlags) else {
             return false

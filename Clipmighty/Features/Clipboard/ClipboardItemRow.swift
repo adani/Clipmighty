@@ -208,9 +208,12 @@ struct ClipboardItemRow: View {
                 .frame(maxHeight: 100)
                 .cornerRadius(4)
         } else {
-            Text("🖼️ \(L10n.clipboardImageUnavailable.string)")
-                .italic()
-                .foregroundColor(.secondary)
+            HStack(spacing: 4) {
+                Text(verbatim: "🖼️")
+                Text(L10n.clipboardImageUnavailable.text)
+            }
+            .italic()
+            .foregroundColor(.secondary)
         }
     }
 

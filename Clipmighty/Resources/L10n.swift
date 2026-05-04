@@ -57,6 +57,15 @@ enum L10n {
         key: "overlay.empty.message",
         defaultValue: "Copy something to see it here."
     )
+    static let overlaySearchPlaceholder = Entry(
+        key: "overlay.search.placeholder",
+        defaultValue: "Search history..."
+    )
+    static let overlayNoMatchesTitle = Entry(key: "overlay.noMatches.title", defaultValue: "No Matches")
+    static let overlayNoMatchesMessage = Entry(
+        key: "overlay.noMatches.message",
+        defaultValue: "Try a different search."
+    )
     static let overlayPinInstruction = Entry(
         key: "overlay.instruction.pin",
         defaultValue: "Use %@ to pin/unpin"
@@ -579,6 +588,7 @@ enum L10n {
         clipboardRelativeAgo, clipboardDeleted, clipboardUndo, clipboardImageUnavailable,
         clipboardGeneratedImageLabel, clipboardRichTextContent, editTitle, editCancel,
         editSaveCopy, overlayTitle, overlayEmptyTitle, overlayEmptyMessage, overlayPinInstruction,
+        overlaySearchPlaceholder, overlayNoMatchesTitle, overlayNoMatchesMessage,
         overlayPasteInstruction, overlayCopyInstruction, overlayImage, toastCopied, dateYesterdayFormat,
         settingsGeneralTab, settingsRulesTab, settingsSyncTab, settingsAboutTab,
         settingsStartupSection, settingsLaunchAtLogin, settingsHistorySection,

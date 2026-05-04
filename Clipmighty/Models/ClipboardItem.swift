@@ -12,6 +12,7 @@ final class ClipboardItem: Identifiable {
     var sourceAppName: String?
     var isPinned: Bool = false
     var contentHash: String?
+    var searchIndex: String = ""
 
     // New fields for multiple types support
     var itemTypeRaw: String = ClipboardItemType.text.rawValue
@@ -61,6 +62,37 @@ final class ClipboardItem: Identifiable {
         self.richTextData = richTextData
         self.format = format
         self.colorData = colorData
+        rebuildSearchIndex()
+    }
+
+    func rebuildSearchIndex() {
+        searchIndex = ClipboardItem.makeSearchIndex(
+            content: content,
+            itemType: itemType,
+            sourceAppBundleID: sourceAppBundleID,
+            sourceAppName: sourceAppName,
+            fileURL: fileURL
+        )
+    }
+
+    static func makeSearchIndex(
+        content: String,
+        itemType: ClipboardItemType,
+        sourceAppBundleID: String?,
+        sourceAppName: String?,
+        fileURL: URL?
+    ) -> String {
+        let components = [
+            content,
+            sourceAppName,
+            sourceAppBundleID,
+            itemType.rawValue,
+            fileURL?.lastPathComponent,
+            fileURL?.path(percentEncoded: false)
+        ] as [String?]
+        let searchableText = components.compactMap { $0 }.joined(separator: " ")
+
+        return FuzzyStringMatcher.normalized(searchableText)
     }
 }
 

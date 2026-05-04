@@ -288,6 +288,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return true
         }
 
+        if handleOverlaySearchKey(event, with: viewModel) {
+            return true
+        }
+
+        if event.keyCode == 53 {
+            closeOverlay()
+            return true
+        }
+
         print("[AppDelegate] Other key in window handler (\(event.keyCode)) - closing")
         // Any other key dismisses the overlay
         closeOverlay()

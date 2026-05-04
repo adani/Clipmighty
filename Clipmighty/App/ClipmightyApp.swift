@@ -121,6 +121,7 @@ struct ClipmightyApp: App {
                         // Update app name just in case it changed (unlikely for same bundleID)
                         if let newAppName = item.sourceAppName {
                             existingItem.sourceAppName = newAppName
+                            existingItem.rebuildSearchIndex()
                         }
 
                         isDuplicate = true

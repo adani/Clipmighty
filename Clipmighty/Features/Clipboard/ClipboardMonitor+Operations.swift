@@ -23,17 +23,17 @@ extension ClipboardMonitor {
 
         case .image:
             if let data = item.imageData, let image = NSImage(data: data) {
-                pasteboard.writeObjects([image])
+                _ = pasteboard.writeObjects([image])
             }
 
         case .color:
             if let data = item.colorData,
                 let color = try? NSKeyedUnarchiver.unarchivedObject(
                     ofClass: NSColor.self, from: data) {
-                pasteboard.writeObjects([color])
+                _ = pasteboard.writeObjects([color])
             } else {
                 // Fallback to hex string
-                pasteboard.setString(item.content, forType: .string)
+                _ = pasteboard.setString(item.content, forType: .string)
             }
 
         case .webContent:
@@ -41,7 +41,7 @@ extension ClipboardMonitor {
 
         default:
             // Text and Links
-            pasteboard.setString(item.content, forType: .string)
+            _ = pasteboard.setString(item.content, forType: .string)
         }
 
         // Update lastChangeCount to the current count immediately
@@ -78,28 +78,28 @@ extension ClipboardMonitor {
                 // Write file URL in proper format for Finder
                 // Finder expects both the URL reference AND the file-url type
                 if let urlData = url.absoluteString.data(using: .utf8) {
-                    pasteboard.setData(urlData, forType: .fileURL)
+                    _ = pasteboard.setData(urlData, forType: .fileURL)
                 }
                 // Also write as NSURL for compatibility
-                pasteboard.writeObjects([url as NSURL])
+                _ = pasteboard.writeObjects([url as NSURL])
 
             } catch {
                 print("[ClipboardMonitor] Failed to resolve bookmark: \(error)")
                 // Fallback to stored URL if available
                 if let url = item.fileURL {
                     if let urlData = url.absoluteString.data(using: .utf8) {
-                        pasteboard.setData(urlData, forType: .fileURL)
+                        _ = pasteboard.setData(urlData, forType: .fileURL)
                     }
-                    pasteboard.writeObjects([url as NSURL])
+                    _ = pasteboard.writeObjects([url as NSURL])
                 } else {
-                    pasteboard.setString(item.content, forType: .string)
+                    _ = pasteboard.setString(item.content, forType: .string)
                 }
             }
         } else if let url = item.fileURL {
             if let urlData = url.absoluteString.data(using: .utf8) {
-                pasteboard.setData(urlData, forType: .fileURL)
+                _ = pasteboard.setData(urlData, forType: .fileURL)
             }
-            pasteboard.writeObjects([url as NSURL])
+            _ = pasteboard.writeObjects([url as NSURL])
         }
     }
 
@@ -107,21 +107,21 @@ extension ClipboardMonitor {
         // Restore Rich Text / HTML
         if let data = item.richTextData {
             if item.format == "html" {
-                pasteboard.setData(data, forType: .html)
-                pasteboard.setString(item.content, forType: .string)  // Also set plain text
+                _ = pasteboard.setData(data, forType: .html)
+                _ = pasteboard.setString(item.content, forType: .string)  // Also set plain text
             } else if item.format == "rtf" {
-                pasteboard.setData(data, forType: .rtf)
-                pasteboard.setString(item.content, forType: .string)
+                _ = pasteboard.setData(data, forType: .rtf)
+                _ = pasteboard.setString(item.content, forType: .string)
             }
         } else {
-            pasteboard.setString(item.content, forType: .string)
+            _ = pasteboard.setString(item.content, forType: .string)
         }
     }
 
     // Support legacy string method for now if needed (or remove if fully migrated)
     func copyToClipboard(_ content: String) {
         pasteboard.clearContents()
-        pasteboard.setString(content, forType: .string)
+        _ = pasteboard.setString(content, forType: .string)
         self.updateLastChangeCount()
         self.currentContent = content
     }

@@ -12,12 +12,14 @@ enum PinToggleResult: Equatable {
 class OverlayViewModel {
     var selectedIndex: Int = 0
     var items: [ClipboardItem] = []
+    var searchQuery: String = ""
     var viewID: UUID = UUID()
     var isAccessibilityTrusted: Bool = false
     var visibleIndexRange: ClosedRange<Int>?
 
     // Dependencies
     var modelContext: ModelContext?
+    private var allItems: [ClipboardItem] = []
 
     func loadItems() {
         guard let context = modelContext else { return }
@@ -25,19 +27,18 @@ class OverlayViewModel {
         let descriptor = FetchDescriptor<ClipboardItem>(
             sortBy: [SortDescriptor(\.timestamp, order: .reverse)]
         )
-        // Limit for performance in the overlay
-        var fetchDescriptor = descriptor
-        fetchDescriptor.fetchLimit = 50
 
         do {
             print("[OverlayViewModel] Fetching items...")
-            let fetchedItems = try context.fetch(fetchDescriptor)
-            items = sortedWithPinnedFirst(fetchedItems)
-            print("[OverlayViewModel] Fetched \(items.count) items.")
+            let fetchedItems = try context.fetch(descriptor)
+            refreshSearchIndexesIfNeeded(for: fetchedItems, context: context)
+            allItems = sortedWithPinnedFirst(fetchedItems)
+            applySearchQuery(searchQuery)
+            print("[OverlayViewModel] Fetched \(allItems.count) items.")
             selectedIndex = 0
             visibleIndexRange = nil
             viewID = UUID() // Force complete view refresh
-            if items.isEmpty {
+            if allItems.isEmpty {
                 print("[OverlayViewModel] Warning: No items found in SwiftData.")
             }
         } catch {
@@ -60,7 +61,8 @@ class OverlayViewModel {
 
         do {
             try context.save()
-            items = sortedWithPinnedFirst(items)
+            allItems = sortedWithPinnedFirst(allItems)
+            applySearchQuery(searchQuery, preferredItemID: selectedItemID)
             if let newIndex = items.firstIndex(where: { $0.id == selectedItemID }) {
                 selectedIndex = newIndex
             }
@@ -78,8 +80,36 @@ class OverlayViewModel {
 
     func reset() {
         selectedIndex = 0
+        searchQuery = ""
         visibleIndexRange = nil
+        items = allItems
         viewID = UUID()
+    }
+
+    func applySearchQuery(_ query: String) {
+        applySearchQuery(query, preferredItemID: nil)
+    }
+
+    @discardableResult
+    func handleSearchCharacter(_ character: String) -> Bool {
+        guard isSearchCharacter(character) else {
+            return false
+        }
+
+        applySearchQuery(searchQuery + character)
+        return true
+    }
+
+    @discardableResult
+    func deleteLastSearchCharacter() -> Bool {
+        guard !searchQuery.isEmpty else {
+            return true
+        }
+
+        var nextQuery = searchQuery
+        nextQuery.removeLast()
+        applySearchQuery(nextQuery)
+        return true
     }
 
     func moveSelectionDown() {
@@ -148,5 +178,66 @@ class OverlayViewModel {
             .sorted(by: { $0.timestamp > $1.timestamp })
 
         return pinnedItems + unpinnedItems
+    }
+
+    private func applySearchQuery(_ query: String, preferredItemID: UUID?) {
+        let didChangeQuery = searchQuery != query
+        searchQuery = query
+
+        let normalizedQuery = FuzzyStringMatcher.normalized(query)
+        if normalizedQuery.isEmpty {
+            items = allItems
+        } else {
+            items = allItems.filter { item in
+                FuzzyStringMatcher.matches(
+                    normalizedQuery: normalizedQuery,
+                    inNormalizedCandidate: item.searchIndex
+                )
+            }
+        }
+
+        if let preferredItemID,
+           let preferredIndex = items.firstIndex(where: { $0.id == preferredItemID }) {
+            selectedIndex = preferredIndex
+        } else if didChangeQuery {
+            selectedIndex = 0
+        } else {
+            selectedIndex = min(max(selectedIndex, 0), max(items.count - 1, 0))
+        }
+
+        visibleIndexRange = nil
+        viewID = UUID()
+    }
+
+    private func refreshSearchIndexesIfNeeded(for sourceItems: [ClipboardItem], context: ModelContext) {
+        var didUpdateIndex = false
+
+        for item in sourceItems {
+            let expectedIndex = ClipboardItem.makeSearchIndex(
+                content: item.content,
+                itemType: item.itemType,
+                sourceAppBundleID: item.sourceAppBundleID,
+                sourceAppName: item.sourceAppName,
+                fileURL: item.fileURL
+            )
+
+            if item.searchIndex != expectedIndex {
+                item.searchIndex = expectedIndex
+                didUpdateIndex = true
+            }
+        }
+
+        if didUpdateIndex {
+            try? context.save()
+        }
+    }
+
+    private func isSearchCharacter(_ character: String) -> Bool {
+        guard character.count == 1,
+              let scalar = character.unicodeScalars.first else {
+            return false
+        }
+
+        return !CharacterSet.controlCharacters.contains(scalar)
     }
 }
