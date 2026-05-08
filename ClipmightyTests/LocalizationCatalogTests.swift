@@ -14,7 +14,7 @@ final class LocalizationCatalogTests: XCTestCase {
     func testLocalizationEntriesHaveEnglishValues() throws {
         let catalog = try loadStringCatalog()
         let mismatchedEntries = L10n.allEntries.compactMap { entry -> String? in
-            guard let value = catalog.strings[entry.key]?.localizations["en"]?.stringUnit.value else {
+            guard let value = catalog.strings[entry.key]?.localizations?["en"]?.stringUnit.value else {
                 return entry.key
             }
 
@@ -42,7 +42,7 @@ final class LocalizationCatalogTests: XCTestCase {
     func testLocalizationEntriesHaveIndonesianTranslations() throws {
         let catalog = try loadStringCatalog()
         let missingTranslations = L10n.allEntries.compactMap { entry -> String? in
-            guard let stringUnit = catalog.strings[entry.key]?.localizations["id"]?.stringUnit else {
+            guard let stringUnit = catalog.strings[entry.key]?.localizations?["id"]?.stringUnit else {
                 return entry.key
             }
 
@@ -55,7 +55,7 @@ final class LocalizationCatalogTests: XCTestCase {
     func testIndonesianTranslationsPreserveFormatSpecifiers() throws {
         let catalog = try loadStringCatalog()
         let mismatchedEntries = L10n.allEntries.compactMap { entry -> String? in
-            guard let localizedValue = catalog.strings[entry.key]?.localizations["id"]?.stringUnit.value else {
+            guard let localizedValue = catalog.strings[entry.key]?.localizations?["id"]?.stringUnit.value else {
                 return nil
             }
 
@@ -63,6 +63,44 @@ final class LocalizationCatalogTests: XCTestCase {
         }
 
         XCTAssertTrue(mismatchedEntries.isEmpty, "Indonesian translations changed format specifiers: \(mismatchedEntries)")
+    }
+
+    func testRequestedLocalizationEntriesHaveTranslations() throws {
+        let catalog = try loadStringCatalog()
+
+        for locale in requestedLocalizationLocales {
+            let missingTranslations = L10n.allEntries.compactMap { entry -> String? in
+                guard let stringUnit = catalog.strings[entry.key]?.localizations?[locale]?.stringUnit else {
+                    return entry.key
+                }
+
+                return stringUnit.state == "translated" && !stringUnit.value.isEmpty ? nil : entry.key
+            }
+
+            XCTAssertTrue(
+                missingTranslations.isEmpty,
+                "Missing \(locale) translations: \(missingTranslations)"
+            )
+        }
+    }
+
+    func testRequestedTranslationsPreserveFormatSpecifiers() throws {
+        let catalog = try loadStringCatalog()
+
+        for locale in requestedLocalizationLocales {
+            let mismatchedEntries = L10n.allEntries.compactMap { entry -> String? in
+                guard let localizedValue = catalog.strings[entry.key]?.localizations?[locale]?.stringUnit.value else {
+                    return nil
+                }
+
+                return formatSpecifiers(in: localizedValue) == formatSpecifiers(in: entry.defaultValue) ? nil : entry.key
+            }
+
+            XCTAssertTrue(
+                mismatchedEntries.isEmpty,
+                "\(locale) translations changed format specifiers: \(mismatchedEntries)"
+            )
+        }
     }
 
     func testProjectSupportsIndonesianLocalization() throws {
@@ -76,6 +114,26 @@ final class LocalizationCatalogTests: XCTestCase {
         let projectContents = try String(contentsOf: projectFileURL)
 
         XCTAssertTrue(projectContents.contains("\n\t\t\t\tid,\n"), "Clipmighty.xcodeproj must list id as a known region.")
+    }
+
+    func testProjectSupportsRequestedLocalizations() throws {
+        let testFileURL = URL(fileURLWithPath: #filePath)
+        let projectRoot = testFileURL
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+        let projectFileURL = projectRoot
+            .appendingPathComponent("Clipmighty.xcodeproj")
+            .appendingPathComponent("project.pbxproj")
+        let projectContents = try String(contentsOf: projectFileURL)
+
+        for locale in requestedLocalizationLocales {
+            let containsWithoutQuotes = projectContents.contains("\n\t\t\t\t\(locale),\n")
+            let containsWithQuotes = projectContents.contains("\n\t\t\t\t\"\(locale)\",\n")
+            XCTAssertTrue(
+                containsWithoutQuotes || containsWithQuotes,
+                "Clipmighty.xcodeproj must list \(locale) as a known region."
+            )
+        }
     }
 
     func testLocalizationKeysAreUniqueAndNonEmpty() {
@@ -129,6 +187,8 @@ final class LocalizationCatalogTests: XCTestCase {
             return String(value[range])
         }
     }
+
+    private let requestedLocalizationLocales = ["fr-CA", "fr", "de", "ar", "ja", "nl", "ru", "zh-Hans"]
 }
 
 private struct StringCatalog: Decodable {
@@ -137,7 +197,7 @@ private struct StringCatalog: Decodable {
 
 private struct StringCatalogEntry: Decodable {
     let comment: String?
-    let localizations: [String: StringCatalogLocalization]
+    let localizations: [String: StringCatalogLocalization]?
 }
 
 private struct StringCatalogLocalization: Decodable {
